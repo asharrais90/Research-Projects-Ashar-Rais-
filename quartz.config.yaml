@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: Research Projects Hub | Ashar Rais 
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -16,8 +16,8 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Schibsted Grotesk
-      body: Source Sans Pro
+      header: Playfair Display
+      body: serif
       code: IBM Plex Mono
     colors:
       lightMode:
@@ -87,7 +87,7 @@ plugins:
       renderEngine: katex
     order: 80
   - source: "@quartz-community/citations"
-    enabled: false
+    enabled: true
     order: 85
   - source: "@quartz-community/hard-line-breaks"
     enabled: false
@@ -203,8 +203,9 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        GitHub: https://github.com/asharrais90/Research-Projects-Ashar-Rais-
+        LinkedIn: https://www.linkedin.com/in/ashar-rais-/
+        Email: asharrais90@gmail.com
     layout:
       position: footer
       priority: 50
