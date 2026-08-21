@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Research Projects Hub | Ashar Rais 
+  pageTitle: Research Projects | Ashar Rais 
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: quartz.jzhao.xyz
+  baseUrl: asharrais90.github.io/Research-Projects-Ashar-Rais-
   ignorePatterns:
     - private
     - templates
@@ -87,7 +87,7 @@ plugins:
       renderEngine: katex
     order: 80
   - source: "@quartz-community/citations"
-    enabled: true
+    enabled: false
     order: 85
   - source: "@quartz-community/hard-line-breaks"
     enabled: false
