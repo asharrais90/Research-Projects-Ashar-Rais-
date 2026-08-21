@@ -1,4 +1,5 @@
 ---
+title: Work nucleus
 share: true
 publish: true
 ---
