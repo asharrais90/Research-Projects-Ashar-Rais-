@@ -1,5 +1,5 @@
 ---
-title: Work nucleus
+title: Central Hub
 share: true
 publish: true
 ---
