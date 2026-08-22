@@ -1,5 +1,10 @@
+---
+share: true
+publish:true
+---
+
 """
-Thymic_selection_mechanobiolgy.py
+Thymic_Selection_Mechanobiolgy_Model.py
 ======================
 Hybrid Agent-Based + ODE Model of Thymocyte Selection (Currently at proof of concept level)
 
