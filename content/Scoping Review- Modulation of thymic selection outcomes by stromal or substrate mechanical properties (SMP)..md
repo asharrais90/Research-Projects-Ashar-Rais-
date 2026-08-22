@@ -1,3 +1,8 @@
+---
+share: true
+publish: true
+---
+
 *Important Note: While standard guidelines dictate that scoping reviews are efforts taken on by a team of multiple experts to keep the method as transparent and free of biases as possible, this review employs a modified single-investigator methodology intended to map an emergent interdisciplinary research area for hypothesis development. The structure of this review is made based upon the [[Preferred Reporting Items for Systematic reviews and Meta-Analyses extension for Scoping Reviews (PRISMA-ScR) Checklist]]*
 
 
