@@ -16,19 +16,19 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Playfair Display
-      body: serif
+      header: "Book Antiqua"
+      body: "serif"
       code: IBM Plex Mono
     colors:
       lightMode:
         light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
+        lightgray: "#e8ecef"
+        gray: "#7a8a9e"
+        darkgray: "#2c3e50"
+        dark: "#1a2634"
+        secondary: "#1a5276"
+        tertiary: "#2e86c1"
+        highlight: rgba(26, 82, 118, 0.1)
         textHighlight: "#fff23688"
       darkMode:
         light: "#161618"
