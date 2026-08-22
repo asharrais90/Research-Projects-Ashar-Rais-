@@ -18,7 +18,7 @@ The mechanical state modulates the efficiency and organization of TCR signal tra
 
 Rather than modifying selection thresholds arbitrarily, stromal stiffness alters the probability of productive signaling events through established mechanobiological and kinetic proofreading principles, allowing thymocyte fate to emerge naturally from the interaction between spatial migration, mechanical adaptation and intracellular signaling. This model is intended as a hypothesis-generating framework (an eg.: A biphasic relationship exists between stromal stiffness and the stringency of negative selection), rather than a predictive digital twin of the thymus. It integrates experimentally established mechanisms of TCR kinetic proofreading, force-dependent TCR–pMHC interactions and cell migration with phenomenological representations of cytoskeletal memory and mechanotransduction where quantitative thymocyte-specific data are currently lacking. Predictions should therefore be interpreted as mechanistic hypotheses whose robustness is evaluated through sensitivity analyses and whose validity ultimately requires experimental testing. Looking a bit ahead of these limitations, this model can act as a platform that promotes the integration of mechanobiology and immunology (recently, ‘mechano-immunology’ has started to be used for this combination) which generates fresh perspectives to address long-term problems of auto-immunity, immunological deficiencies and cancer.
 
-### Why ABM was chosen for this simulation.
+[Thymic selection mechanobiology model.py]
 
 ### Rules of this model
 
