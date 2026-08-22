@@ -1,6 +1,6 @@
 ---
-share:
-publish:
+share: true
+publish: true
 ---
 
 ### Some relevant data from the literature: 
