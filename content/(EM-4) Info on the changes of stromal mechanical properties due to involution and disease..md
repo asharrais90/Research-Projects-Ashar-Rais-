@@ -1,5 +1,6 @@
 ---
-share:
+share: true
+publish: true
 ---
 
 No relevant data was obtained from the final extraction.  
