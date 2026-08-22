@@ -16,8 +16,8 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: "Book Antiqua"
-      body: "serif"
+      header: Book Antiqua
+      body: serif
       code: IBM Plex Mono
     colors:
       lightMode:
