@@ -75,7 +75,7 @@ Eligibility criteria for the final data synthesis:
 	- were published following 01/01/2010.
 	Papers that were excluded:
 	- report clinical outcomes of thymectomy or thymic disease without mechanistic investigation;
-	- focus entirely on TCR mechanobiological questions (such as what conformational changes happen in TCR regions which lead to signal transmission or catch bond formation following force application and how much force is applied by the TCR on pMHC or vice versa on synthetic surfaces or in solution) without reference to any SMPs.
+	- focus entirely on TCR mechanobiological questions (such as what conformational changes happen in TCR regions which lead to signal transmission or catch bond 	formation following force application and how much force is applied by the TCR on pMHC or vice versa on synthetic surfaces or in solution) without reference 	to any SMPs.
 	- lack relevance to thymic selection, mechanotransduction, or stromal biology;
 	- focus on engineered thymic tissues solely for regenerative or transplantation purposes without addressing mechanobiological mechanisms;
 	- are conference abstracts, editorials, or non-peer-reviewed opinion pieces.
@@ -90,16 +90,19 @@ As thymic mechanobiology is an emerging interdisciplinary field spanning immunol
 - Search 1: SM1 + SM2 (aimed to retrieve papers covering mechanotransduction pathways associated to thymic biomechanics and thymocyte biology);
 - Search 2: SM1 + SM3 (aimed to retrieve papers on bioengineered systems that focus on thymic biomechanics).
 Results from all searches were merged and deduplicated prior to screening.
+
 PubMed search (11/07/2026): 164 (Search 1) + 107 (Search 2) = 271 items
 - SM1: ("Thymus Gland"[Mesh] OR thymus[tiab] OR thymic[tiab] OR thymocyte*[tiab] OR "thymic microenvironment" [tiab] OR "thymic strom*"[tiab] OR "positive selection"[tiab] OR "negative selection"[tiab] OR "central tolerance"[tiab] OR "agonist selection" [tiab] OR "thymocyte development" [tiab] OR "thymocyte differentiation" [tiab] OR "T cell receptor"[tiab] OR "T cell receptor signaling" [tiab] OR TCR[tiab] OR "TCR signaling" [tiab] OR involution[tiab] OR "thymic aging" [tiab])
 - SM2: ("Biomechanical Phenomena"[Mesh] OR "Extracellular Matrix"[Mesh] OR "Mechanotransduction, Cellular"[Mesh] OR "extracellular remodeling" [tiab] OR "ECM remodeling" [tiab] OR viscoelasticity OR stiffness OR mechanobiology OR biomechanics OR mechanotransduction OR "mechanical properties" OR "matrix architecture" [tiab] OR "fiber orientation" [tiab])
 - SM3: ("Tissue Engineering"[Mesh] OR "Tissue Scaffolds"[Mesh] OR "Hydrogels"[Mesh] OR hydrogel*[tiab] OR scaffold*[tiab] OR "thymus organoid*"[tiab] OR biomimetic[tiab] OR "engineered ECM"[tiab] OR "artificial thymus"[tiab] OR "3D culture"[tiab] OR decellular*[tiab])
 - Included: Books and Documents, Clinical Study, Comparative Study, Dataset, Evidence Synthesis, Meta-Analysis, Observational Study, Preprint, Review, Scoping Review, Systematic Review, Validation Study.
+
 Scopus search (11/07/2026): 4,482 (Search 1) + 1,592 (Search 2) = 6,074 items
 - SM1: TITLE-ABS-KEY( "Thymus Gland" OR thymus OR thymic OR thymocyte* OR "thymic microenvironment" OR "thymic stroma" OR "thymic stromal" OR "positive selection" OR "negative selection" OR "central tolerance" OR "agonist selection" OR "thymocyte differentiation" OR "thymocyte development" OR "T cell receptor" OR "T cell receptor signaling" OR TCR OR "TCR signaling" OR  involution OR "thymic aging" OR "ECM remodeling" OR "extracellular remodeling")
 - SM2: TITLE-ABS-KEY( "Biomechanical Phenomena" OR "Extracellular Matrix" OR "Extracellular remodelling" OR viscoelasticity OR stiffness OR mechanobiology OR biomechanics OR mechanotransduction OR "mechanical properties" OR "matrix architecture" OR "fiber orientation" OR "ECM topography")
 - SM3: TITLE-ABS-KEY( "Tissue Engineering" OR "Tissue Scaffolds" OR "Hydrogels" OR hydrogel* OR scaffold* OR "thymus organoid" OR "thymus organoids" OR biomimetic OR "engineered ECM" OR "artificial thymus" OR "3D culture" OR decellular* OR "Engineered thymic niches")
-Search numbers:
+
+Search stats:
 - Total studies retrieved: 271 + 6,074 = 6,345 items;
 - After deduplication: 5,573 items;
 - After title screening: 122 items (2.2%);
