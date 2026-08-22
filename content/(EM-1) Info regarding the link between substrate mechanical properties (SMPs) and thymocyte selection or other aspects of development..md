@@ -1,5 +1,6 @@
 ---
-share:
+share: true
+publish: true
 ---
 
 
