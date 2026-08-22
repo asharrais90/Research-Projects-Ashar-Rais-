@@ -1,6 +1,6 @@
 ---
-share:
-publish:
+share: true
+publish: true
 ---
 
 ### Overview
