@@ -16,7 +16,7 @@ configuration:
     - .obsidian
   theme:
     fontOrigin: googleFonts
-    cdnCaching: true
+    cdnCaching: false
     typography:
       header: "Book Antiqua"
       body: serif
@@ -45,7 +45,7 @@ configuration:
 plugins:
   - source: 
       name: "@quartz-themes/core"
-      enabled: true
+      enabled: false
       options:
         theme: tokyo-night 
         mode: both         
