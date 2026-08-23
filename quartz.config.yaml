@@ -8,6 +8,8 @@ configuration:
     provider: plausible
   locale: en-US
   baseUrl: asharrais90.github.io/Research-Projects-Ashar-Rais-
+  customStyles:
+    - /static/custom-arcadia.css
   ignorePatterns:
     - private
     - templates
@@ -45,8 +47,8 @@ plugins:
       name: "@quartz-themes/core"
       enabled: true
       options:
-      theme: tokyo-night 
-      mode: both         
+        theme: tokyo-night 
+        mode: both         
   - source: "@quartz-community/created-modified-date"
     enabled: true
     options:
