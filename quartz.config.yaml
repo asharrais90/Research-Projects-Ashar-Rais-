@@ -42,9 +42,7 @@ configuration:
         textHighlight: "#b3aa0288"
 plugins:
   - source: 
-      name: quartz-themes
-      repo: "https://github.com/saberzero1/quartz-themes.git"
-      subdir: plugin
+      name: "@quartz-themes/core"
       enabled: true
       options:
       theme: tokyo-night 
