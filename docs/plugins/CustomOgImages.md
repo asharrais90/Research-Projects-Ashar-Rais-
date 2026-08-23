@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: Custom OG Images
 description: Generates Open Graph social preview images.
 tags:
@@ -7,7 +7,7 @@ image: "[[social-image-preview-dark.png]]"
 repository: "[quartz-community/og-image](https://github.com/quartz-community/og-image)"
 enabled: true
 required: false
----
+---\npublish: true
 
 The Custom OG Images emitter plugin generates social media preview images for your pages. It uses [satori](https://github.com/vercel/satori) to convert HTML/CSS into images, allowing you to create beautiful and consistent social media preview cards for your content.
 
@@ -60,7 +60,7 @@ ExternalPlugin.CustomOgImages({
 ### Configuration Options
 
 | Option               | Type      | Default                   | Description                                                       |
-| -------------------- | --------- | ------------------------- | ----------------------------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | `colorScheme`        | string    | "lightMode"               | Theme to use for generating images ("darkMode" or "lightMode")    |
 | `width`              | number    | 1200                      | Width of the generated image in pixels                            |
 | `height`             | number    | 630                       | Height of the generated image in pixels                           |
@@ -74,7 +74,7 @@ ExternalPlugin.CustomOgImages({
 The following properties can be used to customize your link previews:
 
 | Property            | Alias            | Summary                             |
-| ------------------- | ---------------- | ----------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | `socialDescription` | `description`    | Description to be used for preview. |
 | `socialImage`       | `image`, `cover` | Link to preview image.              |
 
@@ -162,7 +162,7 @@ Here are some example image components you can use as a starting point:
 This example will generate images that look as follows:
 
 | Light                                      | Dark                                      |
-| ------------------------------------------ | ----------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | ![[custom-social-image-preview-light.png]] | ![[custom-social-image-preview-dark.png]] |
 
 ```tsx

@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: Wikilinks
----
+---\npublish: true
 
 Wikilinks were pioneered by earlier internet wikis to make it easier to write links across pages without needing to write Markdown or HTML links each time.
 

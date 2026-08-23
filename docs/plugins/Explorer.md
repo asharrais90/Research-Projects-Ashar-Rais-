@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: Explorer
 description: File tree explorer sidebar.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/explorer](https://github.com/quartz-community/explorer)"
 enabled: true
 required: false
----
+---\npublish: true
 
 File tree explorer sidebar.
 

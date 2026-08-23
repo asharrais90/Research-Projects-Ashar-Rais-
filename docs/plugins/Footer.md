@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: Footer
 description: Page footer with configurable links.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/footer](https://github.com/quartz-community/footer)"
 enabled: true
 required: false
----
+---\npublish: true
 
 This plugin renders a footer at the bottom of the page with a "Created with Quartz" message and a set of configurable links.
 

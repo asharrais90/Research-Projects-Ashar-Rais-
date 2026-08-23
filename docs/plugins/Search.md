@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: Search
 description: Full-text search with tag filtering and keyboard navigation.
 tags:
@@ -7,7 +7,7 @@ image: https://images.unsplash.com/photo-1516382799247-87df95d790b7
 repository: "[quartz-community/search](https://github.com/quartz-community/search)"
 enabled: true
 required: false
----
+---\npublish: true
 
 Full-text search functionality.
 

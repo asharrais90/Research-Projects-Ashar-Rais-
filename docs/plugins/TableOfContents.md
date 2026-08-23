@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: TableOfContents
 description: Generates and renders a table of contents from headings.
 tags:
@@ -8,7 +8,7 @@ image: https://images.unsplash.com/photo-1768527338896-3765921e992d
 repository: "[quartz-community/table-of-contents](https://github.com/quartz-community/table-of-contents)"
 enabled: true
 required: false
----
+---\npublish: true
 
 This plugin generates a table of contents (TOC) for Markdown documents. See [[table of contents]] for more information.
 

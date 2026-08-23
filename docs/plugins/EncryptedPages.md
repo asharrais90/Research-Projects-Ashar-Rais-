@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: EncryptedPages
 description: Password-protected encrypted pages with shadow content index.
 tags:
@@ -9,7 +9,7 @@ new-in-v5: true
 repository: "[quartz-community/encrypted-pages](https://github.com/quartz-community/encrypted-pages)"
 enabled: true
 required: false
----
+---\npublish: true
 
 Password-protected encrypted pages. Encrypts page content at build time using AES-256-GCM and decrypts client-side with the Web Crypto API. Passwords are set per-page via frontmatter. A companion emitter writes an encrypted shadow content index so unlisted encrypted pages can be dynamically revealed in graph, explorer, and search after a successful decryption — without ever leaking their metadata to visitors who do not hold the password.
 
@@ -24,10 +24,10 @@ Password-protected encrypted pages. Encrypts page content at build time using AE
 Add a `password` field to any page's frontmatter to encrypt it:
 
 ```yaml
----
+---\npublish: true
 title: My Secret Page
 password: mysecretpassword
----
+---\npublish: true
 ```
 
 The page content will be encrypted at build time. Visitors must enter the correct password to view the content.
@@ -41,11 +41,11 @@ By default, encrypted pages still appear in the graph, explorer, search, RSS, si
 To hide an encrypted page entirely until a visitor successfully decrypts it, set `unlisted: true` in its frontmatter:
 
 ```yaml
----
+---\npublish: true
 title: My Secret Page
 password: mysecretpassword
 unlisted: true
----
+---\npublish: true
 ```
 
 An unlisted page:
@@ -67,11 +67,11 @@ By default, an `unlisted: true` encrypted page is _revealed_ in graph, explorer,
 If you instead want a page that stays permanently invisible — accessible only by direct URL, even to users who have successfully decrypted other pages on the same site — set `stealth: true` in its frontmatter:
 
 ```yaml
----
+---\npublish: true
 title: Deep Secret
 password: mysecretpassword
 stealth: true
----
+---\npublish: true
 ```
 
 A stealth page:

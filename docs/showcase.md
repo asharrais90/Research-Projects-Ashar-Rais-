@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: "Quartz Showcase"
----
+---\npublish: true
 
 Want to see what Quartz can do? Here are some cool community gardens:
 

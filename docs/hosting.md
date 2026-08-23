@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: Hosting
----
+---\npublish: true
 
 Quartz effectively turns your Markdown files and other resources into a bundle of HTML, JS, and CSS files (a website!).
 
@@ -22,7 +22,7 @@ However, if you'd like to publish your site to the world, you need a way to host
 3. Select the new GitHub repository that you created and, in the **Set up builds and deployments** section, provide the following information:
 
 | Configuration option   | Value                                           |
-| ---------------------- | ----------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | Production branch      | `v5`                                            |
 | Framework preset       | `None`                                          |
 | Build command          | `npx quartz plugin install && npx quartz build` |
@@ -167,7 +167,7 @@ Before deploying to Vercel, a `vercel.json` file is required at the root of the 
 4. Check that these configuration options are set:
 
 | Configuration option                      | Value                                           |
-| ----------------------------------------- | ----------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | Framework Preset                          | `Other`                                         |
 | Root Directory                            | `./`                                            |
 | Build and Output Settings > Build Command | `npx quartz plugin install && npx quartz build` |

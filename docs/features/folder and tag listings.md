@@ -1,8 +1,8 @@
----
+---\npublish: true
 title: Folder and Tag Listings
 tags:
   - feature/emitter
----
+---\npublish: true
 
 Quartz emits listing pages for any folders and tags you have.
 

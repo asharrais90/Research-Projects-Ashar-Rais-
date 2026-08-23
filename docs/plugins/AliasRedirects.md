@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: AliasRedirects
 description: Generates redirect pages from frontmatter aliases and case-preserving URLs.
 tags:
@@ -7,7 +7,7 @@ image: https://images.unsplash.com/photo-1601735479770-bb5de9dbe844
 repository: "[quartz-community/alias-redirects](https://github.com/quartz-community/alias-redirects)"
 enabled: true
 required: false
----
+---\npublish: true
 
 This plugin emits HTML redirect pages so that old URLs redirect to the canonical page. It handles two types of redirects:
 
@@ -19,11 +19,11 @@ This plugin emits HTML redirect pages so that old URLs redirect to the canonical
 If `foo.md` has the following frontmatter:
 
 ```md title="foo.md"
----
+---\npublish: true
 title: "Foo"
 aliases:
   - "bar"
----
+---\npublish: true
 ```
 
 The target `host.me/bar` will be permanently redirected to `host.me/foo`.

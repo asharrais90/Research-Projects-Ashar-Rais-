@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: Graph
 description: Interactive link graph visualization.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/graph](https://github.com/quartz-community/graph)"
 enabled: true
 required: false
----
+---\npublish: true
 
 Interactive graph visualization.
 

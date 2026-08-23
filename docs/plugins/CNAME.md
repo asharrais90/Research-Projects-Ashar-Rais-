@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: CNAME
 description: Emits a CNAME file for custom domain deployment.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/cname](https://github.com/quartz-community/cname)"
 enabled: true
 required: false
----
+---\npublish: true
 
 This plugin emits a `CNAME` record that points your subdomain to the default domain of your site.
 

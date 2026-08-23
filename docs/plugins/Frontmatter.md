@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: Frontmatter
 aliases:
   - note-properties
@@ -13,7 +13,7 @@ image:
 repository: "[quartz-community/note-properties](https://github.com/quartz-community/note-properties)"
 enabled: true
 required: true
----
+---\npublish: true
 
 This plugin parses the frontmatter of the page using the [gray-matter](https://github.com/jonschlinkert/gray-matter) library and optionally displays selected properties in a collapsible panel. See [[authoring content#Syntax]], [[Obsidian compatibility]] and [[OxHugo compatibility]] for more information.
 
@@ -27,7 +27,7 @@ This plugin parses the frontmatter of the page using the [gray-matter](https://g
 
 This plugin accepts the following configuration options:
 
-- `delimiters`: the delimiters to use for the frontmatter. Can have one value (e.g. `"---"`) or separate values for opening and closing delimiters (e.g. `["---", "~~~"]`). Defaults to `"---"`.
+- `delimiters`: the delimiters to use for the frontmatter. Can have one value (e.g. `"---\npublish: true"`) or separate values for opening and closing delimiters (e.g. `["---\npublish: true", "~~~"]`). Defaults to `"---\npublish: true"`.
 - `language`: the language to use for parsing the frontmatter. Can be `yaml` (default) or `toml`.
 - `includeAll`: include all frontmatter properties in the properties panel. When `false`, only `includedProperties` are shown. Defaults to `false`.
 - `includedProperties`: properties to include when `includeAll` is `false`. Defaults to `["description", "tags", "aliases"]`.
@@ -47,7 +47,7 @@ This plugin accepts the following configuration options:
       - aliases
     excludedProperties: []
     hidePropertiesView: false
-    delimiters: "---"
+    delimiters: "---\npublish: true"
     language: yaml
 ```
 
@@ -73,11 +73,11 @@ You can control the properties panel on a per-note basis using frontmatter keys:
 These keys are automatically excluded from the visible properties table.
 
 ```yaml title="Example frontmatter"
----
+---\npublish: true
 title: My Note
 quartz-properties: true
 quartz-properties-collapse: false
----
+---\npublish: true
 ```
 
 ## Supported frontmatter
@@ -85,7 +85,7 @@ quartz-properties-collapse: false
 Quartz supports the following frontmatter fields. Where multiple keys are listed, they are aliases — the first matching key is used.
 
 | Field              | Keys                                              | Description                                                                                                                                                                                                                        |
-| ------------------ | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- |
 | Title              | `title`                                           | Page title. Falls back to filename if empty.                                                                                                                                                                                       |
 | Description        | `description`                                     | Page description for metadata and search.                                                                                                                                                                                          |
 | Tags               | `tags`, `tag`                                     | Categorization tags. Slugified the same way as file paths: spaces become `-`, `&` becomes `-and-`, `%` becomes `-percent`, and tags are lowercased so that `#MyTag` and `#mytag` resolve to the same tag page (matching Obsidian). |

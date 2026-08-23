@@ -1,8 +1,8 @@
----
+---\npublish: true
 title: Comments
 tags:
   - component
----
+---\npublish: true
 
 Quartz also has the ability to hook into various providers to enable readers to leave comments on your site.
 
@@ -175,8 +175,8 @@ export const layout = await loadQuartzLayout({
 Quartz can conditionally display the comment box based on a field `comments` in the frontmatter. By default, all pages will display comments, to disable it for a specific page, set `comments` to `false`.
 
 ```
----
+---\npublish: true
 title: Comments disabled here!
 comments: false
----
+---\npublish: true
 ```

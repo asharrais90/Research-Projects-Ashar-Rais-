@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: quartz upgrade
----
+---\npublish: true
 
 The `upgrade` command upgrades the Quartz framework itself to the latest version by pulling changes from the official Quartz repository.
 

@@ -1,8 +1,8 @@
----
+---\npublish: true
 title: "Obsidian Compatibility"
 tags:
   - feature/transformer
----
+---\npublish: true
 
 Quartz was originally designed as a tool to publish Obsidian vaults as websites. Even as the scope of Quartz has widened over time, it hasn't lost the ability to seamlessly interoperate with Obsidian.
 
@@ -33,7 +33,7 @@ Inside tables, pipes in wikilinks can be escaped with a backslash:
 
 ```markdown
 | Column          |
-| --------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true |
 | [[page\|alias]] |
 ```
 
@@ -209,7 +209,7 @@ Here is a sentence with a footnote.[^1]
 Quartz focuses on supporting Obsidian's core features. Functionality from Obsidian community plugins is handled by Quartz community plugins:
 
 | Obsidian Plugin | Quartz Support                                                                                                                              |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- |
 | Dataview        | Supported via [Quartz Syncer](https://community.obsidian.md/plugins/quartz-syncer) — exports Dataview queries as static content during sync |
 | Excalidraw      | Supported via the `obsidian-plugin-excalidraw` community plugin                                                                             |
 | Leaflet Maps    | Supported via the `obsidian-plugin-leaflet` community plugin                                                                                |

@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: Configuration
----
+---\npublish: true
 
 Quartz is meant to be extremely configurable, even if you don't know any coding. Most of the configuration you should need can be done by just editing `quartz.config.yaml`.
 
@@ -184,7 +184,7 @@ plugins:
 The object form supports the following fields:
 
 | Field    | Required | Description                                                                                               |
-| -------- | :------: | --------------------------------------------------------------------------------------------------------- |
+| ---\npublish: true---\npublish: true-- | :---\npublish: true---\npublish: true: | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true |
 | `repo`   |    ✅    | Git repository URL (e.g. `https://github.com/user/repo.git`).                                             |
 | `subdir` |    ❌    | Subdirectory within the repository that contains the plugin. Used for monorepo-style plugin repositories. |
 | `ref`    |    ❌    | Git ref (branch or tag) to pin to. Equivalent to the `#ref` suffix on string sources.                     |

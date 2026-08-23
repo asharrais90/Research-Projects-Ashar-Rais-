@@ -1,15 +1,15 @@
----
+---\npublish: true
 title: quartz build
 aliases:
   - build
----
+---\npublish: true
 
 The `build` command transforms your Markdown content into a static HTML website. It processes your files through the configured plugins and outputs the final site to a directory of your choice.
 
 ## Flags
 
 | Flag              | Shorthand | Description                                               | Default           |
-| ----------------- | --------- | --------------------------------------------------------- | ----------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | `--directory`     | `-d`      | The directory containing your Quartz project              | Current directory |
 | `--verbose`       | `-v`      | Enable detailed logging for debugging                     | `false`           |
 | `--output`        | `-o`      | The directory where the built site will be saved          | `public`          |

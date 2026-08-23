@@ -32,7 +32,7 @@ export type {
   TransformOptions,
 } from "@quartz-community/utils"
 
-// --- v5-specific exports below ---
+// ---\npublish: true v5-specific exports below ---\npublish: true
 
 export const QUARTZ = "quartz"
 

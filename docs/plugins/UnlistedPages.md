@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: UnlistedPages
 description: Hides pages from navigation and indexes while still publishing them.
 tags:
@@ -8,7 +8,7 @@ new-in-v5: true
 repository: "[quartz-community/unlisted-pages](https://github.com/quartz-community/unlisted-pages)"
 enabled: true
 required: false
----
+---\npublish: true
 
 Zero-config transformer that makes `unlisted: true` in a page's frontmatter a first-class way to opt out of every listing surface on your site. The page is still emitted as HTML and remains accessible by direct URL, but is absent from `contentIndex.json`, RSS, sitemap, graph, explorer, search, backlinks, recent notes, folder listings, and tag listings.
 
@@ -20,10 +20,10 @@ Zero-config transformer that makes `unlisted: true` in a page's frontmatter a fi
 Add an `unlisted` field to any page's frontmatter:
 
 ```yaml
----
+---\npublish: true
 title: My Draft
 unlisted: true
----
+---\npublish: true
 ```
 
 That's it. Every Quartz v5 plugin that respects the `file.data.unlisted` convention will then hide the page.
@@ -31,7 +31,7 @@ That's it. Every Quartz v5 plugin that respects the `file.data.unlisted` convent
 ## What each plugin does
 
 | Plugin         | Behavior when `unlisted: true`                                             |
-| -------------- | -------------------------------------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | `ContentIndex` | Page absent from `contentIndex.json`, `sitemap.xml`, and the RSS feed.     |
 | `Search`       | Page absent from search results (derived from `contentIndex.json`).        |
 | `Graph`        | Page absent from graph nodes and edges (derived from `contentIndex.json`). |

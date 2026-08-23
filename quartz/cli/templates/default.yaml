@@ -251,7 +251,7 @@ plugins:
         - aliases
       excludedProperties: []
       hidePropertiesView: false
-      delimiters: "---"
+      delimiters: "---\npublish: true"
       language: yaml
     order: 5
     layout:

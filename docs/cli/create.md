@@ -1,13 +1,13 @@
----
+---\npublish: true
 title: quartz create
----
+---\npublish: true
 
 The `create` command initializes a new Quartz project. It helps you set up your content folder, choose a configuration template, set your site's base URL, and configure how Quartz should handle your Markdown files.
 
 ## Flags
 
 | Flag          | Shorthand | Description                                                           |
-| ------------- | --------- | --------------------------------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true |
 | `--template`  | `-t`      | Configuration template (`default`, `obsidian`, `ttrpg`, or `blog`)    |
 | `--directory` | `-d`      | The directory where Quartz will be initialized                        |
 | `--source`    | `-s`      | The source directory of your Markdown files                           |

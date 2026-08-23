@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: Comments
 description: Comment system integration (Giscus, Utterances, etc.).
 tags:
@@ -7,7 +7,7 @@ image: "[[giscus-results.png]]"
 repository: "[quartz-community/comments](https://github.com/quartz-community/comments)"
 enabled: false
 required: false
----
+---\npublish: true
 
 Comment system (giscus, utterances, etc.).
 

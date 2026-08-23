@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: SyntaxHighlighting
 description: Syntax highlighting for code blocks.
 tags:
@@ -7,7 +7,7 @@ image: https://images.unsplash.com/photo-1580569214296-5cf2bffc5ccd
 repository: "[quartz-community/syntax-highlighting](https://github.com/quartz-community/syntax-highlighting)"
 enabled: true
 required: false
----
+---\npublish: true
 
 This plugin is used to add syntax highlighting to code blocks in Quartz. See [[syntax highlighting]] for more information.
 

@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: Community
----
+---\npublish: true
 
 Quartz has a vibrant community of users and contributors. This page highlights community-created plugins, tools, and resources that extend Quartz.
 
@@ -53,7 +53,7 @@ Projects and tools in the digital garden / PKM ecosystem that pair well with Qua
 
 - **[Obsidian](https://obsidian.md/)** — Knowledge base and note-taking app (recommended editor for Quartz content)
 
----
+---\npublish: true
 
 Looking to see sites built with Quartz? Check out the [[showcase|Quartz Showcase]].
 

@@ -216,9 +216,9 @@ export async function handleCreate(argv) {
   } else if (setupStrategy === "new") {
     await fs.promises.writeFile(
       path.join(contentFolder, "index.md"),
-      `---
+      `---\npublish: true
 title: Welcome to Quartz
----
+---\npublish: true
 
 This is a blank Quartz installation.
 See the [documentation](https://quartz.jzhao.xyz) for how to get started.

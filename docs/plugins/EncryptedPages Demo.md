@@ -1,11 +1,11 @@
----
+---\npublish: true
 title: Encrypted Pages Demo
 password: quartz
 unlisted: true
 tags:
   - plugin/transformer
 image:
----
+---\npublish: true
 
 Congratulations! You've successfully decrypted this page. 🎉
 

@@ -1,8 +1,8 @@
----
+---\npublish: true
 title: "Installation"
 aliases:
   - "setting up your GitHub repository"
----
+---\npublish: true
 
 This page walks you through the full Quartz setup: from getting the source code to previewing your site locally, then pushing it to GitHub.
 
@@ -97,7 +97,7 @@ Your site is now running at `http://localhost:8080`. The dev server watches for 
 
 At this point you can [[authoring-content|start writing content]] in the `content/` folder. When you're ready to publish, continue below to push your site to GitHub and [[hosting|deploy it]].
 
----
+---\npublish: true
 
 ## Setting Up Your GitHub Repository
 

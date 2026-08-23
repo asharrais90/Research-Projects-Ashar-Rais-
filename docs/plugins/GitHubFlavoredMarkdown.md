@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: GitHubFlavoredMarkdown
 description: GitHub Flavored Markdown support (tables, task lists, footnotes, strikethrough).
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/github-flavored-markdown](https://github.com/quartz-community/github-flavored-markdown)"
 enabled: true
 required: false
----
+---\npublish: true
 
 This plugin enhances Markdown processing to support GitHub Flavored Markdown (GFM) which adds features like autolink literals, footnotes, strikethrough, tables and tasklists.
 

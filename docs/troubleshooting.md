@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: Troubleshooting
----
+---\npublish: true
 
 Common issues and solutions when working with Quartz.
 

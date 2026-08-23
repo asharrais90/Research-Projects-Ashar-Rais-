@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: quartz plugin
----
+---\npublish: true
 
 The `plugin` command is the heart of the Quartz v5 plugin management system. it allows you to install, configure, and update plugins directly from the command line.
 
@@ -259,7 +259,7 @@ See [[configuration#Advanced Source Options|Advanced Source Options]] for the fu
 ## Migration from Deprecated Commands
 
 | Old command                           | New equivalent                                      |
-| ------------------------------------- | --------------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true |
 | `npx quartz plugin restore`           | `npx quartz plugin install --clean`                 |
 | `npx quartz plugin update`            | `npx quartz plugin install --latest`                |
 | `npx quartz plugin update my-plugin`  | `npx quartz plugin install --latest my-plugin`      |

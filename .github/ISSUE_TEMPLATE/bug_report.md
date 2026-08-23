@@ -1,10 +1,10 @@
----
+---\npublish: true
 name: Bug report
 about: Something about Quartz isn't working the way you expect
 title: ""
 labels: bug
 assignees: ""
----
+---\npublish: true
 
 **Describe the bug**
 A clear and concise description of what the bug is.

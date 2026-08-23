@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: Layout
----
+---\npublish: true
 
 Certain emitters may also output [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) files. To enable easy customization, these emitters allow you to fully rearrange the layout of the page.
 
@@ -27,7 +27,7 @@ export interface FullPageLayout {
 These correspond to following parts of the page:
 
 | Layout                          | Preview                             |
-| ------------------------------- | ----------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | Desktop (width > 1200px)        | ![[quartz-layout-desktop.png\|800]] |
 | Tablet (800px < width < 1200px) | ![[quartz-layout-tablet.png\|800]]  |
 | Mobile (width < 800px)          | ![[quartz-layout-mobile.png\|800]]  |
@@ -133,7 +133,7 @@ plugins:
 Available conditions:
 
 | Condition   | Effect                                               |
-| ----------- | ---------------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- |
 | `not-index` | Hidden on the root index page, shown everywhere else |
 | `has-tags`  | Only shown on pages that have tags in frontmatter    |
 
@@ -174,7 +174,7 @@ Page frames control the overall HTML structure of a page — specifically, how t
 Quartz ships with three built-in frames:
 
 | Frame        | Description                                                                                                                                                    | Used by                                     |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- |
 | `default`    | Three-column layout with left sidebar, center content (header, beforeBody, content, afterBody), right sidebar, and footer. This is the standard Quartz layout. | ContentPage, FolderPage, TagPage, BasesPage |
 | `full-width` | No sidebars. Single center column spanning the full width with header, content, afterBody, and footer.                                                         | —                                           |
 | `minimal`    | No sidebars, no header or beforeBody chrome. Only content and footer.                                                                                          | NotFoundPage (404)                          |

@@ -1,8 +1,8 @@
----
+---\npublish: true
 title: LaTeX
 tags:
   - feature/transformer
----
+---\npublish: true
 
 Quartz uses [Katex](https://katex.org/) by default to typeset both inline and block math expressions at build time.
 

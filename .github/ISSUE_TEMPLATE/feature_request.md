@@ -1,10 +1,10 @@
----
+---\npublish: true
 name: Feature request
 about: Suggest an idea or improvement for Quartz
 title: ""
 labels: enhancement
 assignees: ""
----
+---\npublish: true
 
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]

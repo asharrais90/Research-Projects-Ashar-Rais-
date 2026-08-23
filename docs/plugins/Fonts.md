@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: Fonts
 description: Fine-grained font control with per-heading support, Google Fonts integration, and theme font discovery.
 tags:
@@ -8,7 +8,7 @@ image:
 repository: "[quartz-community/fonts](https://github.com/quartz-community/fonts)"
 enabled: true
 required: false
----
+---\npublish: true
 
 This plugin provides fine-grained control over fonts in your Quartz site. It supports per-heading font families, automatic theme font discovery when used with [Quartz Themes](https://github.com/saberzero1/quartz-themes), Google Fonts integration with automatic weight and italic loading, and falls back to Obsidian's default system font stacks.
 
@@ -44,7 +44,7 @@ body:
 This plugin accepts the following configuration options:
 
 | Option          | Type                | Default          | Description                                                                                                            |
-| --------------- | ------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- |
 | `title`         | `FontSpecification` | `header` value   | Font family for the site title.                                                                                        |
 | `body`          | `FontSpecification` | Obsidian default | Font family for body text.                                                                                             |
 | `header`        | `FontSpecification` | Obsidian default | Default font family for all headings (h1-h6).                                                                          |

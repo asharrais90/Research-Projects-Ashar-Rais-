@@ -1,8 +1,8 @@
----
+---\npublish: true
 title: Callouts
 tags:
   - feature/transformer
----
+---\npublish: true
 
 Quartz supports the same Admonition-callout syntax as Obsidian.
 

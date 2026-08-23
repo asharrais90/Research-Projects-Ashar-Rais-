@@ -1,7 +1,7 @@
----
+---\npublish: true
 title: Recent Notes
 tags: component
----
+---\npublish: true
 
 Quartz can generate a list of recent notes based on some filtering and sorting criteria. Though this component isn't included in any [[layout]] by default, you can add it by installing the plugin and configuring it in `quartz.config.yaml`.
 

@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: "Social Media Preview Cards"
----
+---\npublish: true
 
 A lot of social media platforms can display a rich preview for your website when sharing a link (most notably, a cover image, a title and a description).
 
@@ -11,7 +11,7 @@ Quartz can also dynamically generate and use new cover images for every page to 
 After enabling the [[CustomOgImages]] emitter plugin, the social media link preview for [[authoring content | Authoring Content]] looks like this:
 
 | Light                               | Dark                               |
-| ----------------------------------- | ---------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- |
 | ![[social-image-preview-light.png]] | ![[social-image-preview-dark.png]] |
 
 ## Configuration

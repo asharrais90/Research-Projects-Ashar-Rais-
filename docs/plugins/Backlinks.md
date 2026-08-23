@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: Backlinks
 description: Shows pages that link to the current page.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/backlinks](https://github.com/quartz-community/backlinks)"
 enabled: true
 required: false
----
+---\npublish: true
 
 Shows pages that link to the current page.
 

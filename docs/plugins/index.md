@@ -1,7 +1,7 @@
----
+---\npublish: true
 title: Plugins
 image:
----
+---\npublish: true
 
 Quartz's functionality is provided by a collection of first-party community plugins. Each plugin can be enabled, disabled, and configured via `quartz.config.yaml`. See [[configuration#Plugins|Configuration]] for details on how to manage plugins.
 

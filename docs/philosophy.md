@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: Philosophy of Quartz
----
+---\npublish: true
 
 ## A garden should be a true hypertext
 
@@ -16,7 +16,7 @@ My goal with a digital garden is not purely as an organizing system and informat
 
 Quartz embraces the inherent rhizomatic and web-like nature of our thinking and tries to encourage note-taking in a similar form.
 
----
+---\npublish: true
 
 ## A garden should be shared
 
@@ -29,7 +29,7 @@ Quartz is designed first and foremost as a tool for publishing [digital gardens]
 
 **The goal of Quartz is to make sharing your digital garden free and simple.**
 
----
+---\npublish: true
 
 ## A garden should be your own
 

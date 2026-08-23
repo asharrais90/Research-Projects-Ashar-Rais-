@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: quartz restore
----
+---\npublish: true
 
 The `restore` command is a safety mechanism that allows you to recover your **content folder** from a local cache. This command only affects your Markdown files and does not restore plugins or configuration.
 

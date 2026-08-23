@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: Breadcrumbs
 description: Breadcrumb navigation trail.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/breadcrumbs](https://github.com/quartz-community/breadcrumbs)"
 enabled: true
 required: false
----
+---\npublish: true
 
 Navigation breadcrumb trail.
 

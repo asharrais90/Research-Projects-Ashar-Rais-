@@ -1,8 +1,8 @@
----
+---\npublish: true
 title: "Upgrading Quartz"
 aliases:
   - upgrading
----
+---\npublish: true
 
 > [!note]
 > This is specifically a guide for upgrading your Quartz to a more recent update. If you are coming from Quartz 4 or Quartz 3, check out the [[migrating|migration guide]] for more info.

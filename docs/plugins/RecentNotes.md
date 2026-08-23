@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: RecentNotes
 description: Displays a list of recently modified notes.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/recent-notes](https://github.com/quartz-community/recent-notes)"
 enabled: false
 required: false
----
+---\npublish: true
 
 Shows recently modified notes.
 

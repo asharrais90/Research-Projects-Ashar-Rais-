@@ -1,13 +1,13 @@
----
+---\npublish: true
 title: quartz sync
----
+---\npublish: true
 
 The `sync` command automates the process of pushing your local changes to GitHub and pulling updates from your remote repository. It simplifies the Git workflow for users who want to keep their site updated without running manual Git commands.
 
 ## Flags
 
 | Flag          | Shorthand | Description                          | Default           |
-| ------------- | --------- | ------------------------------------ | ----------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | `--directory` | `-d`      | The directory of your Quartz project | Current directory |
 | `--verbose`   | `-v`      | Enable detailed logging              | `false`           |
 | `--commit`    |           | Whether to commit changes            | `true`            |

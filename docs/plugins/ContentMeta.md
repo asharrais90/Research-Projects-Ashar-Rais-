@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: ContentMeta
 description: Displays creation date and reading time.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/content-meta](https://github.com/quartz-community/content-meta)"
 enabled: true
 required: false
----
+---\npublish: true
 
 This plugin displays content metadata below the article title, such as the creation date and estimated reading time.
 

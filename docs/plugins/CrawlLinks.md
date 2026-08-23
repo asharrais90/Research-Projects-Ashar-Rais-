@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: CrawlLinks
 description: Parses and resolves internal links. Removing it is not recommended.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/crawl-links](https://github.com/quartz-community/crawl-links)"
 enabled: true
 required: true
----
+---\npublish: true
 
 This plugin parses links and processes them to point to the right places. It is also needed for embedded links (like images). See [[Obsidian compatibility]] for more information.
 

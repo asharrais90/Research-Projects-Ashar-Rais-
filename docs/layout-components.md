@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: Higher-Order Layout Components
----
+---\npublish: true
 
 Quartz provides several higher-order components that help with layout composition and responsive design. These components wrap other components to add additional functionality or modify their behavior.
 
@@ -47,7 +47,7 @@ layout:
 The `groupOptions` field on each plugin entry supports the following flex item properties:
 
 | Option    | Type                                                            | Description                                               |
-| --------- | --------------------------------------------------------------- | --------------------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true |
 | `grow`    | `boolean`                                                       | Whether the component should grow to fill available space |
 | `shrink`  | `boolean`                                                       | Whether the component should shrink if needed             |
 | `basis`   | `string`                                                        | Initial main size of the component (e.g., `"200px"`)      |
@@ -58,7 +58,7 @@ The `groupOptions` field on each plugin entry supports the following flex item p
 The top-level `layout.groups` section configures the flex container itself:
 
 | Option      | Type                                                           | Description                               |
-| ----------- | -------------------------------------------------------------- | ----------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | `direction` | `"row"` \| `"row-reverse"` \| `"column"` \| `"column-reverse"` | Flex direction                            |
 | `wrap`      | `"nowrap"` \| `"wrap"` \| `"wrap-reverse"`                     | Flex wrap behavior                        |
 | `gap`       | `string`                                                       | Gap between flex items (e.g., `"0.5rem"`) |
@@ -128,7 +128,7 @@ plugins:
 Available `display` values:
 
 | Value          | Description                           |
-| -------------- | ------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- |
 | `all`          | Visible on all screen sizes (default) |
 | `mobile-only`  | Only visible on mobile devices        |
 | `desktop-only` | Only visible on desktop devices       |
@@ -166,7 +166,7 @@ plugins:
 Available built-in conditions:
 
 | Condition       | Description                                           |
-| --------------- | ----------------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | `not-index`     | Only render when the page is not the root `index.md`  |
 | `has-tags`      | Only render when the page has tags in its frontmatter |
 | `has-backlinks` | Only render when the page has backlinks               |

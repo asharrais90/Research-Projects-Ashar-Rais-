@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: ObsidianFlavoredMarkdown
 description: Obsidian-specific Markdown extensions (wikilinks, callouts, highlights, tags, embeds).
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/obsidian-flavored-markdown](https://github.com/quartz-community/obsidian-flavored-markdown)"
 enabled: true
 required: false
----
+---\npublish: true
 
 This plugin provides support for [[Obsidian compatibility]].
 

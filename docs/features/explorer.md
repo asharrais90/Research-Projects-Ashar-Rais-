@@ -1,8 +1,8 @@
----
+---\npublish: true
 title: "Explorer"
 tags:
   - component
----
+---\npublish: true
 
 Quartz features an explorer that allows you to navigate all files and folders on your site. It supports nested folders and is highly customizable.
 
@@ -147,7 +147,7 @@ ExternalPlugin.Explorer({
 })
 ```
 
----
+---\npublish: true
 
 You can pass your own functions for `sortFn`, `filterFn` and `mapFn`. All functions will be executed in the order provided by the `order` option (see [[#Customization]]). These functions behave similarly to their `Array.prototype` counterpart, except they modify the entire `FileNode` tree in place instead of returning a new one.
 

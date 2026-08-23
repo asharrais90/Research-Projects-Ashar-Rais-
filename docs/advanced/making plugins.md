@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: Making your own plugins
----
+---\npublish: true
 
 > [!warning]
 > This part of the documentation will assume you have working knowledge in TypeScript and will include code snippets that describe the interface of what Quartz plugins should look like.
@@ -68,7 +68,7 @@ The plugin's `package.json` should declare dependencies on `@quartz-community/ty
 Quartz supports six plugin capabilities. A single plugin can combine multiple types.
 
 | I want to...                                     | Plugin Type |
-| ------------------------------------------------ | ----------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true-- |
 | Transform Markdown/HTML content                  | Transformer |
 | Decide which pages to publish                    | Filter      |
 | Generate output files (RSS, sitemaps, manifests) | Emitter     |
@@ -577,7 +577,7 @@ npx tsup
 ## What to Import from Where
 
 | You need...                                                            | Import from                                                       |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | Type definitions (`QuartzTransformerPlugin`, `QuartzComponent`, etc.)  | `@quartz-community/types`                                         |
 | Path utilities (`simplifySlug`, `resolveRelative`, `pathToRoot`)       | `@quartz-community/utils/path`                                    |
 | DOM utilities (`removeAllChildren`, `registerEscapeHandler`)           | `@quartz-community/utils/dom`                                     |

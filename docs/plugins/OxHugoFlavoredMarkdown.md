@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: OxHugoFlavoredMarkdown
 description: Compatibility for ox-hugo exported Org-mode files.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/ox-hugo](https://github.com/quartz-community/ox-hugo)"
 enabled: false
 required: false
----
+---\npublish: true
 
 This plugin provides support for [ox-hugo](https://github.com/kaushalmodi/ox-hugo) compatibility. See [[OxHugo compatibility]] for more information.
 

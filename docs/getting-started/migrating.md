@@ -1,9 +1,9 @@
----
+---\npublish: true
 title: "Migrating to Quartz 5"
 aliases:
   - "migrating from Quartz 3"
   - "migrating from Quartz 4"
----
+---\npublish: true
 
 This guide covers migrating to Quartz 5 from previous versions. If you're already on Quartz 5 and want to update to the latest version, see [[upgrading|Upgrading Quartz]] instead.
 
@@ -116,7 +116,7 @@ plugins:
 Mapping v4 plugin names to v5 equivalents:
 
 | v4                                  | v5                                          | Type                  |
-| ----------------------------------- | ------------------------------------------- | --------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true |
 | `Plugin.FrontMatter()`              | `ExternalPlugin.NoteProperties()`           | Community             |
 | `Plugin.CreatedModifiedDate()`      | `ExternalPlugin.CreatedModifiedDate()`      | Community             |
 | `Plugin.SyntaxHighlighting()`       | `ExternalPlugin.SyntaxHighlighting()`       | Community             |
@@ -139,7 +139,7 @@ Mapping v4 plugin names to v5 equivalents:
 Component layout mapping:
 
 | v4 Layout                     | v5 Layout                                |
-| ----------------------------- | ---------------------------------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- |
 | `Component.Explorer()`        | `Plugin.Explorer()`                      |
 | `Component.Graph()`           | `Plugin.Graph()`                         |
 | `Component.Search()`          | `Plugin.Search()`                        |

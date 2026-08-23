@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: CLI Reference
----
+---\npublish: true
 
 The Quartz CLI is the primary way to interact with your Quartz project. It provides commands for creating new projects, building static sites, syncing with GitHub, and managing plugins.
 
@@ -9,7 +9,7 @@ You can run the CLI using `npx quartz`.
 ## Quick Reference
 
 | Command   | Description                                             | Example                  |
-| --------- | ------------------------------------------------------- | ------------------------ |
+| ---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true |
 | `create`  | Initialize a new Quartz project with template selection | `npx quartz create`      |
 | `build`   | Generate static HTML files                              | `npx quartz build`       |
 | `sync`    | Sync content with GitHub                                | `npx quartz sync`        |
@@ -32,7 +32,7 @@ You can run the CLI using `npx quartz`.
 These flags are accepted by every Quartz command:
 
 | Flag            | Shorthand | Description                                                                                             | Default        |
-| --------------- | --------- | ------------------------------------------------------------------------------------------------------- | -------------- |
+| ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true---\npublish: true- | ---\npublish: true---\npublish: true---\npublish: true---\npublish: true-- |
 | `--directory`   | `-d`      | The directory containing your Quartz project                                                            | `content`      |
 | `--verbose`     | `-v`      | Enable detailed logging for debugging                                                                   | `false`        |
 | `--concurrency` | `-c`      | Max parallel workers for operations that run in parallel (e.g. `build`, `plugin install`, `plugin add`) | CPU core count |

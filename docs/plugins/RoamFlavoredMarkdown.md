@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: RoamFlavoredMarkdown
 description: Compatibility for Roam Research export format.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/roam](https://github.com/quartz-community/roam)"
 enabled: false
 required: false
----
+---\npublish: true
 
 This plugin provides support for [Roam Research](https://roamresearch.com) compatibility. See [[Roam Research compatibility]] for more information.
 

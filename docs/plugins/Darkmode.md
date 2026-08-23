@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: Darkmode
 description: Toggle between light and dark themes.
 tags:
@@ -7,7 +7,7 @@ image: "#0052cc"
 repository: "[quartz-community/darkmode](https://github.com/quartz-community/darkmode)"
 enabled: true
 required: false
----
+---\npublish: true
 
 Dark mode toggle.
 

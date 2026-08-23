@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: Architecture
----
+---\npublish: true
 
 Quartz is a static site generator. How does it work?
 

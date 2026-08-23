@@ -1,4 +1,4 @@
----
+---\npublish: true
 title: FolderPage
 description: Generates listing pages for folders.
 tags:
@@ -7,7 +7,7 @@ image:
 repository: "[quartz-community/folder-page](https://github.com/quartz-community/folder-page)"
 enabled: true
 required: false
----
+---\npublish: true
 
 This plugin is a page type plugin that generates index pages for folders, creating a listing page for each folder that contains multiple content files. It uses the `default` [[layout#Page Frames|page frame]] (three-column layout with sidebars). See [[folder and tag listings]] for more information.
 

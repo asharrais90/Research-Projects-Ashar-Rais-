@@ -1,6 +1,6 @@
----
+---\npublish: true
 title: Creating Component Plugins
----
+---\npublish: true
 
 > [!warning]
 > This guide assumes you have experience writing JavaScript and are familiar with TypeScript.
