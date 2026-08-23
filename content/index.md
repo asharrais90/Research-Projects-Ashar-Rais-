@@ -4,6 +4,8 @@ share: true
 publish: true
 ---
 
+<iframe src="/network.html" width="100%" height="750px" style="border:none; border-radius:12px;"></iframe>
+
 Biological systems are shaped not only by their molecular composition but also by their physical context. Cells continuously sense mechanical, structural, and microenvironmental cues that influence signaling, fate decisions, tissue organization, and disease progression. The projects that comprise this file originate from my interest in exploring how mechanical, structural, and microenvironmental properties regulate immune behavior, tissue organization, and disease progression, and how computational biology and nanotechnology can be used to study or manipulate these systems. This endeavor is not intended to be a showcase of completed work, but a transparent record of learning how to think as a researcher. Each project is designed to produce reusable artifacts—literature syntheses, evidence maps, computational models, visualizations, and documented workflows—that together demonstrate an evolving approach to asking and investigating scientific questions.
 
 ### Intellectual Motivation
