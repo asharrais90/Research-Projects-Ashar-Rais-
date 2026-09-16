@@ -22,13 +22,13 @@ This model is intended as a hypothesis-generating framework that is at the proof
 
 ### Rules of this model
 
-**1. Spatial Agent-Based Model (ABM) and time-step duration:**
+#### 1. Spatial Agent-Based Model (ABM) and time-step duration:
 
 The thymus is represented as a two-dimensional grid consisting of a cortical region and a medullary region. In a healthy young thymus, the cortex is larger and more densely cellular than the medulla, but the exact cortex-to-medulla volume ratio has been observed to vary by species, age, and measurement method. Additionally, while histology and pathology references consistently show cortex predominance in normal thymus, age-related involution reduces cortical mass and blurs the corticomedullary boundary. Due to these uncertainties in current literature, the cortex and medulla are considered to be of same size with the thymocytes being introduced at the top of the cortex. Each grid cell has a side of 10 μm and each node possesses:
 - local substrate stiffness;
 - occupancy status of a stromal cell (representing thymic epithelial cells/TECs and other antigen presenting cells/APCs like dendritic cells).
 Instead of assuming homogeneous regions, stiffness is spatially heterogeneous. Spatial correlation is introduced using smoothed random fields rather than completely random values, producing biologically plausible stiffness patches. As there is currently no convincing quantitative evidence that the cortex is consistently softer or stiffer than the medulla, for this simulation (focused on the mechanical properties of the stroma), three situations will be tested:
-1.  [Null hypothesis] The entire thymic stroma is considered as a mechanically uniform region with stiffness of 1-3 kPa (based on the work from David Mooney’s lab):
+1.  (Null hypothesis) The entire thymic stroma is considered as a mechanically uniform region with stiffness of 1-3 kPa (based on the work from David Mooney’s lab):
 2.  The cortex is stiffer than the medulla;
 3.  The medulla is stiffer than the cortex.
 Instead of a single stiffness architecture, this three-scenario approach is chosen due to its potential of turning an uncertain biological fact into a falsifiable modelling question. If any of these scenarios produce an absurd result (for eg., almost all the cells die through negative selection) then this might suggest specific things about the thymic stroma that can be experimentally validated in the future. More importantly, since the purpose of this simulation is to investigate how stromal stiffness affects thymic selection, other stiffness ranges will be tested as well. Some of these ranges will be inspired by existing studies that present different values than the one mentioned above (such as the study by which shows that the stiffness range is 12 ± 6 kPa). Furthermore, the effects of fibrosis and involution-associated stromal changes can be explored as well by setting the range to resemble their estimated stiffness values.  
@@ -42,20 +42,20 @@ The duration of a single time step was chosen to be 1 min in consideration of th
 
 ---
 
-**2. Agent properties:**
+#### 2. Agent properties:
 
 Each agent (which represent the thymocytes) possesses permanent and dynamic properties.
 
 **Permanent properties:** Assigned once at initialization and will include:
 - **Cell size:** As the diameter of thymocytes vary greatly between different developmental stages (from 6-7 μm of double positive/DP thymocytes upto 12 μm of earlier double negative stages/DN), 10 μm is chosen for simplicity. 
-- **Intrinsic TCR off-rate:** Each thymocyte receives a base dissociation rate **(**![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAAdCAMAAADW8G8aAAAAAXNSR0IArs4c6QAAAJZQTFRFAAAAAAAAAAA6AABmADo6ADpmADqQAGaQAGa2OgAAOgA6OgBmOjo6OjpmOmaQOma2OpC2OpDbZgAAZgA6ZjoAZjo6ZmaQZpC2ZpDbZrbbZrb/kDoAkDo6kGYAkGY6kJC2kLa2kLbbkNv/tmYAtmY6ttv/tv/btv//25A625Bm27Zm29u22////7Zm/9uQ/9u2//+2///byFeASQAAAAF0Uk5TAEDm2GYAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBPZmZpY2V/7TVxAAABgElEQVQ4T9VTW3uCMAxN2HRUp8zLLsrmpujoECr8/z+3pBAoDp2fT1tfKiYnOTk5BfhvJ8N+eg3naHINqgiXl8MivInL7Hz2MUdumCi8HcWQzxHvUjBz9DYAerxrFY1kIqOCNKMambcG7QNEAZjAfln25t4lU4QykSY8wSxXTswGzylwOBlQN8KVV0VtKkU4NfJtNJ9xxmHVj41CHK3LVK4rJyPiCeIScsIn9EGww2r4+a4XYGYbM6RwUKa77biEUQvmrrBHTYoVjvfT3k4jei8AW/QeqibNPJZW8Xqh8pRbjzY5PDqjnt1cLTrxw8s91cBIERalfWjfdityS7SB0S+jjrxohjvN08pd16xnK0JSJPT3T673JdooICuW+vmU7aB67DeiZBfwRso7d8O/ZRN371v2gbyEHy/CdUnLZDYgRY+Ldzazf9ppssp6cleF2y9AupnBErRdRbcix+9NcF+kCCsjznMdeNY7ZfDUaL9ARa8u3U5Ci5B3x1TL+w+cbypdJxTSbzUBAAAAAElFTkSuQmCC)sampled from a biological distribution (preferably log-normal because dissociation rates are strictly positive and the binding kinetic parameters often span orders of magnitude and are approximately log-normal rather than normally distributed), representing diversity of the TCR repertoire. This replaces arbitrary affinity assignment. There is however, no published distribution of koff ​ across all thymocytes, because each thymocyte expresses a unique TCR and its dissociation kinetics depend on the specific peptide–MHC it encounters. Instead, what exists are libraries of experimentally measured TCR–pMHC kinetics (using surface plasmon resonance (SPR), bio-membrane force probe (BFP), optical tweezers, micropipette adhesion assays). Classic datasets come from the work of Brian McKeithan, Johannes Huppa, Michael Dustin, and Cheng Zhu. These studies report many individual ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAZCAMAAAAVHr4VAAAAAXNSR0IArs4c6QAAAGZQTFRFAAAAAAAAAAA6AABmADpmADqQAGa2OgAAOgA6OmaQOma2OpDbZgAAZjoAZjo6ZmaQZrbbZrb/kDoAkDo6kNv/tmYAttv/tv//25A625Bm27Zm29u22////7Zm/9uQ/9u2//+2///b7mfYNgAAAAF0Uk5TAEDm2GYAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBPZmZpY2V/7TVxAAAAqUlEQVQoU82RzRKCMAyEN4qtSv2rIIilwPu/pNvqDMq0R2fMYS+bTb60wP9VLesmT1VvXNacbJkPjuaSN/tVhU4k3dFypdfndLpWmK6ZyaMph2OV2eq1yOKWuyYBBSBPQPqovmi6KgjAJ/D669JAiCiTJY9Vj5PDcBDZOfTCu6KAPByti1tocYNR71BMzuW33NzyE+axS5OBlDkajiVB0oQn0D4CqZf8qJ77iwtKAew96QAAAABJRU5ErkJggg==)values for different TCR–pMHC pairs rather than a population distribution, and the following steps will be done to assign ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAdCAMAAADrYg58AAAAAXNSR0IArs4c6QAAAJZQTFRFAAAAAAAAAAA6AABmADo6ADpmADqQAGaQAGa2OgAAOgA6OgBmOjo6OjpmOmaQOma2OpC2OpDbZgAAZgA6ZjoAZjo6ZmaQZpC2ZpDbZrbbZrb/kDoAkDo6kGYAkGY6kJC2kLa2kLbbkNv/tmYAtmY6ttv/tv/btv//25A625Bm27Zm29u22////7Zm/9uQ/9u2//+2///byFeASQAAAAF0Uk5TAEDm2GYAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBPZmZpY2V/7TVxAAABT0lEQVQ4T81S21KDQAxNUCpbrFjAS0GpLUWQwhb+/+dMdtkWFYQXZ8xLZieXPZcA/KeocVHNxZOu53a2cfR7a4pXue5ogrcQeXEp8HqVQxMi3lQgQ7T2uiM1CKXwqprmamsHhUMFD6SnXh2yNjYIC5qhVoWDi/XyqQIul0u9tfENQi6nDkgqNAEXT8kilwJxtdP/1wSkRIzUTEkPaj0l7vu22IAM9tKlsqdF5G+l2ADIW4E2LWsTvDv6dlYgWs8AB7TuO7npy/ZlQqVOIX99eui0mDCAYc/0k1gxsa9BHigFTT4bIMU376WbFYzeZN3ZxsQqdo6P/ZsiptrHLp9ZkbTCzvR3SqxXUqmXB8gy5AMzNBc2emnKYPZDOcth8o+1qqDQ1Z14Jg+0RlAo2YZZ9Qc+iBWzM1d5uc5RFyehXiYVNQqTR3e2MWvLMHT+4/gEMnEhlbjYYfwAAAAASUVORK5CYII=) to each thymocyte:
-- Compile published ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAZCAMAAAAVHr4VAAAAAXNSR0IArs4c6QAAAGZQTFRFAAAAAAAAAAA6AABmADpmADqQAGa2OgAAOgA6OmaQOma2OpDbZgAAZjoAZjo6ZmaQZrbbZrb/kDoAkDo6kNv/tmYAttv/tv//25A625Bm27Zm29u22////7Zm/9uQ/9u2//+2///b7mfYNgAAAAF0Uk5TAEDm2GYAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBPZmZpY2V/7TVxAAAAqUlEQVQoU82RzRKCMAyEN4qtSv2rIIilwPu/pNvqDMq0R2fMYS+bTb60wP9VLesmT1VvXNacbJkPjuaSN/tVhU4k3dFypdfndLpWmK6ZyaMph2OV2eq1yOKWuyYBBSBPQPqovmi6KgjAJ/D669JAiCiTJY9Vj5PDcBDZOfTCu6KAPByti1tocYNR71BMzuW33NzyE+axS5OBlDkajiVB0oQn0D4CqZf8qJ77iwtKAew96QAAAABJRU5ErkJggg==) values.
-- Fit a probability distribution to those values.
-- Sample one value per thymocyte (or clone).
+- **Intrinsic TCR off-rate:** Each thymocyte receives a base dissociation rate **(**![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAAdCAMAAADW8G8aAAAAAXNSR0IArs4c6QAAAJZQTFRFAAAAAAAAAAA6AABmADo6ADpmADqQAGaQAGa2OgAAOgA6OgBmOjo6OjpmOmaQOma2OpC2OpDbZgAAZgA6ZjoAZjo6ZmaQZpC2ZpDbZrbbZrb/kDoAkDo6kGYAkGY6kJC2kLa2kLbbkNv/tmYAtmY6ttv/tv/btv//25A625Bm27Zm29u22////7Zm/9uQ/9u2//+2///byFeASQAAAAF0Uk5TAEDm2GYAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBPZmZpY2V/7TVxAAABgElEQVQ4T9VTW3uCMAxN2HRUp8zLLsrmpujoECr8/z+3pBAoDp2fT1tfKiYnOTk5BfhvJ8N+eg3naHINqgiXl8MivInL7Hz2MUdumCi8HcWQzxHvUjBz9DYAerxrFY1kIqOCNKMambcG7QNEAZjAfln25t4lU4QykSY8wSxXTswGzylwOBlQN8KVV0VtKkU4NfJtNJ9xxmHVj41CHK3LVK4rJyPiCeIScsIn9EGww2r4+a4XYGYbM6RwUKa77biEUQvmrrBHTYoVjvfT3k4jei8AW/QeqibNPJZW8Xqh8pRbjzY5PDqjnt1cLTrxw8s91cBIERalfWjfdityS7SB0S+jjrxohjvN08pd16xnK0JSJPT3T673JdooICuW+vmU7aB67DeiZBfwRso7d8O/ZRN371v2gbyEHy/CdUnLZDYgRY+Ldzazf9ppssp6cleF2y9AupnBErRdRbcix+9NcF+kCCsjznMdeNY7ZfDUaL9ARa8u3U5Ci5B3x1TL+w+cbypdJxTSbzUBAAAAAElFTkSuQmCC)sampled from a biological distribution (preferably log-normal because dissociation rates are strictly positive and the binding kinetic parameters often span orders of magnitude and are approximately log-normal rather than normally distributed), representing diversity of the TCR repertoire. This replaces arbitrary affinity assignment. There is however, no published distribution of koff ​ across all thymocytes, because each thymocyte expresses a unique TCR and its dissociation kinetics depend on the specific peptide–MHC it encounters. Instead, what exists are libraries of experimentally measured TCR–pMHC kinetics (using surface plasmon resonance (SPR), bio-membrane force probe (BFP), optical tweezers, micropipette adhesion assays). For this first version of the model which does not yet distinguish CD4 versus CD8, MHC-I versus MHC-II, coreceptor engagement, TCR sequence families, or individual peptide classes. Therefore, attempting to construct a supposedly precise DP thymocyte koff distribution from a narrow subset of experiments would give an appearance of specificity that the rest of the model does not yet possess. Therefore, data having heterogeneity regarding the models and techniques has been obtained from sources such as K. Matsui et.al. (1994), S.M. Alam et.al. (1996) and J. Hong et.al. (2014). These studies report many individual ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAZCAMAAAAVHr4VAAAAAXNSR0IArs4c6QAAAGZQTFRFAAAAAAAAAAA6AABmADpmADqQAGa2OgAAOgA6OmaQOma2OpDbZgAAZjoAZjo6ZmaQZrbbZrb/kDoAkDo6kNv/tmYAttv/tv//25A625Bm27Zm29u22////7Zm/9uQ/9u2//+2///b7mfYNgAAAAF0Uk5TAEDm2GYAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBPZmZpY2V/7TVxAAAAqUlEQVQoU82RzRKCMAyEN4qtSv2rIIilwPu/pNvqDMq0R2fMYS+bTb60wP9VLesmT1VvXNacbJkPjuaSN/tVhU4k3dFypdfndLpWmK6ZyaMph2OV2eq1yOKWuyYBBSBPQPqovmi6KgjAJ/D669JAiCiTJY9Vj5PDcBDZOfTCu6KAPByti1tocYNR71BMzuW33NzyE+axS5OBlDkajiVB0oQn0D4CqZf8qJ77iwtKAew96QAAAABJRU5ErkJggg==) values for different TCR–pMHC pairs rather than a population distribution, and the following steps will be done to assign ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAdCAMAAADrYg58AAAAAXNSR0IArs4c6QAAAJZQTFRFAAAAAAAAAAA6AABmADo6ADpmADqQAGaQAGa2OgAAOgA6OgBmOjo6OjpmOmaQOma2OpC2OpDbZgAAZgA6ZjoAZjo6ZmaQZpC2ZpDbZrbbZrb/kDoAkDo6kGYAkGY6kJC2kLa2kLbbkNv/tmYAtmY6ttv/tv/btv//25A625Bm27Zm29u22////7Zm/9uQ/9u2//+2///byFeASQAAAAF0Uk5TAEDm2GYAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBPZmZpY2V/7TVxAAABT0lEQVQ4T81S21KDQAxNUCpbrFjAS0GpLUWQwhb+/+dMdtkWFYQXZ8xLZieXPZcA/KeocVHNxZOu53a2cfR7a4pXue5ogrcQeXEp8HqVQxMi3lQgQ7T2uiM1CKXwqprmamsHhUMFD6SnXh2yNjYIC5qhVoWDi/XyqQIul0u9tfENQi6nDkgqNAEXT8kilwJxtdP/1wSkRIzUTEkPaj0l7vu22IAM9tKlsqdF5G+l2ADIW4E2LWsTvDv6dlYgWs8AB7TuO7npy/ZlQqVOIX99eui0mDCAYc/0k1gxsa9BHigFTT4bIMU376WbFYzeZN3ZxsQqdo6P/ZsiptrHLp9ZkbTCzvR3SqxXUqmXB8gy5AMzNBc2emnKYPZDOcth8o+1qqDQ1Z14Jg+0RlAo2YZZ9Qc+iBWzM1d5uc5RFyehXiYVNQqTR3e2MWvLMHT+4/gEMnEhlbjYYfwAAAAASUVORK5CYII=) to each thymocyte:
+	- Compile published ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAZCAMAAAAVHr4VAAAAAXNSR0IArs4c6QAAAGZQTFRFAAAAAAAAAAA6AABmADpmADqQAGa2OgAAOgA6OmaQOma2OpDbZgAAZjoAZjo6ZmaQZrbbZrb/kDoAkDo6kNv/tmYAttv/tv//25A625Bm27Zm29u22////7Zm/9uQ/9u2//+2///b7mfYNgAAAAF0Uk5TAEDm2GYAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBPZmZpY2V/7TVxAAAAqUlEQVQoU82RzRKCMAyEN4qtSv2rIIilwPu/pNvqDMq0R2fMYS+bTb60wP9VLesmT1VvXNacbJkPjuaSN/tVhU4k3dFypdfndLpWmK6ZyaMph2OV2eq1yOKWuyYBBSBPQPqovmi6KgjAJ/D669JAiCiTJY9Vj5PDcBDZOfTCu6KAPByti1tocYNR71BMzuW33NzyE+axS5OBlDkajiVB0oQn0D4CqZf8qJ77iwtKAew96QAAAABJRU5ErkJggg==) values.
+	- Fit a log-normal distribution to those values.
+	- Sample one value per thymocyte (or clone).
 
-- ==**Signaling protein expression:**== Each thymocyte independently samples relative expression levels of ZAP70 (ZAP70i) from experimentally established datasets (like the Human Protein Atlas). This modifies signaling competence through:
-     ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJwAAAAbCAMAAAC+0xYfAAAAAXNSR0IArs4c6QAAAJxQTFRFAAAAAAAAAAA6AABmADo6ADpmADqQAGa2OgAAOgA6OgBmOjpmOjqQOmaQOma2OpDbZgAAZgA6ZgBmZjoAZjo6ZjpmZmaQZpDbZrbbZrb/kDoAkDo6kGYAkGY6kGaQkJA6kLbbkNvbkNv/tmYAtmY6tpBmttvbttv/tv//25A625Bm25CQ27Zm29u22////7Zm/9uQ/9u2//+2///bOJ63fQAAAAF0Uk5TAEDm2GYAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBPZmZpY2V/7TVxAAACdElEQVRYR+1Va1PbMBCUQkNSSsFtCi0GCsRpiVsS29L//2+9lx4mNiOLT53JzcRJ7Fvfam9PUuoYRwWOCsQKVPpkm6FIJiyxUnW650z/IxEoaYmwRlPM1gyzJZXlux8elar5Od6191qfP3PWwqVfTmM1DVafQLl26WrURAM4AVt7B5fqBv61S7gi767st9EU+HhyDMPMFVukk2+oCG83hQihzNWDkEMSjZbSNf1Ddf0tJoT3XrRLSyY5DLPlHNmZ4iJ+UeXl2NwQD+muY2IKFJayaB21H4MaltIufySzksQRGHkqKEXJ2EKO9nzP5CI6LoHdaAq8hnlYKHv7dmcrNm3ka8CPwKDGbrWQWWNG3nD2di1MUTO70exEtj+To6ufB1hD982tLF2+cZgtxfPyskjGBsiQs3hG549iLPJURI51pXXxHE+McdhrcsFwpvDi9/Yh/uPaCiq2H0UtWAkvphf8Hr8THrZ1GMY1dqtotcFwqkY9aAh6pnRtl4GAJPYlBNAOpvAE28971eAONRbDMFk/1Ha9aMhXRKs9w5K0pdHFhZO2RtrE3emK3oPP7npv72dPm6jDA3qGF47B5ADwyvCPF2yNuPwPsq2incsbDAfVzUP3E1dHj5rl/Fn9/V1+Woet1fd9ULsxWHfNkrX8Df6jgDbB2TQjZeAkg3EITgoidCutoWM4LsDnlc++rIGr6N0Tfry7uLwY9mbmex42uBuTL+D4AZI4+AkRwxLSM1Ngz++wyebrFrtGp2JCOFhCan4K+mP2Hf1ytqUj4XCDGXq5h+VXTkCCYJz1a9J54WEJJfJTmpyDAscv43zJZ3lE/vcK/ANuB0lLXrBzrwAAAABJRU5ErkJggg==)
-	creating natural cell-to-cell variability. ZAP70 is chosen for this simulation due to recent studies suggesting that its expression acts as the bottleneck for the TCR signaling pathway.
+- **Signaling protein expression:** To further increase biological noise and cellular heterogeneity in the simulation, the thymocytes are modeled to have different expression levels of proteins associated to TCR signaling pathway. In this version, only one protein will be included for simplicity and from multiple candidate proteins such as Lck, ZAP70, LAT, etc., ZAP70 is chosen as the representative protein. ZAP70 is chosen due to recent studies suggesting that its expression level operates near a strict functional threshold in DP thymocytes, acting as an expression-dependent gating bottleneck for downstream calcium signaling and thymic selection outcomes.
+  Each thymocyte independently samples relative expression levels of ZAP70 (ZAP70i) from a clipped log-normal distribution with a coefficient of variation was kept between 0.1 and 0.6 with 0.3 used as the central condition:  ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJwAAAAbCAMAAAC+0xYfAAAAAXNSR0IArs4c6QAAAJxQTFRFAAAAAAAAAAA6AABmADo6ADpmADqQAGa2OgAAOgA6OgBmOjpmOjqQOmaQOma2OpDbZgAAZgA6ZgBmZjoAZjo6ZjpmZmaQZpDbZrbbZrb/kDoAkDo6kGYAkGY6kGaQkJA6kLbbkNvbkNv/tmYAtmY6tpBmttvbttv/tv//25A625Bm25CQ27Zm29u22////7Zm/9uQ/9u2//+2///bOJ63fQAAAAF0Uk5TAEDm2GYAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBPZmZpY2V/7TVxAAACdElEQVRYR+1Va1PbMBCUQkNSSsFtCi0GCsRpiVsS29L//2+9lx4mNiOLT53JzcRJ7Fvfam9PUuoYRwWOCsQKVPpkm6FIJiyxUnW650z/IxEoaYmwRlPM1gyzJZXlux8elar5Od6191qfP3PWwqVfTmM1DVafQLl26WrURAM4AVt7B5fqBv61S7gi767st9EU+HhyDMPMFVukk2+oCG83hQihzNWDkEMSjZbSNf1Ddf0tJoT3XrRLSyY5DLPlHNmZ4iJ+UeXl2NwQD+muY2IKFJayaB21H4MaltIufySzksQRGHkqKEXJ2EKO9nzP5CI6LoHdaAq8hnlYKHv7dmcrNm3ka8CPwKDGbrWQWWNG3nD2di1MUTO70exEtj+To6ufB1hD982tLF2+cZgtxfPyskjGBsiQs3hG549iLPJURI51pXXxHE+McdhrcsFwpvDi9/Yh/uPaCiq2H0UtWAkvphf8Hr8THrZ1GMY1dqtotcFwqkY9aAh6pnRtl4GAJPYlBNAOpvAE28971eAONRbDMFk/1Ha9aMhXRKs9w5K0pdHFhZO2RtrE3emK3oPP7npv72dPm6jDA3qGF47B5ADwyvCPF2yNuPwPsq2incsbDAfVzUP3E1dHj5rl/Fn9/V1+Woet1fd9ULsxWHfNkrX8Df6jgDbB2TQjZeAkg3EITgoidCutoWM4LsDnlc++rIGr6N0Tfry7uLwY9mbmex42uBuTL+D4AZI4+AkRwxLSM1Ngz++wyebrFrtGp2JCOFhCan4K+mP2Hf1ytqUj4XCDGXq5h+VXTkCCYJz1a9J54WEJJfJTmpyDAscv43zJZ3lE/vcK/ANuB0lLXrBzrwAAAABJRU5ErkJggg==)  
+  Instead of using established datasets or smaller collections like done for koff, this approach for assigning ZAP70 levels was used because quantitative single-cell measurements defining the distribution of ZAP70 protein abundance specifically in DP thymocytes are not currently available in a sufficiently standardized form for direct parameterization. Furthermore, the choice of clipped log-normal distribution with this specific CV is motivated by the broadly observed approximately log-normal distribution of protein abundance across mammalian cell populations and by experimental evidence that ZAP70 abundance varies among lymphocyte and thymocyte populations. The magnitude of variability is treated as an uncertain parameter and can be explored through sensitivity analysis.
 
 **Dynamic properties** (updated every timestep): Each thymocyte stores:
 - Position in the spatial grid;
@@ -75,7 +75,7 @@ For actual thymocytes, the type and speed of migration have been observed to var
   
 
 Where,
-- V<sub>max</sub> is the upper limit of thymocyte migration speed that has been observed under physiological conditions using intravital two-photon imaging studies. Based on two-photon imaging studies which have reported upper thymocyte migration speeds to sometimes exceed 25 μm/min under physiological conditions, vmax is set to 25 μm/min,
+- v<sub>max</sub> is the upper limit of thymocyte migration speed that has been observed under physiological conditions using intravital two-photon imaging studies. Based on two-photon imaging studies which have reported upper thymocyte migration speeds to sometimes exceed 25 μm/min under physiological conditions, vmax is set to 25 μm/min,
 - K<sub>low</sub> and K<sub>high</sub> are stiffness values where speed rises to half‑maximum and falls to half‑maximum, respectively,
 - n<sub>low</sub> and n<sub>high</sub> are the hill coefficients which control the steepness of the transition from low to high stiffness.
 
@@ -155,7 +155,7 @@ Based on a new perspective that considers the TCR to be a mechanosensor, this ru
 
 ![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJoAAAAwCAMAAADeppOtAAAAAXNSR0IArs4c6QAAALdQTFRFAAAAAAAAAAA6AABmADo6ADpmADqQAGa2OgAAOgA6OgBmOjoAOjo6OjpmOjqQOmaQOma2OpC2OpDbZgAAZgA6ZjoAZjo6ZjpmZjqQZma2ZrbbZrb/kDoAkDo6kGY6kJC2kLbbkNvbkNv/tmYAtmY6tpA6tpBmtpC2trZmttuQttu2ttvbttv/tv/btv//25A625Bm25CQ27Zm29uQ29u22/+22//b2////7Zm/9uQ/9u2//+2///bJv7FzAAAAAF0Uk5TAEDm2GYAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdFNvZnR3YXJlAE1pY3Jvc29mdCBPZmZpY2V/7TVxAAACzElEQVRYR+1Ya3ebMAy10yWh3dJ0Y+keZX2E7J3FW/YoxP7/v2uSMSAaMKUxHH+Iz2mSHpB9fSVL12LsOI4MuGNgd8k5n63dTehspjR4ec/EycbZhO4miif3jKXn8OHbUBFC83PE/L2fwBiTC37hK2/qmvvrU8FfeevTcOohNIF8ydBH1uKTNVOxjwlXfXwOVWr++CqlPp2TuiE6WPYdMiqCqkZG+uKq7yUt8ydAKw48KSoyQVlIgvR0acNGjXvYgxjB6tlJSUxQEkkg7DmRGPcBTeNZAT4VmSRDJEELbZmkQeMeRoEH9EmQRRaVBIWPa5cmxj1AQ1eqSGNK0LU4qCSIbemaGPcATUdyFmMFNCoJtHMzvPnIdwAWpXEP0DBa0gs9camFiSQooNWtTYxt0IpNdfiBZJRHsGANYeaSwArN+vBQHml9pdBkLgmKWKtxaL/FOT+VuEXzuyIJrKtT40M52rePeVmKTCqoSAJrXsuMVTS6W/HJX5DT8N824M9mG5YEU/g7RPEIzsvzllWDqiSwVQNj/Ot7NFumwXyN7yajWyamTH1Oz76+27qrwPv5taUYZF6Q4ZXeFUSCzpAxkuU6Gz9NeSTAFjL1YclwK/I1Zm65oN7EBAj49WfLaOo2PEmvISxgKz37cfP7dLm7hu+f3958mfy7KVEIvHNCVN7uAzO1yDxw2m3AMECmZDheQ66e/4HveLyRizGp+jqd1wduFdrg3QaMPLWqvxBXoA3fbYD0uLtsaCM8YG3obgMegKbLUxXa4N0GCLVt3eGsqX5DdxsguGXYoOWrrFFp0ZZnXDzXlVjfIzBBozQiMPegFdLCxdJtc2gdkCsFTCFGIWo7Cm34bkOmA0wX4aGkp9AG7zaADkAtHfAJ5F2suJUrGIHWudvQ5q5uzwFhYx7pNpPztyHU5Fsv+6T2i61zIrpMKKh27WJ4fPcRDPwHw8tRET53r2gAAAAASUVORK5CYII=)
 
-Where K<sub>F</sub> is the stiffness value where the force transmitted by TCR is half of the maximum and F<sub>max</sub> is the maximum force that can be transmitted. This is a phenomenological simplification as in reality, force transmission depends on other factors such as cell spreading area and adhesion site density.
+Where K<sub>F</sub> is the stiffness value where the force transmitted by TCR is half of the maximum and F<sub>T</sub> is the maximum force that can be transmitted. This is a phenomenological simplification as in reality, force transmission depends on other factors such as cell spreading area and adhesion site density.
 
 In addition to the TCR transmitting the applied force, state of the cytoskeletal priming is also crucial in determining the extent of the force transmitted to the thymocyte’s intracellular networks. So, this force transmission efficiency (F<sub>eff</sub>) is composed of two parts:
 
@@ -197,9 +197,9 @@ The probability that a productive signalling event is completed downstream of TC
 
 Where,
 
-N is the number of proofreading steps (The number of sequential biochemical modifications (typically phosphorylations) that must occur before the TCR engagement produces a stable downstream signal. If the cascade resets before reaching step N, no signal is generated) and is kept at N = 7 for this simulation (based on the work of Altan-Bonnet & Germain, 2005).
+N is the number of proofreading steps (The number of sequential biochemical modifications (typically phosphorylations) that must occur before the TCR engagement produces a stable downstream signal. If the cascade resets before reaching step N, no signal is generated) and is kept at N = 2.67 for this simulation (based on the work of Pettmann et.al., 2021).
 
-kSHP1 is the rate which SHP-1 (a phosphatase) de-phosphorylates crucial signaling sites and prevents the signal from travelling further downstream. Its value is taken to be 1 s<sup>-1</sup> from the work of Altan-Bonnet & Germain, 2005.
+k<sub>SHP1</sub> is the rate which SHP-1 (a phosphatase) de-phosphorylates crucial signaling sites and prevents the signal from travelling further downstream. Its value is taken to be 0.05 s<sup>-1</sup> from the.
 
 Consequently, changes in
 
@@ -213,7 +213,7 @@ all alter productive signaling through established biochemical mechanisms.
 
 **11. Threshold calculation**
 
-Selection thresholds are not chosen arbitrarily. Instead, published TCR-pMHC kinetic proofreading parameters and experimentally observed TCR off-rate distributions are used to estimate productive signalling probabilities. _As this initial proof-of-concept model does not distinguish between MHC class I and class II, or between CD4 and CD8 lineages, threshold calibration was performed using published data from the well-characterised OT-I TCR system (H-2Kb-restricted). This provides a consistent set of ligands with known selection outcomes and measured binding kinetics. Future extensions of the model will incorporate lineage-specific distinctions as additional data become available._
+Selection thresholds are not chosen arbitrarily. Instead, published TCR-pMHC kinetic proofreading parameters and experimentally observed TCR off-rate distributions are used to estimate productive signalling probabilities. _As this initial proof-of-concept model does not distinguish between MHC class I and class II, or between CD4 and CD8 lineages, threshold calibration was performed using published data from the well-characterised 2B4 TCR system (H-2Kb-restricted). This provides a consistent set of ligands with known selection outcomes and measured binding kinetics. Future extensions of the model will incorporate lineage-specific distinctions as additional data become available._
 
 Selection thresholds are then defined from these distributions rather than assigned manually in through the following steps which provides the model with mechanistic interpretation and scientific testability:
 
@@ -270,145 +270,13 @@ Negative selection is evaluated continuously throughout the simulation and immed
 
 ---
 
-**15. Outputs**
-
-The simulation produces
-
-- spatial maps of thymocyte migration,
-- stiffness heatmaps,
-- trajectories of individual cells,
-- distributions of cumulative TCR signaling,
-- cytoskeletal priming dynamics,
-- selection outcome tables,
-- percentages of
-
-- negative selection,
-- death by neglect,
-- positive selection,
-
-- parameter sensitivity analyses.
-
----
 
 
 
-### Outputs and hypotheses generated from them
-Calibrated thresholds  (OT-I/H-2Kb, biochemical baseline):
-  θ_pos = 1.8499e-10   (neglect / positive selection)
-  θ_neg = 1.0817e-07   (positive / negative selection)
-  Window width: 2.77 log₁₀ decades
 
-════════════════════════════════════════════════════════════
-  Thymic Selection Model v2   |   Mesa 3.5.1
-════════════════════════════════════════════════════════════
-  Scenario     : uniform
-  Grid         : 200×200 (demo)
-  k_scan(C)    : 1.0·(1 + 0.5·C)             
-  α(C,M)       : 1 + 1.0·C + 0.5·M           
-  θ_pos        = 1.8499e-10                         
-  θ_neg        = 1.0817e-07                         
-  (anchored to VSV8/E1/OVA on H-2Kb, biochemical baseline)
-────────────────────────────────────────────────────────────
-  t=  0.0h | alive=5000 | ⟨k_scan⟩=1.013 | ⟨α⟩=1.033 | pos=  0 | neg=  0 | ngl=  0
-  t= 20.4h | alive=4370 | ⟨k_scan⟩=1.250 | ⟨α⟩=1.750 | pos= 18 | neg=494 | ngl=118
-  t= 40.8h | alive=3322 | ⟨k_scan⟩=1.250 | ⟨α⟩=1.750 | pos=105 | neg=541 | ngl=1032
-  t= 61.2h | alive=1849 | ⟨k_scan⟩=1.250 | ⟨α⟩=1.750 | pos=235 | neg=580 | ngl=2336
-  t= 81.6h | alive= 824 | ⟨k_scan⟩=1.250 | ⟨α⟩=1.750 | pos=365 | neg=592 | ngl=3219
-  t=102.0h | alive= 328 | ⟨k_scan⟩=1.250 | ⟨α⟩=1.749 | pos=436 | neg=599 | ngl=3637
-  t=122.4h | alive= 111 | ⟨k_scan⟩=1.249 | ⟨α⟩=1.748 | pos=478 | neg=599 | ngl=3812
-  t=142.8h | alive=  32 | ⟨k_scan⟩=1.249 | ⟨α⟩=1.748 | pos=492 | neg=599 | ngl=3877
-  t=163.2h | alive=   8 | ⟨k_scan⟩=1.250 | ⟨α⟩=1.750 | pos=498 | neg=599 | ngl=3895
-  t=183.6h | alive=   4 | ⟨k_scan⟩=1.251 | ⟨α⟩=1.752 | pos=498 | neg=599 | ngl=3899
 
-────────────────────────────────────────────────────────────
-  Scenario : uniform
-  Time     : 204.0 h
-  θ_pos    = 1.8499e-10
-  θ_neg    = 1.0817e-07
-  (calibrated at C=0, M=0, S=0 — biochemical baseline)
-────────────────────────────────────────────────────────────
-  positive_selection             498   10.0%  ██
-  negative_selection             599   12.0%  ██
-  death_by_neglect              3901   78.1%  ███████████████████
-────────────────────────────────────────────────────────────
+### Results and hypotheses generated from them
 
-Calibrated thresholds  (OT-I/H-2Kb, biochemical baseline):
-  θ_pos = 1.8499e-10   (neglect / positive selection)
-  θ_neg = 1.0817e-07   (positive / negative selection)
-  Window width: 2.77 log₁₀ decades
-
-════════════════════════════════════════════════════════════
-  Thymic Selection Mechanobiology Model  |   Mesa 3.5.1
-════════════════════════════════════════════════════════════
-  Scenario     : cortex_stiffer
-  Grid         : 200×200 (demo)
-  k_scan(C)    : 1.0·(1 + 0.5·C)             
-  α(C,M)       : 1 + 1.0·C + 0.5·M           
-  θ_pos        = 1.8499e-10                         
-  θ_neg        = 1.0817e-07                         
-  (anchored to VSV8/E1/OVA on H-2Kb, biochemical baseline)
-────────────────────────────────────────────────────────────
-  t=  0.0h | alive=5000 | ⟨k_scan⟩=1.015 | ⟨α⟩=1.039 | pos=  0 | neg=  0 | ngl=  0
-  t= 20.4h | alive=4388 | ⟨k_scan⟩=1.215 | ⟨α⟩=1.645 | pos= 16 | neg=480 | ngl=116
-  t= 40.8h | alive=3368 | ⟨k_scan⟩=1.215 | ⟨α⟩=1.645 | pos= 98 | neg=507 | ngl=1027
-  t= 61.2h | alive=1883 | ⟨k_scan⟩=1.215 | ⟨α⟩=1.646 | pos=244 | neg=535 | ngl=2338
-  t= 81.6h | alive= 832 | ⟨k_scan⟩=1.215 | ⟨α⟩=1.646 | pos=392 | neg=552 | ngl=3224
-  t=102.0h | alive= 335 | ⟨k_scan⟩=1.216 | ⟨α⟩=1.647 | pos=461 | neg=555 | ngl=3649
-  t=122.4h | alive= 113 | ⟨k_scan⟩=1.215 | ⟨α⟩=1.645 | pos=494 | neg=556 | ngl=3837
-  t=142.8h | alive=  33 | ⟨k_scan⟩=1.216 | ⟨α⟩=1.648 | pos=505 | neg=556 | ngl=3906
-  t=163.2h | alive=   9 | ⟨k_scan⟩=1.215 | ⟨α⟩=1.644 | pos=510 | neg=556 | ngl=3925
-  t=183.6h | alive=   5 | ⟨k_scan⟩=1.217 | ⟨α⟩=1.650 | pos=511 | neg=556 | ngl=3928
-
-────────────────────────────────────────────────────────────
-  Scenario : cortex_stiffer
-  Time     : 204.0 h
-  θ_pos    = 1.8499e-10
-  θ_neg    = 1.0817e-07
-  (calibrated at C=0, M=0, S=0 — biochemical baseline)
-────────────────────────────────────────────────────────────
-  positive_selection             511   10.2%  ██
-  negative_selection             556   11.1%  ██
-  death_by_neglect              3930   78.6%  ███████████████████
-────────────────────────────────────────────────────────────
-
-Calibrated thresholds  (OT-I/H-2Kb, biochemical baseline):
-  θ_pos = 1.8499e-10   (neglect / positive selection)
-  θ_neg = 1.0817e-07   (positive / negative selection)
-  Window width: 2.77 log₁₀ decades
-
-════════════════════════════════════════════════════════════
-  Thymic Selection Mechanobiology Model  |   Mesa 3.5.1
-════════════════════════════════════════════════════════════
-  Scenario     : medulla_stiffer
-  Grid         : 200×200 (demo)
-  k_scan(C)    : 1.0·(1 + 0.5·C)             
-  α(C,M)       : 1 + 1.0·C + 0.5·M           
-  θ_pos        = 1.8499e-10                         
-  θ_neg        = 1.0817e-07                         
-  (anchored to VSV8/E1/OVA on H-2Kb, biochemical baseline)
-────────────────────────────────────────────────────────────
-  t=  0.0h | alive=5000 | ⟨k_scan⟩=1.011 | ⟨α⟩=1.028 | pos=  0 | neg=  0 | ngl=  0
-  t= 20.4h | alive=4316 | ⟨k_scan⟩=1.300 | ⟨α⟩=1.901 | pos= 19 | neg=549 | ngl=116
-  t= 40.8h | alive=3288 | ⟨k_scan⟩=1.300 | ⟨α⟩=1.901 | pos=117 | neg=605 | ngl=990
-  t= 61.2h | alive=1826 | ⟨k_scan⟩=1.301 | ⟨α⟩=1.902 | pos=230 | neg=650 | ngl=2294
-  t= 81.6h | alive= 806 | ⟨k_scan⟩=1.301 | ⟨α⟩=1.902 | pos=347 | neg=668 | ngl=3179
-  t=102.0h | alive= 321 | ⟨k_scan⟩=1.300 | ⟨α⟩=1.901 | pos=422 | neg=675 | ngl=3582
-  t=122.4h | alive= 108 | ⟨k_scan⟩=1.300 | ⟨α⟩=1.901 | pos=448 | neg=675 | ngl=3769
-  t=142.8h | alive=  31 | ⟨k_scan⟩=1.301 | ⟨α⟩=1.902 | pos=460 | neg=675 | ngl=3834
-  t=163.2h | alive=   8 | ⟨k_scan⟩=1.300 | ⟨α⟩=1.899 | pos=464 | neg=675 | ngl=3853
-  t=183.6h | alive=   4 | ⟨k_scan⟩=1.301 | ⟨α⟩=1.902 | pos=465 | neg=675 | ngl=3856
-
-────────────────────────────────────────────────────────────
-  Scenario : medulla_stiffer
-  Time     : 204.0 h
-  θ_pos    = 1.8499e-10
-  θ_neg    = 1.0817e-07
-  (calibrated at C=0, M=0, S=0 — biochemical baseline)
-────────────────────────────────────────────────────────────
-  positive_selection             466    9.3%  ██
-  negative_selection             675   13.5%  ███
-  death_by_neglect              3857   77.2%  ███████████████████
-────────────────────────────────────────────────────────────
 ### Limitations of this model and possible future modifications
 
 ·        3D grid and inclusion of other mechanical properties such as fibre orientation and ECM composition, MHCI/II distinction, cytokine fields, CD4/CD8 commitment elaboration through ThPOK and Runx activity, competition for stromal contacts and crowding-dependent mechanotransduction, cell proliferation and how it affects signalling dynamics such as cytoskeletal priming, dynamic ECM and how different cell types reshape the microenvironment, Relationship between speed, developmental stage and cytokine gradients, Further addition of factors contributing to biological noise (like varying expression levels of different signalling proteins), Effects of changing stromal properties upon stromal cell densities, slowing of cells upon interaction with APCs (and the amount varies between cells that were then observed to be positively or negatively selected)
