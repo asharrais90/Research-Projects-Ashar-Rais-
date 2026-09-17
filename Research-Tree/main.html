@@ -6,13 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research Projects | Ashar Rais </title>
   <meta name="description" content="Interactive research tree prototype for Ashar Rais.">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
   <main class="site-shell">
     <header class="intro">
-      <div class="eyebrow">RESEARCH PROJECTS · ASHAR RAIS · asharrais90@gmail.com · https://www.linkedin.com/in/ashar-rais-/</div>
+<div class="eyebrow">
+  RESEARCH PROJECTS · ASHAR RAIS ·
+  <a href="mailto:asharrais90@gmail.com">asharrais90@gmail.com</a> ·
+  <a href="https://www.linkedin.com/in/ashar-rais-/"
+     target="_blank"
+     rel="noopener noreferrer">LinkedIn</a>
+</div>
       <h1>How does physical context shape biological function?</h1>
       <p>
         An interactive research map connecting the foundations, philosophy,
@@ -21,7 +27,8 @@
     </header>
 
     <section class="tree-stage" id="research-tree" aria-label="Interactive research tree">
-      <div class="bird bird-a" aria-hidden="true">
+      
+<div class="bird bird-a" aria-hidden="true">
         <svg viewBox="0 0 120 60">
           <path d="M8 34 Q30 8 58 28 Q86 8 112 34 Q84 20 58 42 Q31 20 8 34Z"/>
         </svg>
@@ -31,6 +38,20 @@
           <path d="M8 34 Q30 8 58 28 Q86 8 112 34 Q84 20 58 42 Q31 20 8 34Z"/>
         </svg>
       </div>
+      
+<div
+  class="canopy-tooltip"
+  id="canopy-tooltip"
+  role="tooltip"
+  aria-hidden="true"
+>
+  <p class="canopy-tooltip-kicker">MECHANOBIOLOGY</p>
+  <p class="canopy-tooltip-body">
+    The study of how mechanical forces, stiffness, and geometry
+    influence cellular signalling, tissue organisation, and disease
+    progression.
+  </p>
+</div>
 
 <svg
   class="tree-svg"
@@ -130,57 +151,20 @@
 <g
   class="tree-node canopy-copy"
   tabindex="0"
-  role="button"
-  aria-expanded="false"
-  data-panel="mechanobiology"
+  role="link"
+  aria-label="Mechanobiology — how physical context shapes biological function. Opens research overview."
+  data-url="https://asharrais90.github.io/Research-Projects-Ashar-Rais-/"
+  data-tooltip="mechanobiology"
 >
-
   <text
-    x="550"
-    y="145"
+    x="600"
+    y="175"
     class="canopy-title"
     text-anchor="middle"
   >
-    MECHANOBIOLOGY
+  <tspan class="canopy-title-main" x="600" dy="0">MECHANOBIOLOGY</tspan>
+  <tspan class="canopy-title-byline" x="600" dy="26">How physical context shapes biological function</tspan>
   </text>
-
-  <text
-    x="600"
-    y="180"
-    class="canopy-item"
-    text-anchor="middle"
-  >
-    A field of research that focuses on the role of 
-    mechanical forces in biological functioning
-  </text>
-
-  <text
-    x="600"
-    y="207"
-    class="canopy-item"
-    text-anchor="middle"
-  >
-    → Introduction ; Historical background
-  </text>
-
-  <text
-    x="600"
-    y="234"
-    class="canopy-item"
-    text-anchor="middle"
-  >
-    → Potential to progress research problems
-  </text>
-
-  <text
-    x="600"
-    y="261"
-    class="canopy-item"
-    text-anchor="middle"
-  >
-    → Research framework
-  </text>
-
 </g>
 
   <!-- ==========================================================
@@ -313,16 +297,6 @@
   </g>
 
 
-  <!-- CV -->
-<g class="tree-node cv-node"
-   data-panel="cv"
-   tabindex="0"
-   role="button"
-   aria-label="CV">
-  <text x="557" y="620" class="cv-title" text-anchor="middle">CV</text>
-</g>
-
-
 <!-- GROUND -->
 <g id="groundGroup">
   <path
@@ -358,6 +332,6 @@
 
   </main>
 
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
