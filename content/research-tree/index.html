@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research Projects | Ashar Rais </title>
   <meta name="description" content="Interactive research tree prototype for Ashar Rais.">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -46,11 +46,7 @@
   aria-hidden="true"
 >
   <p class="canopy-tooltip-kicker">MECHANOBIOLOGY</p>
-  <p class="canopy-tooltip-body">
-    The study of how mechanical forces, stiffness, and geometry
-    influence cellular signalling, tissue organisation, and disease
-    progression.
-  </p>
+  <div class="canopy-tooltip-sections" id="canopy-tooltip-sections"></div>
 </div>
 
 <svg
@@ -163,7 +159,7 @@
     text-anchor="middle"
   >
   <tspan class="canopy-title-main" x="600" dy="0">MECHANOBIOLOGY</tspan>
-  <tspan class="canopy-title-byline" x="600" dy="26">How physical context shapes biological function</tspan>
+  <tspan class="canopy-title-byline" x="600" dy="26">Exploring how mechanical forces modulate biological functiong</tspan>
   </text>
 </g>
 
@@ -224,19 +220,20 @@
 
     <path
       class="fruit-stem"
-      d="M310 351 C310 383 309 412 309 435"
+      d="M760 373 C760 430 761 435 761 430"
     />
 
     <circle
-      cx="309"
-      cy="425"
+      cx="761"
+      cy="450"
       r="20"
-      class="fruit fruit-green"
+      class="fruit fruit-blue"
+      opacity= 0.5
     />
 
     <text
-      x="309"
-      y="473"
+      x="761"
+      y="495"
       class="fruit-label"
       text-anchor="middle"
     >
@@ -244,12 +241,12 @@
     </text>
 
     <text
-      x="309"
-      y="492"
+      x="761"
+      y="512"
       class="fruit-sublabel"
       text-anchor="middle"
     >
-      PRE-METASTATIC NICHE
+      PRE-METASTATIC NICHE | UNDER PROGRESS
     </text>
 
   </g>
@@ -265,20 +262,20 @@
   >
 
     <path
-      class="fruit-stem"
-      d="M760 373 C760 406 761 435 761 460"
+      class="fruit-stem-planned"
+      d="M310 351 C310 383 309 412 309 405"
     />
 
     <circle
-      cx="761"
-      cy="449"
+      cx="309"
+      cy="425"
       r="10"
-      class="fruit fruit-blue"
+      class="fruit fruit-planned"
     />
 
     <text
-      x="761"
-      y="487"
+      x="309"
+      y="455"
       class="fruit-label"
       text-anchor="middle"
     >
@@ -286,12 +283,12 @@
     </text>
 
     <text
-      x="761"
-      y="506"
+      x="309"
+      y="472"
       class="fruit-sublabel"
       text-anchor="middle"
     >
-      COMPUTATIONAL BIOLOGY
+      BRAINSTORMING...
     </text>
 
   </g>
@@ -332,6 +329,6 @@
 
   </main>
 
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
