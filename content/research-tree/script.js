@@ -39,20 +39,11 @@
       url: ""
     },
 
-    email: {
-      title: "Email",
-      body:
-        "Professional contact information. Replace this with " +
-        "your actual email address when the prototype is finalized.",
-      label: "Email →",
-      url: ""
-    },
-
-    linkedin: {
-      title: "LinkedIn",
-      body:
-        "Professional profile and career history.",
-      label: "Open LinkedIn →",
+    CV: {
+      title: "CV",
+      label: "Curriculum Vitae",
+      body: 
+"This latin word translates to 'course of life'. Also, a fun fact is that a letter from Leonardo Da Vinci to the Duke of Milan in 1498 is considered to be one of the earliest records resembling a modern CV (but it read more like a cover letter).",  
       url: ""
     },
 
@@ -93,15 +84,7 @@
       url: ""
     },
 
-    cv: {
-      title: "Curriculum Vitae",
-      body:
-        "The trunk represents the accumulated training, experience, " +
-        "research activity, and professional development supporting " +
-        "this research programme.",
-      label: "Open CV →",
-      url: "assets/Ashar-Rais-CV.pdf"
-    },
+
 
     mechanobiology: {
       title: "Mechanobiology",
@@ -142,15 +125,6 @@
       url: ""
     },
 
-    project4: {
-      title: "Project 4 — Nanotechnology",
-      body:
-        "Nanoscale tools and approaches for measuring, manipulating, " +
-        "and understanding biological systems and their physical environments.",
-      label: "Open project →",
-      url: ""
-    }
-
   };
 
 const ROOT_CONFIGS = [
@@ -161,31 +135,54 @@ const ROOT_CONFIGS = [
     thickness: 36,
     curve: -30,
     seed: 41,
-    label: "Email",
-    panel: "email"
+    label: "Guiding Principles",
+    panel: "principles"
   },
   {
-    startX: 565,
+    startX: 560,
     endX: 600,
     depth: 180,
-    thickness: 40,
+    thickness: 43,
     curve: 5,
     seed: 47,
-    label: "Research Philosophy",
-    panel: "motivation"
+    label: "CV",
+    panel: "CV"
   },
   {
-    startX: 586,
+    startX: 585,
     endX: 850,
     depth: 145,
-    thickness: 32,
+    thickness: 35,
     curve: 30,
     seed: 62,
-    label: "Personal",
-    panel: "personal"
+    label: "Intellectual Motivation & Background",
+    panel: "motivation-detail"
   }
 ];
 
+const tooltipData = {
+  mechanobiology: [
+    {
+      title: "Introduction",
+      body:
+        "Mechanobiology studies how physical forces, stiffness, and " +
+        "geometry shape cellular behaviour, tissue organisation, and fate."
+    },
+    {
+      title: "Historical background",
+      body:
+        "The field emerged from early observations that cells respond " +
+        "to mechanical cues as strongly as to chemical ones."
+    },
+    {
+      title: "Potential for future breakthroughs",
+      body:
+        "Understanding mechanotransduction may open new avenues for " +
+        "tissue engineering, cancer therapy, and regenerative medicine."
+    }
+  ]
+  // Add more entries here keyed by data-tooltip value
+};
 
   /* ================================================================
      PROCEDURAL FOLIAGE
@@ -911,9 +908,7 @@ function startTreeGradientAnimation() {
      */
 
     tree
-      .querySelectorAll(
-        "[data-panel]"
-      )
+      .querySelectorAll("[data-panel], [data-url]")
       .forEach((node) => {
 
         if (
@@ -931,6 +926,15 @@ function startTreeGradientAnimation() {
           (event) => {
 
             event.stopPropagation();
+
+              if (node.dataset.url) {
+    window.open(
+      node.dataset.url,
+      "_blank",
+      "noopener,noreferrer"
+    );
+    return;
+  }  
 
             const panelId =
               node.dataset.panel;
@@ -969,12 +973,68 @@ function startTreeGradientAnimation() {
               node.click();
 
             }
-
-          }
-        );
-
       });
 
+if (node.dataset.tooltip) {
+  const tooltip = document.getElementById("canopy-tooltip");
+  const stage = document.getElementById("research-tree");
+  const sectionsHost = document.getElementById("canopy-tooltip-sections");
+
+  const showTooltip = () => {
+    if (!tooltip || !stage || !sectionsHost) return;
+
+    // ----- 1. Populate the sections -----
+    const sections = tooltipData[node.dataset.tooltip];
+    if (!sections) return;
+
+    sectionsHost.innerHTML = sections
+      .map(
+        (s) => `
+          <div class="canopy-tooltip-section">
+            <p class="canopy-tooltip-section-title">${s.title}</p>
+            <p class="canopy-tooltip-section-body">${s.body}</p>
+          </div>
+        `
+      )
+      .join("");
+
+    // ----- 2. Position beside the node -----
+    const stageRect = stage.getBoundingClientRect();
+    const nodeRect = node.getBoundingClientRect();
+
+    const gap = 24;                      // horizontal space between node and tooltip
+    const top = nodeRect.top - stageRect.top;
+
+    // Preferred: to the right of the node
+    let left = nodeRect.right - stageRect.left + gap;
+
+    // If there isn't room on the right, flip to the left
+    const tooltipWidth = tooltip.offsetWidth;
+    const maxLeft = stageRect.width - tooltipWidth - 12;
+    if (left > maxLeft) {
+      const flippedLeft = nodeRect.left - stageRect.left - tooltipWidth - gap;
+      left = flippedLeft >= 12 ? flippedLeft : Math.max(12, maxLeft);
+    }
+
+    tooltip.style.left = `${left}px`;
+    tooltip.style.top = `${top}px`;
+
+    tooltip.classList.add("is-visible");
+    tooltip.setAttribute("aria-hidden", "false");
+  };
+
+  const hideTooltip = () => {
+    if (!tooltip) return;
+    tooltip.classList.remove("is-visible");
+    tooltip.setAttribute("aria-hidden", "true");
+  };
+
+  node.addEventListener("mouseenter", showTooltip);
+  node.addEventListener("mouseleave", hideTooltip);
+  node.addEventListener("focus", showTooltip);
+  node.addEventListener("blur", hideTooltip);
+}
+});
 
     /*
      * Bind this page's close button.
