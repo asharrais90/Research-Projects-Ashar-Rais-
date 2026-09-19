@@ -746,9 +746,47 @@ body {
 
 
   .info-panel {
-    right: 12px;
-    bottom: 12px;
-    width: calc(100vw - 24px);
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    width: auto;
+    max-height: 45vh;         /* cap the height; content scrolls */
+    padding: 14px 16px 16px;
+    border-radius: 12px;
+    box-shadow: 0 8px 22px rgba(23, 39, 54, 0.10);
+  }
+
+  .panel-content {
+    padding-right: 24px;      /* keep clear of the close button */
+    max-height: calc(45vh - 30px);
+    overflow-y: auto;
+  }
+
+  .panel-kicker {
+    font-size: 0.60rem;
+    margin-bottom: 4px;
+  }
+
+  .panel-content h2 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .panel-content p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  .panel-link {
+    font-size: 0.85rem;
+    margin-top: 2px;
+  }
+
+  .panel-close {
+    top: 6px;
+    right: 8px;
+    font-size: 22px;
   }
 }
 
