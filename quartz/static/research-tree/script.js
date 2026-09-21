@@ -156,10 +156,33 @@ const ROOT_CONFIGS = [
     curve: 30,
     seed: 62,
     label: "Intellectual Motivation & Background",
-    panel: "personal"
+    panel: "motivation-detail"
   }
 ];
 
+const tooltipData = {
+  mechanobiology: [
+    {
+      title: "Introduction",
+      body:
+        "Mechanobiology studies how physical forces, stiffness, and " +
+        "geometry shape cellular behaviour, tissue organisation, and fate."
+    },
+    {
+      title: "Historical background",
+      body:
+        "The field emerged from early observations that cells respond " +
+        "to mechanical cues as strongly as to chemical ones."
+    },
+    {
+      title: "Potential for future breakthroughs",
+      body:
+        "Understanding mechanotransduction may open new avenues for " +
+        "tissue engineering, cancer therapy, and regenerative medicine."
+    }
+  ]
+  // Add more entries here keyed by data-tooltip value
+};
 
   /* ================================================================
      PROCEDURAL FOLIAGE
@@ -955,18 +978,46 @@ function startTreeGradientAnimation() {
 if (node.dataset.tooltip) {
   const tooltip = document.getElementById("canopy-tooltip");
   const stage = document.getElementById("research-tree");
+  const sectionsHost = document.getElementById("canopy-tooltip-sections");
 
   const showTooltip = () => {
-    if (!tooltip || !stage) return;
+    if (!tooltip || !stage || !sectionsHost) return;
 
-    // Position the tooltip under the node
+    // ----- 1. Populate the sections -----
+    const sections = tooltipData[node.dataset.tooltip];
+    if (!sections) return;
+
+    sectionsHost.innerHTML = sections
+      .map(
+        (s) => `
+          <div class="canopy-tooltip-section">
+            <p class="canopy-tooltip-section-title">${s.title}</p>
+            <p class="canopy-tooltip-section-body">${s.body}</p>
+          </div>
+        `
+      )
+      .join("");
+
+    // ----- 2. Position beside the node -----
     const stageRect = stage.getBoundingClientRect();
     const nodeRect = node.getBoundingClientRect();
 
-    tooltip.style.left =
-      `${nodeRect.left - stageRect.left + nodeRect.width / 2}px`;
-    tooltip.style.top =
-      `${nodeRect.bottom - stageRect.top + 10}px`;
+    const gap = 24;                      // horizontal space between node and tooltip
+    const top = nodeRect.top - stageRect.top;
+
+    // Preferred: to the right of the node
+    let left = nodeRect.right - stageRect.left + gap;
+
+    // If there isn't room on the right, flip to the left
+    const tooltipWidth = tooltip.offsetWidth;
+    const maxLeft = stageRect.width - tooltipWidth - 12;
+    if (left > maxLeft) {
+      const flippedLeft = nodeRect.left - stageRect.left - tooltipWidth - gap;
+      left = flippedLeft >= 12 ? flippedLeft : Math.max(12, maxLeft);
+    }
+
+    tooltip.style.left = `${left}px`;
+    tooltip.style.top = `${top}px`;
 
     tooltip.classList.add("is-visible");
     tooltip.setAttribute("aria-hidden", "false");
