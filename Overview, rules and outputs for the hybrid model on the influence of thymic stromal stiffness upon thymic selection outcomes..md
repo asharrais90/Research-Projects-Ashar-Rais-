@@ -289,10 +289,10 @@ Negative selection is evaluated continuously throughout the simulation and immed
 ### Link to code
 
 #### Calibration, sensitivity analyses and validation 
-[Calibration, sensitivity analyses and validation of this thymic selection mechanobiology model.](./Calibration,%20sensitivity%20analyses%20and%20validation%20of%20this%20thymic%20selection%20mechanobiology%20model..md)
+[Calibration, sensitivity analyses and validation of this thymic selection mechanobiology model.](./Calibration,%2520sensitivity%2520analyses%2520and%2520validation%2520of%2520this%2520thymic%2520selection%2520mechanobiology%2520model..md#)
 
 #### Information regarding the parameter values used and calculation of equations
-[Parameters and calculations for the thymic mechanobiology model](./Parameters%20and%20calculations%20for%20the%20thymic%20mechanobiology%20model.md)
+[Parameters and calculations for the thymic mechanobiology model](./Parameters%2520and%2520calculations%2520for%2520the%2520thymic%2520mechanobiology%2520model.md#)
 
 
 Studies that might form the basis of this type of work:
