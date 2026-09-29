@@ -372,5 +372,52 @@ I would **not present these as fixed values** in a thesis or paper. Instead, cla
 This is exactly how most hybrid ABM–ODE immunology models are parameterized. In fact, I would go one step further and perform a **global sensitivity analysis (e.g., Latin Hypercube Sampling + Sobol indices or Morris screening)** on the calibration parameters. That approach is generally viewed more favorably by reviewers than claiming precise values for quantities that have never been directly measured in thymocytes.
 
 ### Values taken from literature
+- koff_null:    float = 5.00
+- koff_select: float = 0.36
+- koff_delete:  float = 0.057
+- k_p:    float = 10.0
+- k_SHP1: float = 0.05
+- N_kp:   float = 4.5
+
 ### Estimated from experimental ranges
+- Stromal density: 0.001
+- zap70_mean: float = 1.0
+- zap70_cv:   float = 0.3
+- zap70_lo:   float = 0.1
+- zap70_hi:   float = 4.0
+- Residence time distribution: Gamma distribution
+- Tres_shape: float = 5.0
+- Tres_scale: float = 1152.0
+- v_max:  float = 25.0
+- K_low:  float = 0.5
+- n_low:  float = 1.5
+- K_high: float = 4.0
+- n_high: float = 2.0
+- p_bias: float = 0.04
+- k_C: float = 0.05
+- K_C: float = 2.5
+- k_M:     float = 0.03
+- K_M:     float = 2.5
+- alpha_C_max: float = 1.0
+- alpha_M_max: float = 0.5
+- F_T: float = 20.0
+- K_F:   float = 2.5
+- beta:  float = 0.5
+- kc0: float = 0.5
+- Fc:  float = 12.0
+- ks0: float = 0.5
+- Fs:  float = 25.0
+- k_scan_base: float = 1.0
+- gamma:       float = 0.5
+- lambda_X: float = 0.01
 ### Modeler's choice 
+- grid width (grid_w): 100
+- grid height (grid_h): 100
+- grid spacing (grid_spacing): 10
+- cortex fraction (cortex_frac): 70%
+- Total run time (T_run_hr): 288 hrs = 12 days
+- No. of thymocytes introduced (n_initial) = 1000
+- Lower limit of koff: 0.001 s-1
+- Upper limit of koff: 50 s-1
+- time step duration (dt): 1 min
+- seed: 42
