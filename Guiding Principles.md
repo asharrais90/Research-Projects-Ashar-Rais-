@@ -1,19 +1,21 @@
+---
+share: true
+publish: true
+---
 
 [Introduction to Mechanobiology](./Introduction%20to%20Mechanobiology.md)
+[Intellectual Motivation and Background](./Intellectual%20Motivation%20and%20Background.md)
 
-My interests are driven less by individual diseases than by recurring mechanisms. I am particularly drawn to questions that sit at the intersection of:
+There are two general principles through which this whole endeavor started, the projects are chosen and which guide the work on these projects that originate from two different places. First is my interest into the common theoretical themes of these projects and second is my intention to learn specific skills that I believe are paramount for me to become proficient in my current stage as a researcher (a post-graduate). *An additional important point that temporarily constrains this work arises from my from current situation of not being part of a research lab, with obtaining a PhD position being a crucial aim of this work at this time. The consequences of this constraint upon my decisions are explained later in this document.*  
 
+### Common threads running through the chosen projects
+The overarching theoretical principle of this entire endeavor is that biological function at the cellular and molecular scale is not separable from physical context. To reduce complexity for the sake of understanding, many fundamental topics in cellular and molecular biology (such as the gene expression process, signal transduction pathways, the cell cycle, etc.) are generally taught/discussed in isolation. However, cells do not work with chemical signals in an abstract realm, they do so in the presence of different mechanical forces while being in a specific physical environment.  Altering the physical context of a cell/tissue often leads to some form of change in cellular behavior. While these are not entirely new ideas (some of the relevant history can be read in [Introduction to Mechanobiology](./Introduction%20to%20Mechanobiology.md)), they are still relatively underexplored. With the introduction of new ideas/techniques such as viscoelasticity of tissues, 3D culturing and microfluidics, the field of mechanobiology has gained more attraction and the concepts at the center of this field have now started to be employed to address some of the biggest questions in biology. 
+
+Something that regularly draws me to a problem is the sense that a question has not yet been posed in quite the way I want to pose it or that the tools available haven't quite been turned toward it. Problems of this kind rarely live comfortably inside a single discipline. They tend to sit in the gaps between fields, where the vocabulary of one doesn't quite fit the phenomena of the other, and where progress depends on bringing tools across. Mechanobiology sits at exactly such a gap, often combining cell biology, biophysics and engineering to study how mechanical forces (like shear and tensile forces) and physical environment (such as stiffness, geometry and viscosity) modulate functioning of proteins, chromatin and cells. My interests are a bit more focused on the recurring mechanisms or the common threads, rather than on specific diseases or particular processes. I am particularly drawn to questions that sit at the intersection of:
 - The **physical context** of cells (mechanobiology, mechanotransduction, tissue architecture, ECM organization).
 - The **cellular decisions** that arise from that context (immune-cell development, cell-cell and cell-stroma interactions).
 - The **tools** to study and manipulate these processes (systems-level computational modeling, nanotechnology).
-
-
-While the biological systems differ, the underlying questions remain consistent:
-
-- How does structure influence function?
-- How do cells interpret their physical environment?
-- How do mechanical cues interact with molecular signaling?
-- Can computational models help reveal mechanisms that are difficult to observe experimentally?
-- How might these insights inform future diagnostics, therapeutics, or biomaterial design?
-
-This portfolio is an ongoing attempt to explore these questions through the integration of literature synthesis, computational biology, and scientific visualization.
+I, therefore, try to approach these questions from a systems-biology perspective. In addition to treating individual pathways or molecular components as isolated entities, I am interested in how networks of interactions generate emergent behavior and how changes at one level propagate to others. In the recent years, in parallel to mechanobiology, this approach has become increasingly powerful as advances in single-cell and spatial profiling, high-throughput molecular measurements, computational modelling, and multi-omics integration have made it possible to study biological systems across scales with increasing resolution. Recent work in systems biology increasingly combines measurement, computation, perturbation, and mechanistic modelling to study complex disease and cellular behavior which makes it an attractive perspective to apply to mechanobiological model.
+### Methods of exploring the topics and certain skills to be polished 
+Like the quote "All roads lead to Rome" (implying that there are multiple methods of accomplishing a particular outcome), a certain research question is explorable through many tools and methods. However, the ultimate choice of the methodology depend mainly on two points--which specific processes or structures are under study and which tools are available at the current moment. 
+Through a long-term perspective, this portfolio is intended not simply as a collection of finished projects, but as a record of an evolving research practice. The projects therefore follow several principles intended to make the work useful both as a personal learning process and as something that another researcher could inspect, reproduce, and build upon.
