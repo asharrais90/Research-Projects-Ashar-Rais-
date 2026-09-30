@@ -44,7 +44,7 @@
       label: "Curriculum Vitae",
       body: 
            "This latin word translates to 'course of life'. Also, a fun fact is that a letter from Leonardo Da Vinci to the Duke of Milan in 1498 is considered to be one of the earliest records resembling a modern CV (but it read more like a cover letter).",  
-      url: ""
+      url: ""../static/Ashar-Rais-CV.pdf",
     },
 
     grades: {
@@ -158,7 +158,7 @@ const tooltipData = {
     {
       title: "Historical background",
       body:
-        "The pioneering experiments of this field were conducted in the  late 19<sup>th</sup> and early 20<sup>th</sup>. However, due to conceptual and technical limitations, the progress of mechanobiological research for roughly half a century. It was not until the final decades of the 20<sup>th</sup> century that the field started gaining momentum again with certain discoveries in the 1980s and 1990s that the current 'Molecular Age of Mechanobiology' was ushered in." 
+        "The pioneering experiments of this field were conducted in the  late 19<sup>th</sup> and early 20<sup>th</sup>. However, due to conceptual and technical limitations, the progress of mechanobiological research for roughly half a century. It was not until the final decades of the 20<sup>th</sup> century that the field started gaining momentum again and following important discoveries in the 1980s and 1990s, the current 'Molecular Age of Mechanobiology' was ushered in." 
     },
     {
       title: "Potential for future breakthroughs",
