@@ -20,7 +20,7 @@ This model is intended as a hypothesis-generating framework that is at the proof
 
 
 
-### Section 2: Rules of this model
+### Section-2: Rules of this model and the rationale behind them
 
 #### 1. Spatial Agent-Based Model (ABM) and time-step duration:
 
@@ -257,11 +257,11 @@ Where, λ is the signal decay rate which is set to 0.02 min<sup>-1</sup>. Accord
 
 
 
-### Section 3: Results and hypotheses generated from them
+### Section-3: Results and hypotheses generated from them
 
 #### 3.1 Baseline fate distribution and qualitative validation
 
-To establish the model's baseline behavior, 1,000 thymocytes were simulated across a uniform stiffness field (0–6 kPa range, S<sub>mean</sub> = 3.5 kPa to minimize clipping) over a 288-hour residence window. Under default parameterization, 4.6% of thymocytes underwent positive selection, 30.9% were negatively selected, and 64.5% died by neglect <mark style="background:#d3f8b6">==(Figure 1A; Table 1)==</mark>. The dominance of neglect as the primary fate class is consistent with the established in vivo observation that the large majority of developing thymocytes fail to generate sufficient TCR signal to cross the positive selection threshold. The absolute rates of positive selection are elevated relative to in vivo estimates (0.5–3%; Klein et al., 2014), a discrepancy that is addressed directly in Section 4 and that motivates the koff distribution analysis reported in Section 3.4. Across three independent replicate runs with distinct random seeds, fate percentages were stable to within 0.4 percentage points for positive selection and 1.4 percentage points for negative selection, confirming that the observed distributions reflect the model's mechanistic architecture rather than stochastic fluctuation at this population size.
+To establish the model's baseline behavior, 1000 thymocytes were simulated across a uniform stiffness field (0–6 kPa range, S<sub>mean</sub> = 3.5 kPa to minimize clipping) over a 288-hour residence window. Under default parameterization, 4.6% of thymocytes underwent positive selection, 30.9% were negatively selected, and 64.5% died by neglect <mark style="background:#d3f8b6">==(Figure 1A; Table 1)==</mark>. The quantitative dominance of death-by-neglect fate class is consistent with the established in-vivo observation that the large majority of developing thymocytes fail to generate sufficient TCR signal to cross the positive selection threshold. The absolute rates of positive selection are elevated relative to in vivo estimates (0.5–3%; Klein et al., 2014), attaining which was a motivation for molding the shape of koff distribution ==analysis reported in Section 3.4.== Across three independent replicate runs with distinct random seeds, fate percentages were stable to within 0.4 percentage points for positive selection and 1.4 percentage points for negative selection, confirming that the observed distributions reflect the model's mechanistic architecture rather than stochastic fluctuation at this population size.
 
 #### 3.2 Contact dynamics stratified by fate
 
@@ -283,35 +283,21 @@ Scenario effects were most pronounced at the 0–6 kPa range, where cortex_stiff
 
 An orientation reversal was observed at the 12–18 kPa range: cortex_stiffer produced the lowest positive selection (1.5%) while medulla_stiffer produced the highest (2.1%) — a directional inversion from the 0–6 kPa result. At this range, S_stiffer = 16.5 kPa constrains cortical migration to near-zero, effectively immobilising cells introduced there. Medulla_stiffer places the cortex at 13.5 kPa, fractionally closer to K_high, producing marginally more efficient cortical migration and a slight positive selection advantage. This inversion demonstrates that gradient orientation effects are stiffness-dependent and not directionally fixed, generating a testable prediction: the relationship between cortex-medulla stiffness contrast and selection outcome reverses sign as absolute stiffness crosses the migration optimum.
 
-### Limitations of this model and possible future modifications
-
-·        3D grid and inclusion of other mechanical properties such as fibre orientation and ECM composition, MHCI/II distinction, cytokine fields, CD4/CD8 commitment elaboration through ThPOK and Runx activity, competition for stromal contacts and crowding-dependent mechanotransduction, cell proliferation and how it affects signalling dynamics such as cytoskeletal priming, dynamic ECM and how different cell types reshape the microenvironment, Relationship between speed, developmental stage and cytokine gradients, Further addition of factors contributing to biological noise (like varying expression levels of different signalling proteins), Effects of changing stromal properties upon stromal cell densities, slowing of cells upon interaction with APCs (and the amount varies between cells that were then observed to be positively or negatively selected)
-
-·        **Mechanotransduction survival module:** Main reasons for excluding it from the first version: lack of sufficient data which connects mechanosensitive survival pathways to changing selection outcomes and lack of an established framework like the kinetic proof-reading that allows determination of non-arbitrary survival thresholds.
-
-·        Future extensions of the model will refine the thresholds using additional data (e.g., Nur77-GFP reporter studies, lineage-specific calibrations) as they become available and as the model is extended to include MHC-I/II and CD4/8 distinctions.
-
+### Section-4: Limitations of this model and possible future modifications
+As this a proof-of-concept and a highly abstracted, phenomenological model, there are considerable limitations in it which have to be kept in mind while going through it. Some major limitations and the modifications that can be done in the future to address them are discussed in the following sub-sections.
+#### 5.1 Spatial and environmental representation
+In the current version of the model, thymic stroma is represented as a 2D Cartesian grid with stiffness assigned as a static isotropic scalar field with cortex-medulla compartmentalization. This simplistic representation was an intentional choice for the first version that captures the essential regional compartmentalization while remaining computationally tractable. Several crucial features of the physical thymic microenvironment are not represented at this stage. In addition to stiffness, thymic stroma is characterized by other mechanical properties such as viscoelasticity and anisotropy which depend on multiple factors (fiber orientation, crosslink density, and compositional variation between collagen, laminin, and fibronectin-rich domains across cortical and medullary compartments)  
 
 ### Link to code
 
 #### Calibration, sensitivity analyses and validation 
-[Calibration, sensitivity analyses and validation of this thymic selection mechanobiology model.](./Calibration,%20sensitivity%20analyses%20and%20validation%20of%20this%20thymic%20selection%20mechanobiology%20model..md)
+[Calibration and validation of this thymic selection mechanobiology model.](./Calibration%20and%20validation%20of%20this%20thymic%20selection%20mechanobiology%20model..md)
 
 #### Information regarding the parameter values used and calculation of equations
-[Parameters and calculations for the thymic mechanobiology model](./Parameters%20and%20calculations%20for%20the%20thymic%20mechanobiology%20model.md)
+[Parameters and sensitivity analyses for the thymic mechanobiology model](./Parameters%20and%20sensitivity%20analyses%20for%20the%20thymic%20mechanobiology%20model.md)
 
 
-Studies that might form the basis of this type of work:
-Human progenitor T-cell differentiation regulated by the mechanical resistance of thymus-mimetic extracellular matrices (N. Jeffreys et.al., 2025 | preprint)
 
-Papers/Concepts to be read: 
-- Developing T-cell migration: role of semaphorins and ephrins. 
-- How to find your way through the thymus: a practical guide for aspiring T cells
-- A hybrid discrete–continuous model of metastatic cancer cell migration through a remodeling extracellular matrix.
-- Mechanical force matters in early T cell activation
-- Cytoskeletal adaptivity regulates T cell receptor signaling
-- Mechanotransduction in T Cell Development, Differentiation and Function: Although the TCR complex is proposed to be intrinsically mechanosensitive, recently, the professional mechanosensor Piezo1 was shown to enhance TCR triggering and activation [[112](https://www.mdpi.com/2073-4409/9/2/364#B112-cells-09-00364)]. Piezo1 is part of a conserved class of mechanically activated ion channels across eukaryote species, non-selectively permeable to cations, with a slight preference for Ca2+ ions [[113](https://www.mdpi.com/2073-4409/9/2/364#B113-cells-09-00364),[114](https://www.mdpi.com/2073-4409/9/2/364#B114-cells-09-00364)].
-- Biophysical {Aspects} of {T} {Lymphocyte} {Activation} at the {Immune} {Synapse}: Moreover, it has been shown that the integrin bonds “remember” the history of the forces they have been submitted to. This phenomenon was called “cyclic mechanical reinforcement,” as the bond strength accumulates over repeated cycles of forces and is maintained after force removal (65). For instance, fibronectin/α5β1 integrin bonds dissociate within 1 s at a force of 5 pN, while upon cyclic mechanical reinforcement, the bond lifetimes can be extended to 14 s. Similar mechanisms apply to LFA-1/ICAM-1-specific bonds
 
 
 
