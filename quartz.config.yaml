@@ -243,7 +243,7 @@ plugins:
       links:
         GitHub: https://github.com/asharrais90/Research-Projects-Ashar-Rais-
         LinkedIn: https://www.linkedin.com/in/ashar-rais-/
-        Email: asharrais90@gmail.com
+        Email: "mailto:asharrais90@gmail.com"
     layout:
       position: footer
       priority: 50
