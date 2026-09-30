@@ -94,7 +94,7 @@ body {
 
 .tree-svg {
   display: block;
-  width: min(670px, 90vw);
+  width: min(620px, 90vw);
   height: auto;
   margin: 0 auto;
   overflow: visible;
