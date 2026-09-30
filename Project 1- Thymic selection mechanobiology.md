@@ -7,8 +7,8 @@ This project is built upon the central question of how the mechanical properties
 1. A scoping review done to map the evidence present in the literature regarding this topic. [Scoping Review- Modulation of thymic selection outcomes by stromal or substrate mechanical properties (SMP).](./Scoping%20Review-%20Modulation%20of%20thymic%20selection%20outcomes%20by%20stromal%20or%20substrate%20mechanical%20properties%20(SMP)..md) 
 2. A hybrid simulation designed to explore different mechanistic avenues that allow the stromal mechanical properties to influence the selection process. The work for this sub-project is presented in the following documents:
 	- [Overview, rules and results for the hybrid model on the influence of thymic stromal stiffness upon thymic selection outcomes.](./Overview,%20rules%20and%20results%20for%20the%20hybrid%20model%20on%20the%20influence%20of%20thymic%20stromal%20stiffness%20upon%20thymic%20selection%20outcomes..md)
-	- [Calibration, sensitivity analyses and validation of this thymic selection mechanobiology model.](./Calibration,%20sensitivity%20analyses%20and%20validation%20of%20this%20thymic%20selection%20mechanobiology%20model..md)
-	- [Parameters and calculations for the thymic mechanobiology model](./Parameters%20and%20calculations%20for%20the%20thymic%20mechanobiology%20model.md)
+	- [Calibration and validation of this thymic selection mechanobiology model.](./Calibration%20and%20validation%20of%20this%20thymic%20selection%20mechanobiology%20model..md)
+	- [Parameters and sensitivity analyses for the thymic mechanobiology model](./Parameters%20and%20sensitivity%20analyses%20for%20the%20thymic%20mechanobiology%20model.md)
 Key outputs from this project include:
 - Evidence map for the literature on the relationship between stromal mechanical properties and selection outcomes;
 - Suggestions regarding possible future work that can adequately fill the gaps currently present in the literature to progress the field; 
