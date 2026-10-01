@@ -43,8 +43,9 @@
       title: "CV",
       label: "Curriculum Vitae",
       body: 
-           "This latin word translates to 'course of life'. Also, a fun fact is that a letter from Leonardo Da Vinci to the Duke of Milan in 1498 is considered to be one of the earliest records resembling a modern CV (but it read more like a cover letter).",  
-      url: ""../static/Ashar-Rais-CV.pdf",
+           "This latin word translates to 'course of life'. Also, a fun fact is that a letter from Leonardo Da Vinci to the Duke of Milan in 1498" +
+          "is considered to be one of the earliest records resembling a modern CV (but it read more like a cover letter).",  
+      url: "../static/Ashar-Rais-CV.pdf",
     },
 
     grades: {
@@ -153,17 +154,22 @@ const tooltipData = {
     {
       title: "Introduction",
       body:
-        "Mechanobiology studies how mechanical forces (such as hydrodynamic forces & shear stress) and physical properties (such as ECM stiffness & viscoelasticity, fiber orientaion and cellular stiffness) influence cellular behaviour, tissue organization, and disease initiation and progression."
+        "Mechanobiology studies how mechanical forces (such as hydrodynamic forces & shear stress) and physical properties" +
+        "(such as ECM stiffness & viscoelasticity, fiber orientaion and cellular stiffness) influence cellular behaviour, tissue organization, and disease initiation and progression."
     },
     {
       title: "Historical background",
       body:
-        "The pioneering experiments of this field were conducted in the  late 19<sup>th</sup> and early 20<sup>th</sup>. However, due to conceptual and technical limitations, the progress of mechanobiological research for roughly half a century. It was not until the final decades of the 20<sup>th</sup> century that the field started gaining momentum again and following important discoveries in the 1980s and 1990s, the current 'Molecular Age of Mechanobiology' was ushered in." 
+        "The pioneering experiments of this field were conducted in the  late 19<sup>th</sup> and early 20<sup>th</sup>. However, due to conceptual and technical limitations," +
+        "the progress of mechanobiological research for roughly half a century. It was not until the final decades of the 20<sup>th</sup> century" +
+        "that the field started gaining momentum again and following important discoveries in the 1980s and 1990s, the current 'Molecular Age of Mechanobiology' was ushered in." 
     },
     {
       title: "Potential for future breakthroughs",
       body:
-        "In the recent decades, a considerable mount work has shown the benefits of exploring mechanbiological questions in the context of developmental biology, oncological research, vascular pathologies and other important research niches. Being a relatively novel approach that complements existing genetic and biochemical concepts and tools, and understanding mechanobiology may open new avenues for tissue engineering, cancer therapy, and regenerative medicine."
+        "In the recent decades, a considerable mount work has shown the benefits of exploring mechanbiological questions in the context of developmental biology, oncological research," +
+        "vascular pathologies and other important research niches. Being a relatively novel approach that complements existing genetic and biochemical concepts and tools," +
+        "and understanding mechanobiology may open new avenues for tissue engineering, cancer therapy, and regenerative medicine."
     }
   ]
   // Add more entries here keyed by data-tooltip value
