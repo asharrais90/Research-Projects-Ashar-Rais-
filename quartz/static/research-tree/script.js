@@ -45,7 +45,7 @@
       body: 
            "This latin word translates to 'course of life'. Also, a fun fact is that a letter from Leonardo Da Vinci to the Duke of Milan in 1498" +
           "is considered to be one of the earliest records resembling a modern CV (but it read more like a cover letter).",  
-      url: "../static/Ashar-Rais-CV.pdf",
+      url: "../../static/CV (Ashar Rais).pdf",
     },
 
     grades: {
