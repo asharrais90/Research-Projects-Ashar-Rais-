@@ -44,8 +44,8 @@
       label: "Curriculum Vitae",
       body: 
            "This latin word translates to 'course of life'. Also, a fun fact is that a letter from Leonardo Da Vinci to the Duke of Milan in 1498" +
-          "is considered to be one of the earliest records resembling a modern CV (but it read more like a cover letter).",  
-      url: "../content/static/CV (Ashar Rais).pdf",
+          " is considered to be one of the earliest records resembling a modern CV (but it read more like a cover letter).",  
+      url: "../static/CV (Ashar Rais).pdf",
     },
 
     grades: {
@@ -63,15 +63,15 @@
       body:
         "A document giving information regarding the experiences that shaped my interest in mechanobiological concepts along with some academic and research background elaborating on my background and skills.", 
       label: "Read about motivation and background →",
-      url: "../../Intellectual Motivation & Research Background"
+      url: "../../Intellectual Motivation & Research Background.md"
     },
 
     principles: {
       title: "Common Threads",
       body:
-        "A document explaining common points between my interest in mechanobiology and the chosen projects and some principles that shaped the work on the presented projects.",
+        "A document explaining common points between my interest in mechanobiology and the chosen projects along with the principles that shaped the work on the presented projects.",
       label: "Read guiding principles →",
-      url: "../../Common Threads"
+      url: "../../Common Threads.md"
     },
 
 
@@ -144,8 +144,8 @@ const ROOT_CONFIGS = [
     thickness: 35,
     curve: 30,
     seed: 62,
-    label: "Intellectual Motivation &" + 
-      "Research Background",
+    label: "Motivation &" + 
+         "Background",
     panel: "motivation-detail"
   }
 ];
