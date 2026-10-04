@@ -45,7 +45,7 @@
       body: 
            "This latin word translates to 'course of life'. Also, a fun fact is that a letter from Leonardo Da Vinci to the Duke of Milan in 1498" +
           " is considered to be one of the earliest records resembling a modern CV (but it read more like a cover letter).",  
-      url: "../../content/static/CV (Ashar Rais).pdf",
+      url: "../CV-Ashar-Rais.pdf",
     },
 
     grades: {
@@ -63,7 +63,7 @@
       body:
         "A document giving information regarding the experiences that shaped my interest in mechanobiological concepts along with some academic and research background elaborating on my background and skills.", 
       label: "Read about motivation and background →",
-      url: "../../content/Intellectual Motivation & Research Background.md"
+      url: "https://asharrais90.github.io/Research-Projects-Ashar-Rais-/intellectual-motivation--and--research-background"
     },
 
     principles: {
@@ -71,7 +71,7 @@
       body:
         "A document explaining common points between my interest in mechanobiology and the chosen projects along with the principles that shaped the work on the presented projects.",
       label: "Read guiding principles →",
-      url: "../../content/Common Threads.md"
+      url: "https://asharrais90.github.io/Research-Projects-Ashar-Rais-/common-threads"
     },
 
 
@@ -898,16 +898,14 @@ function startTreeGradientAnimation() {
      * WeakSet prevents duplicate listeners on the same DOM node.
      */
 
-     tree
-      .querySelectorAll("[data-panel], [data-url]")
-      .forEach((node) => {
+    tree
+  .querySelectorAll("[data-panel], [data-url]")
+  .forEach((node) => {
 
     if (boundNodes.has(node)) return;
     boundNodes.add(node);
 
-    const isTouch = window.matchMedia("(hover: none)").matches;   // NEW
-
-    /* ---------- Tooltip helpers (declared first so click can use them) ---------- */
+    const isTouch = window.matchMedia("(hover: none)").matches;
 
     let showTooltip = null;
     let hideTooltip = null;
@@ -916,7 +914,7 @@ function startTreeGradientAnimation() {
       const tooltip = document.getElementById("canopy-tooltip");
       const stage = document.getElementById("research-tree");
       const sectionsHost = document.getElementById("canopy-tooltip-sections");
-      const linkEl = document.getElementById("canopy-tooltip-link");   // NEW
+      const linkEl = document.getElementById("canopy-tooltip-link");
 
       showTooltip = () => {
         if (!tooltip || !stage || !sectionsHost) return;
@@ -933,7 +931,6 @@ function startTreeGradientAnimation() {
           `)
           .join("");
 
-        // NEW: populate the "Read more" link if the node has a URL
         if (linkEl) {
           if (node.dataset.url) {
             linkEl.href = node.dataset.url;
@@ -946,7 +943,6 @@ function startTreeGradientAnimation() {
           }
         }
 
-        // Position (existing logic)
         const stageRect = stage.getBoundingClientRect();
         const nodeRect = node.getBoundingClientRect();
         const gap = 24;
@@ -971,16 +967,48 @@ function startTreeGradientAnimation() {
         tooltip.setAttribute("aria-hidden", "true");
       };
 
-      // NEW: only attach hover/focus listeners on non-touch devices
+      /* ---------- Hover behaviour (desktop only) ---------- */
+
       if (!isTouch) {
+        let hideTimer = null;
+
+        const cancelHide = () => {
+          if (hideTimer !== null) {
+            clearTimeout(hideTimer);
+            hideTimer = null;
+          }
+        };
+
+        const scheduleHide = () => {
+          cancelHide();
+          hideTimer = window.setTimeout(() => {
+            hideTimer = null;
+            hideTooltip();
+          }, 300);
+        };
+
+        // Node-level hover
         node.addEventListener("pointerenter", (e) => {
-          if (e.pointerType === "mouse") showTooltip();
+          if (e.pointerType === "mouse") {
+            cancelHide();
+            showTooltip();
+          }
         });
         node.addEventListener("pointerleave", (e) => {
-          if (e.pointerType === "mouse") hideTooltip();
+          if (e.pointerType === "mouse") scheduleHide();
         });
         node.addEventListener("focus", showTooltip);
-        node.addEventListener("blur", hideTooltip);
+        node.addEventListener("blur", scheduleHide);
+
+        // Tooltip-level hover — keeps it alive while the cursor crosses the gap
+        if (tooltip) {
+          tooltip.addEventListener("pointerenter", (e) => {
+            if (e.pointerType === "mouse") cancelHide();
+          });
+          tooltip.addEventListener("pointerleave", (e) => {
+            if (e.pointerType === "mouse") scheduleHide();
+          });
+        }
       }
     }
 
@@ -990,17 +1018,15 @@ function startTreeGradientAnimation() {
       event.stopPropagation();
 
       if (node.dataset.url) {
-        // NEW: on touch devices, click toggles the tooltip instead of navigating
         if (isTouch && showTooltip && hideTooltip) {
-          const tooltip = document.getElementById("canopy-tooltip");
-          if (tooltip && tooltip.classList.contains("is-visible")) {
+          const t = document.getElementById("canopy-tooltip");
+          if (t && t.classList.contains("is-visible")) {
             hideTooltip();
           } else {
             showTooltip();
           }
           return;
         }
-        // Desktop behaviour: navigate directly
         window.open(node.dataset.url, "_blank", "noopener,noreferrer");
         return;
       }
@@ -1022,6 +1048,7 @@ function startTreeGradientAnimation() {
       }
     });
 
+  });
  
 
     /*
@@ -1045,8 +1072,6 @@ function startTreeGradientAnimation() {
       });
 
     }
-
-  });
 }
 
   /* ================================================================
