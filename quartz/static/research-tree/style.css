@@ -710,8 +710,7 @@ body {
 @media (max-width: 900px) {
 
   .tree-stage {
-    overflow-x: auto;
-    overflow-y: visible;
+    overflow: hidden;
     padding-bottom: 18px;
   }
 
