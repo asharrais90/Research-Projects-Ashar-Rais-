@@ -39,7 +39,7 @@
       url: ""
     },
 
-    CV: {
+    C.V.: {
       title: "CV",
       label: "Curriculum Vitae",
       body: 
@@ -134,7 +134,7 @@ const ROOT_CONFIGS = [
     thickness: 43,
     curve: 5,
     seed: 47,
-    label: "CV",
+    label: "C.V.",
     panel: "CV"
   },
   {
@@ -154,22 +154,22 @@ const tooltipData = {
     {
       title: "Introduction",
       body:
-        "Mechanobiology studies how mechanical forces (such as hydrodynamic forces & shear stress) and physical properties" +
+        "Mechanobiology studies how mechanical forces (such as hydrodynamic forces & shear stress) and physical properties " +
         "(such as ECM stiffness & viscoelasticity, fiber orientaion and cellular stiffness) influence cellular behaviour, tissue organization, and disease initiation and progression."
     },
     {
       title: "Historical background",
       body:
-        "The pioneering experiments of this field were conducted in the  late 19<sup>th</sup> and early 20<sup>th</sup>. However, due to conceptual and technical limitations," +
-        "the progress of mechanobiological research for roughly half a century. It was not until the final decades of the 20<sup>th</sup> century" +
-        "that the field started gaining momentum again and following important discoveries in the 1980s and 1990s, the current 'Molecular Age of Mechanobiology' was ushered in." 
+        "The pioneering experiments of this field were conducted in the  late 19<sup>th</sup> and early 20<sup>th</sup>. However, due to conceptual and technical limitations, " +
+        "the progress of mechanobiological research for roughly half a century. It was not until the final decades of the 20<sup>th</sup> century " +
+        "that the field started gaining momentum again and through important discoveries in the 1980s and 1990s, the current 'Molecular Age of Mechanobiology' was ushered in." 
     },
     {
       title: "Potential for future breakthroughs",
       body:
-        "In the recent decades, a considerable mount work has shown the benefits of exploring mechanbiological questions in the context of developmental biology, oncological research," +
-        "vascular pathologies and other important research niches. Being a relatively novel approach that complements existing genetic and biochemical concepts and tools," +
-        "and understanding mechanobiology may open new avenues for tissue engineering, cancer therapy, and regenerative medicine."
+        "In the recent decades, a considerable amount work has shown the benefits of exploring mechanobiological questions in the context of developmental biology, oncological research, " +
+        "vascular pathologies and other important research areas. Being a relatively novel approach that complements existing genetic and biochemical approaches , " +
+        "understanding mechanobiology may open new avenues in multiples domains including tissue engineering, cancer therapy, and regenerative medicine."
     }
   ]
   // Add more entries here keyed by data-tooltip value
@@ -898,74 +898,131 @@ function startTreeGradientAnimation() {
      * WeakSet prevents duplicate listeners on the same DOM node.
      */
 
-    tree
-      .querySelectorAll("[data-panel], [data-url]")
-      .forEach((node) => {
+   tree
+  .querySelectorAll("[data-panel], [data-url]")
+  .forEach((node) => {
 
-        if (
-          boundNodes.has(node)
-        ) {
-          return;
+    if (boundNodes.has(node)) return;
+    boundNodes.add(node);
+
+    const isTouch = window.matchMedia("(hover: none)").matches;   // NEW
+
+    /* ---------- Tooltip helpers (declared first so click can use them) ---------- */
+
+    let showTooltip = null;
+    let hideTooltip = null;
+
+    if (node.dataset.tooltip) {
+      const tooltip = document.getElementById("canopy-tooltip");
+      const stage = document.getElementById("research-tree");
+      const sectionsHost = document.getElementById("canopy-tooltip-sections");
+      const linkEl = document.getElementById("canopy-tooltip-link");   // NEW
+
+      showTooltip = () => {
+        if (!tooltip || !stage || !sectionsHost) return;
+
+        const sections = tooltipData[node.dataset.tooltip];
+        if (!sections) return;
+
+        sectionsHost.innerHTML = sections
+          .map((s) => `
+            <div class="canopy-tooltip-section">
+              <p class="canopy-tooltip-section-title">${s.title}</p>
+              <p class="canopy-tooltip-section-body">${s.body}</p>
+            </div>
+          `)
+          .join("");
+
+        // NEW: populate the "Read more" link if the node has a URL
+        if (linkEl) {
+          if (node.dataset.url) {
+            linkEl.href = node.dataset.url;
+            linkEl.target = "_blank";
+            linkEl.rel = "noopener noreferrer";
+            linkEl.hidden = false;
+          } else {
+            linkEl.hidden = true;
+            linkEl.removeAttribute("href");
+          }
         }
 
+        // Position (existing logic)
+        const stageRect = stage.getBoundingClientRect();
+        const nodeRect = node.getBoundingClientRect();
+        const gap = 24;
+        const top = nodeRect.top - stageRect.top;
+        let left = nodeRect.right - stageRect.left + gap;
+        const tooltipWidth = tooltip.offsetWidth;
+        const maxLeft = stageRect.width - tooltipWidth - 12;
+        if (left > maxLeft) {
+          const flippedLeft = nodeRect.left - stageRect.left - tooltipWidth - gap;
+          left = flippedLeft >= 12 ? flippedLeft : Math.max(12, maxLeft);
+        }
+        tooltip.style.left = `${left}px`;
+        tooltip.style.top = `${top}px`;
 
-        boundNodes.add(node);
+        tooltip.classList.add("is-visible");
+        tooltip.setAttribute("aria-hidden", "false");
+      };
 
+      hideTooltip = () => {
+        if (!tooltip) return;
+        tooltip.classList.remove("is-visible");
+        tooltip.setAttribute("aria-hidden", "true");
+      };
 
-        node.addEventListener(
-          "click",
-          (event) => {
+      // NEW: only attach hover/focus listeners on non-touch devices
+      if (!isTouch) {
+        node.addEventListener("pointerenter", (e) => {
+          if (e.pointerType === "mouse") showTooltip();
+        });
+        node.addEventListener("pointerleave", (e) => {
+          if (e.pointerType === "mouse") hideTooltip();
+        });
+        node.addEventListener("focus", showTooltip);
+        node.addEventListener("blur", hideTooltip);
+      }
+    }
 
-            event.stopPropagation();
+    /* ---------- Click ---------- */
 
-              if (node.dataset.url) {
-    window.open(
-      node.dataset.url,
-      "_blank",
-      "noopener,noreferrer"
-    );
-    return;
-  }  
+    node.addEventListener("click", (event) => {
+      event.stopPropagation();
 
-            const panelId =
-              node.dataset.panel;
-
-
-            if (
-              activeNode === node
-            ) {
-
-              closePanel();
-
-              return;
-            }
-
-
-            openPanel(
-              panelId,
-              node
-            );
-
+      if (node.dataset.url) {
+        // NEW: on touch devices, click toggles the tooltip instead of navigating
+        if (isTouch && showTooltip && hideTooltip) {
+          const tooltip = document.getElementById("canopy-tooltip");
+          if (tooltip && tooltip.classList.contains("is-visible")) {
+            hideTooltip();
+          } else {
+            showTooltip();
           }
-        );
+          return;
+        }
+        // Desktop behaviour: navigate directly
+        window.open(node.dataset.url, "_blank", "noopener,noreferrer");
+        return;
+      }
 
+      const panelId = node.dataset.panel;
+      if (activeNode === node) {
+        closePanel();
+        return;
+      }
+      openPanel(panelId, node);
+    });
 
-        node.addEventListener(
-          "keydown",
-          (event) => {
+    /* ---------- Keyboard ---------- */
 
-            if (
-              event.key === "Enter" ||
-              event.key === " "
-            ) {
+    node.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        node.click();
+      }
+    });
 
-              event.preventDefault();
-
-              node.click();
-
-            }
-      });
-
+  });
 if (node.dataset.tooltip) {
   const tooltip = document.getElementById("canopy-tooltip");
   const stage = document.getElementById("research-tree");
@@ -1223,12 +1280,8 @@ if (node.dataset.tooltip) {
           "is-open"
         )
       ) {
-
         return;
-
       }
-
-
       if (
         !currentPanel.contains(
           event.target
@@ -1238,14 +1291,22 @@ if (node.dataset.tooltip) {
           event.target
         )
       ) {
-
         closePanel();
-
       }
 
-    }
-  );
+    });
 
+document.addEventListener("pointerdown", (event) => {
+  if (!window.matchMedia("(hover: none)").matches) return;
+
+  const tooltip = document.getElementById("canopy-tooltip");
+  if (!tooltip || !tooltip.classList.contains("is-visible")) return;
+  if (tooltip.contains(event.target)) return;
+  if (event.target.closest("[data-tooltip]")) return;
+
+  tooltip.classList.remove("is-visible");
+  tooltip.setAttribute("aria-hidden", "true");
+});
 
   /* ================================================================
      INITIAL PAGE LOAD
