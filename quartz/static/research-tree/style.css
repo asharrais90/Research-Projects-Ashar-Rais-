@@ -252,6 +252,30 @@ body {
   line-height: 1.5;
 }
 
+.canopy-tooltip-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #20577a;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  pointer-events: auto;         /* override parent's pointer-events: none */
+}
+
+.canopy-tooltip-link:hover,
+.canopy-tooltip-link:focus-visible {
+  text-decoration: underline;
+}
+
+/* On touch-only devices, make the tooltip interactive so the link works */
+@media (hover: none) {
+  .canopy-tooltip.is-visible {
+    pointer-events: auto;
+  }
+}
+
+/* -- Foliage ------------------------------------------------ */
 .foliage-cluster {
   fill: inherit
 }
