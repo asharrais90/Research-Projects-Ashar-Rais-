@@ -39,7 +39,7 @@
       url: ""
     },
 
-    C.V.: {
+    CV: {
       title: "CV",
       label: "Curriculum Vitae",
       body: 
@@ -134,7 +134,7 @@ const ROOT_CONFIGS = [
     thickness: 43,
     curve: 5,
     seed: 47,
-    label: "C.V.",
+    label: "CV",
     panel: "CV"
   },
   {
