@@ -39,7 +39,6 @@ Another rich source of interest in thymic mechanobiology is the thymic involutio
 
 Therefore, a scoping review is appropriate to systematically identify, classify and summarize the available evidence while highlighting important gaps for future experimental and computational research.
 
-
 ### Section 2: Objectives
 This scoping review was conducted in order to systematically map the research done in the area of T-cell selection mechanobiology, as well as to identify any existing gaps in knowledge. For this review, the following research question was formulated: "What evidence exists linking thymic SMPs (such as stiffness, viscoelasticity or porosity) to mechanisms governing thymocyte selection, central tolerance and involution?" Due to the interdisciplinary nature of this primary research question, the following evidence modules were devised to cover different aspect of relevant data in the literature: 
 - **EM-1**: To assess evidence linking SMPs with positive selection, negative selection, T<sub>reg </sub>production and other relevant aspects of thymocyte development (for eg., formation of DP thymocytes);
