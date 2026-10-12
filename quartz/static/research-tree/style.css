@@ -97,11 +97,16 @@ body {
   width: min(620px, 90vw);
   height: auto;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   z-index: 2;
 }
-
+.tree-stage {
+  position: relative;      /* anchors the tooltip and birds */
+  isolation: isolate;      /* keeps z-index values local */
+  overflow: hidden;        /* clips the birds' flight path */
+  padding-bottom: 18px;    /* room under the tree */
+}
 
 /* ================================================================
    2. CANOPY
@@ -708,16 +713,14 @@ body {
    ================================================================ */
 
 @media (max-width: 900px) {
-
   .tree-stage {
     overflow: hidden;
-    padding-bottom: 18px;
+    padding-bottom: 10px;
   }
 
-
   .tree-svg {
-    width: 80%;
-    max-width: 820px;
+    width: 90%;
+    max-width: none;
     margin: 0 auto;
   }
 
@@ -727,14 +730,14 @@ body {
     bottom: 10px;
     left: 10px;
     width: auto;
-    max-height: 45vh;         /* cap the height; content scrolls */
+    max-height: 45vh;         
     padding: 14px 16px 16px;
     border-radius: 12px;
     box-shadow: 0 8px 22px rgba(23, 39, 54, 0.10);
   }
 
   .panel-content {
-    padding-right: 24px;      /* keep clear of the close button */
+    padding-right: 24px;      
     max-height: calc(45vh - 30px);
     overflow-y: auto;
   }
