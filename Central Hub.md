@@ -40,7 +40,7 @@ The vast potential and diverse benefits of mechanobiology make it an exciting fi
 ---
 ## Portfolio
 
-#### [Project 1- Thymic selection mechanobiology](Project%201-%20Thymic%20selection%20mechanobiology.md)
+#### [Project 1- Thymic Selection Mechanobiology](Project%201-%20Thymic%20Selection%20Mechanobiology.md)
 Thymic selection is a central part of T-cell development which occurs in the thymus (a gland/organ situated above the heart). This process is crucial for the building of a self-tolerant (does not attack self antigens) and competent (can adequately attack foreign antigens) T-cell population in our body. Although a substantial amount of work has been undertaken to understand thymic selection, there are still many open questions that demand more research or a different perspective of doing research. The project in this portfolio arises from the latter method and focuses on the mechanobiology of thymic selection. This project is built upon the central question of how the mechanical properties of thymic stroma (such as stiffness, fiber orientation and viscoelasticity) influence thymic selection process. It is composed of two sub-projects:
 1. A scoping review that explores the literature on the connection between mechanical properties and thymic selection process to delineate what has been studied and what gaps remain exist that might be explored in the future;
 2. A simulation model built on the principles of agent-based modeling and ordinary differential equations to study how stromal stiffness would affect the ratio of selection outcomes. 
