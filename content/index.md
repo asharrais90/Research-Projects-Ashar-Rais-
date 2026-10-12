@@ -10,7 +10,7 @@ Fortunately, as time passed further, certain discoveries (for eg., the discovery
 
 These discoveries and breakthroughs at the turn of the millennium paved the way for the current "Molecular Era of Mechanotransduction". Multiple proteins of different kinds (including Integrins, Piezo1&2, Rho GTPase, ROCK, Talin, FAK, LINC complex and YAP/TAZ transcriptional activators) and their associated pathways are now recognized to be involved in connecting mechanical forces to crucial cellular functions (ranging from cellular shape and migration to proliferation and differentiation) (Di et al., 2023). Furthermore, similar to the trend in other biological fields (Qiao et al., 2025), some groups are now incorporating a "systems-approach" to mechanobiological research. This has become apparent from the use of single cell technologies (Kasuba et al., 2026), tools to understand the dynamic and complex nature of tissue architecture (including micro-scale atomic force microscopy, light-sheet elastography, and Brillouin microscopy) (Miranda et al., 2021; Prevedel et al., 2019; Zhu et al., 2025) and more advanced materials (such as alginate and hyaluronic acid with dynamic cross-linking) to better recapitulate the mechanical properties of real tissues (Ganesh et al., 2013).
 
-### Significance of exploring mechanobiology
+### Significance of Exploring Mechanobiology
 Given the intimate role of mechanical forces and physical properties in cellular functioning and behavior, it is not surprising that decades of mechanobiological research have produced many significant findings in fundamental and translational domains. Diseases ranging from cancer to neurodegenerative disorders have some kind of involvement of mechanobiological processes that can be utilized to better understand and treat these maladies (the term 'mechanomedicine' has been used for collectively referring to this area of research and form of treatment)(Kalukula et al., 2025). Additionally, many groups have been using modern molecular tools to explore the role of mechanical forces and physical properties during developmental processes, particularly those that impart specific form to tissues and organs (Mammoto & Ingber, 2010). This knowledge is further being leveraged in the field of regenerative medicine to improve the treatment of physical injuries and development of artificial limbs and organs (Rayat Pisheh et al., 2026). In the following sections, some interesting findings pertaining to the role of mechanobiology in different diseases, developmental biology and regenerative medicine have been discussed.
 
 #### Diseases and Mechanomedicine
@@ -56,9 +56,9 @@ To read more about my research background and intellectual motivation driving th
 
 To know more about the themes that connect my research interest, the field of mechanobiology and the topic of chosen projects: [[Common Threads]]
 
-To explore some ideas with similar themes I worked that developed in the past: [[Connection node- Ideas built in the past that might be beneficial in the future]]
+To explore some ideas with similar themes I worked that developed in the past: [[content/Additional stuff/Ideas built in the past/Connection node- Ideas built in the past that might be beneficial in the future|Connection node- Ideas built in the past that might be beneficial in the future]]
 
-## References
+## References 
 Adu-Berchie, K., Liu, Y., Zhang, D. K. Y., Freedman, B. R., Brockman, J. M., Vining, K. H., Nerger, B. A., Garmilla, A., & Mooney, D. J. (2023). Generation of functionally distinct T-cell populations by altering the viscoelasticity of their extracellular matrix. _Nature Biomedical Engineering_, _7_(11), 1374–1391. https://doi.org/10.1038/s41551-023-01052-y
 
 Antar, S. A., Ashour, N. A., Marawan, M. E., & Al-Karmalawy, A. A. (2023). Fibrosis: Types, Effects, Markers, Mechanisms for Disease Progression, and Its Relation with Oxidative Stress, Immunity, and Inflammation. _International Journal of Molecular Sciences_, _24_(4), 4004. https://doi.org/10.3390/ijms24044004
