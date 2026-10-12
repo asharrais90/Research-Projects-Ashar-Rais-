@@ -86,6 +86,7 @@
 
 body {
   background: #faf9f6;   /* warm paper */
+  overflow-x: hidden;  /*If any future content (a wide table, a long code block) legitimately needs horizontal scroll, it will be clipped instead*/
 }
 
 /* ================================================================
@@ -104,7 +105,7 @@ body {
 .tree-stage {
   position: relative;      /* anchors the tooltip and birds */
   isolation: isolate;      /* keeps z-index values local */
-  overflow: hidden;        /* clips the birds' flight path */
+  overflow: visible;        /* clips the birds' flight path */
   padding-bottom: 18px;    /* room under the tree */
 }
 
@@ -713,10 +714,6 @@ body {
    ================================================================ */
 
 @media (max-width: 900px) {
-  .tree-stage {
-    overflow: hidden;
-    padding-bottom: 10px;
-  }
 
   .tree-svg {
     width: 90%;
