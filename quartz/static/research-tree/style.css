@@ -86,6 +86,7 @@
 
 body {
   background: #faf9f6;   /* warm paper */
+  overflow-x: hidden;  /*If any future content (a wide table, a long code block) legitimately needs horizontal scroll, it will be clipped instead*/
 }
 
 /* ================================================================
@@ -101,7 +102,12 @@ body {
   position: relative;
   z-index: 2;
 }
-
+.tree-stage {
+  position: relative;      /* anchors the tooltip and birds */
+  isolation: isolate;      /* keeps z-index values local */
+  overflow: visible;        /* clips the birds' flight path */
+  padding-bottom: 18px;    /* room under the tree */
+}
 
 /* ================================================================
    2. CANOPY
@@ -216,7 +222,7 @@ body {
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -709,15 +715,9 @@ body {
 
 @media (max-width: 900px) {
 
-  .tree-stage {
-    overflow: hidden;
-    padding-bottom: 18px;
-  }
-
-
   .tree-svg {
-    width: 80%;
-    max-width: 820px;
+    width: 90%;
+    max-width: none;
     margin: 0 auto;
   }
 
@@ -727,14 +727,14 @@ body {
     bottom: 10px;
     left: 10px;
     width: auto;
-    max-height: 45vh;         /* cap the height; content scrolls */
+    max-height: 45vh;         
     padding: 14px 16px 16px;
     border-radius: 12px;
     box-shadow: 0 8px 22px rgba(23, 39, 54, 0.10);
   }
 
   .panel-content {
-    padding-right: 24px;      /* keep clear of the close button */
+    padding-right: 24px;      
     max-height: calc(45vh - 30px);
     overflow-y: auto;
   }

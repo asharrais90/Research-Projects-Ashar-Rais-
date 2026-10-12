@@ -160,7 +160,7 @@ const tooltipData = {
     {
       title: "Historical background",
       body:
-        "The pioneering experiments of this field were conducted in the  late 19<sup>th</sup> and early 20<sup>th</sup>. However, due to conceptual and technical limitations, " +
+        "The pioneering experiments of this field were conducted in the  late 19<sup>th</sup> and early 20<sup>th</sup> century. However, due to conceptual and technical limitations, " +
         "the progress of mechanobiological research for roughly half a century. It was not until the final decades of the 20<sup>th</sup> century " +
         "that the field started gaining momentum again and through important discoveries in the 1980s and 1990s, the current 'Molecular Age of Mechanobiology' was ushered in." 
     },
@@ -168,7 +168,7 @@ const tooltipData = {
       title: "Potential for future breakthroughs",
       body:
         "In the recent decades, a considerable amount work has shown the benefits of exploring mechanobiological questions in the context of developmental biology, oncological research, " +
-        "vascular pathologies and other important research areas. Being a relatively novel approach that complements existing genetic and biochemical approaches , " +
+        "vascular pathologies and other important research areas. Being a relatively novel approach that complements existing genetic and biochemical approaches, " +
         "understanding mechanobiology may open new avenues in multiples domains including tissue engineering, cancer therapy, and regenerative medicine."
     }
   ]
@@ -984,7 +984,7 @@ function startTreeGradientAnimation() {
           hideTimer = window.setTimeout(() => {
             hideTimer = null;
             hideTooltip();
-          }, 300);
+          }, 3000);
         };
 
         // Node-level hover
