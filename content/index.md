@@ -46,19 +46,17 @@ Thymic selection is a central part of T-cell development which occurs in the thy
 1. A scoping review that explores the literature on the connection between mechanical properties and thymic selection process to delineate what has been studied and what gaps remain exist that might be explored in the future;
 2. A simulation model built on the principles of agent-based modeling and ordinary differential equations to study how stromal stiffness would affect the ratio of selection outcomes. 
 
-#### Project 2: Premetastatic niche (PMN) formation mechanobiology | Under progress
+#### [[Project 2- Premetastatic Niche (PMN) Mechanobiology]] | Under progress
 
-Project 3: In a "Brainstorm"
+**Project 3: In a "Brainstorm"**
 
 
 ---
-[[Intellectual Motivation and Background]]
+To read more about my research background and intellectual motivation driving this work: [[Intellectual Motivation & Research Background]]
 
-[[Guiding Principles]]
+To know more about the themes that connect my research interest, the field of mechanobiology and the topic of chosen projects: [[Common Threads]]
 
-[[The process]] 
-
-[[Connection node- Ideas built in the past that might be beneficial in the future]]
+To explore some ideas with similar themes I worked that developed in the past: [[Connection node- Ideas built in the past that might be beneficial in the future]]
 
 ## References
 Adu-Berchie, K., Liu, Y., Zhang, D. K. Y., Freedman, B. R., Brockman, J. M., Vining, K. H., Nerger, B. A., Garmilla, A., & Mooney, D. J. (2023). Generation of functionally distinct T-cell populations by altering the viscoelasticity of their extracellular matrix. _Nature Biomedical Engineering_, _7_(11), 1374–1391. https://doi.org/10.1038/s41551-023-01052-y

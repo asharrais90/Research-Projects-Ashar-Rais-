@@ -1,5 +1,6 @@
 ---
 publish: true
+share: true
 ---
 
 1. [Controlling the dynamic nature of ECM mimetic bio-scaffolds using Near-Infrared Light-Responsive Liposomes (Developed for a nanomedicine-based idea competition in BSc, 2023)](./Controlling%2520the%2520dynamic%2520nature%2520of%2520ECM%2520mimetic%2520bio-scaffolds%2520using%2520Near-Infrared%2520Light-Responsive%2520Liposomes%2520(Developed%2520for%2520a%2520nanomedicine-based%2520idea%2520competition%2520in%2520BSc,%25202023).md#)
