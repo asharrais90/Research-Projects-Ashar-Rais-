@@ -63,7 +63,7 @@ Experimental TCR k<sub>off</sub> measurements (given in the table below) were us
 - k<sub>scan,base</sub> = 1.0
 - gamma = 0.5
 - lambda-X = 0.01
-### Modeler's choice 
+### Structural parameters
 - grid width (grid_w): 100
 - grid height (grid_h): 100
 - grid spacing (grid_spacing): 10

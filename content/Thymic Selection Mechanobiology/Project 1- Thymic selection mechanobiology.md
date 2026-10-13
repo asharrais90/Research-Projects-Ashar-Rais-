@@ -9,6 +9,7 @@ This project is built upon the central question of how the mechanical properties
 	- [[Overview, Rules and Outputs of the Model on the Influence of Thymic Stromal Stiffness upon Thymic Selection Outcomes.|Overview, Rules and Outputs of the Model on the Influence of Thymic Stromal Stiffness upon Thymic Selection Outcomes.]]
 	- [[Parameters and Sensitivity Analyses for the Thymic Selection Mechanobiology Model]]
 	- [[Calibration and Validation of Thymic Selection Mechanobiology Model.]]
+
 Key outputs from this project include:
 - Evidence map for the literature on the relationship between stromal mechanical properties and selection outcomes;
 - Suggestions regarding possible future work that can adequately fill the gaps currently present in the literature to progress the field; 
