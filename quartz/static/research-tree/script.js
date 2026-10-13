@@ -88,20 +88,20 @@
     project1: {
       title: "Project 1 — Thymic Selection",
       body:
-        "Explore how mechanical and biochemical properties of " +
-        "the thymic environment may influence thymocyte selection " +
+        "Exploration into how mechanical properties of " +
+        "the thymic stroma may influence thymic selection outcomes" +
         "and T-cell development.",
       label: "Open project →",
-      url: "https://asharrais90.github.io/Research-Projects-Ashar-Rais-/thymic-selection-mechanobiology/"
+      url: "https://asharrais90.github.io/Research-Projects-Ashar-Rais-/thymic-selection-mechanobiology/project-1--thymic-selection-mechanobiology"
     },
 
     project2: {
-      title: "Project 2 — Pre-metastatic Niche",
+      title: "Project 2 — Pre-metastatic Niche Formation Mechanobiology",
       body:
-        "Investigate how physical and microenvironmental changes " +
-        "can contribute to the establishment of a pre-metastatic niche.",
+        "Investigation into how genes associated to mechanotransduction " +
+        "can contribute to the formation of a pre-metastatic niche.",
       label: "Open project →",
-      url: ""
+      url: "https://asharrais90.github.io/Research-Projects-Ashar-Rais-/premetastatic-niche-mechanobiology/project-2--premetastatic-niche-(pmn)-mechanobiology"
     },
 
     project3: {
