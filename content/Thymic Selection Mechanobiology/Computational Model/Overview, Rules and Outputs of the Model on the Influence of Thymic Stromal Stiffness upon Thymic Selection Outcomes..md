@@ -28,10 +28,12 @@ The thymus is represented as a discrete two-dimensional grid (100x100) consistin
 - local substrate stiffness;
 - occupancy status of a stromal cell (representing thymic epithelial cells/TECs and other antigen presenting cells/APCs like dendritic cells).
 Instead of assuming homogeneous regions, stiffness is spatially heterogeneous. Spatial noise is smoothed with a Gaussian kernel (σ = 0.5 grid cells) rather than completely random values, producing biologically plausible stiffness patches. As no convincing quantitative evidence regarding the stiffness comparison between the cortical and medullary regions was found in the literation, for this simulation (focused on the mechanical properties of the stroma), three scenarios will be tested:
-1.  The entire thymic stroma is considered as a mechanically uniform region;
-2.  The cortex is stiffer than the medulla;
-3.  The medulla is stiffer than the cortex.
-Instead of a single stiffness architecture, this three-scenario approach is chosen due to its potential of turning an uncertain biological fact into a falsifiable modelling question. If any of these scenarios produce an absurd result (for eg., almost all the cells die through negative selection) then this might suggest specific things about the thymic stroma that can be experimentally validated in the future. More importantly, since the purpose of this simulation is to investigate how stromal stiffness affects thymic selection, other stiffness ranges will be tested as well. Furthermore, the effects of fibrosis and involution-associated stromal changes can be explored as well by setting the range to resemble their estimated stiffness values.  
+
+1.  The entire thymic stroma is considered as a mechanically uniform region (Uniform scenario); 
+2.  The cortex is stiffer than the medulla (Cortex-stiffer scenario);
+3.  The medulla is stiffer than the cortex (Medulla-stiffer scenario).
+
+Instead of a single stiffness architecture, this three-scenario approach is chosen due to its potential of turning uncertainty into a falsifiable modelling question. Cortex-stiffer and medulla-stiffer configurations are used to test whether the direction of a stiffness gradient alters selection outcomes. Furthermore, since the purpose of this simulation is to investigate how stromal stiffness affects thymic selection, different stiffness ranges will be tested as well. Furthermore, the effects of fibrosis and involution-associated stromal changes can be explored as well by setting the range to resemble their estimated stiffness values.  
 
 Regarding the occupancy status of these grid points, only 0.1% of the grid points will contain stromal cells in this model (which is a subject of sensitivity analysis). This number is associated to the initial number of thymocytes being introduced in the simulation (1000 in this version of the model). The rationale behind this is certain studies show the quantitative dominance of thymocytes over other cells with Gray et al. (2006) reporting that CD45<sup>-</sup> stromal cells accounted for 16% of thymic cellularity at embryonic day 14 (E14) in a mouse model. This decreased to 1% at E8 and 0.5% after birth. For the sake of simplicity in this model, these stromal cells are not separated into more specific identities (such as cTECs, mTECs, dendritic cells, etc.) and each of these cells have the same level of pMHC expression without introducing the distinction between MHC class I and MHC class II complexes.
 
@@ -239,16 +241,9 @@ After residence time expires:
 
 Negative selection occurs immediately if cumulative productive signaling exceeds the deletion threshold and the cell is removed. Lineage commitment (CD4/CD8/T<sub>reg</sub>) is intentionally omitted from the first prototype and can be incorporated later by including MHC class distinction and downstream transcriptional modules (e.g. ThPOK/Runx3 dynamics) rather than simple signal thresholds.
 
+![[Model's mechanisms.png]]
 
-
-|     |                                                                                  |
-| --- | -------------------------------------------------------------------------------- |
-|     |                                                                                  |
-|     | ![](file:///C:/Users/ashar/AppData/Local/Temp/msohtmlclip1/01/clip_image066.png) |
-
-
-
-
+**Figure-1:** Visual summary of the model's mechanism.   
 
 
 ### Section-3: Results
@@ -413,8 +408,10 @@ Resolving this is more of a calibration priority rather than a structural model 
 
 ### Conclusion
 This first generation model meant as a proof-of-concept shows how thymic stromal stiffness could influence thymic selection outcomes through two routes, and it also shows that currently in its state where it cannot yet appropriately test them. Stromal stiffness changed selection outcomes through migration and stromal contact, producing a non-monotonic relationship that peaks near the assumed migration optimum. The effect of gradient orientation was confined to low absolute stiffness, and the parameters that drive outcomes depended on the stiffness range. These results follow from the assumed biphasic migration function, so they are predictions to test and not evidence that the assumption is correct. The direct mechanobiological route, through cytoskeletal priming, mechanotransductional state and force-dependent bond kinetics, produced no robust effect at the tested baselines on two stiffness ranges. This indicates that the effect was not detectable under the current parameterization, not that it is absent. The most plausible explanations for this null-result are fast equilibration of priming of the signal amplification factors relative to residence time of a thymocyte, a catch-bond effect capped by the chosen parameters, and a TCR affinity distribution with few cells near the selection thresholds. These limitations point towards the next steps: recalibrating the affinity distribution, separating the migration and signaling arms with an ablation design, and adding a slower mechanosensitive process. They also set the experimental priorities, namely measuring thymocyte migration and signaling as a function of stiffness, together with compartment-resolved stiffness and stromal density in the tissue. The model should therefore be read as a framework that turns a gap in the literature into explicit, testable hypotheses, not as a quantitative predictor of thymic selection.
+
 ### Link to code
 [[Thymic Selection Mechanobiology Model]]
+[[Population distributions]] 
 
 ### Information on Calibration and Validation of this Model 
 [[Calibration and Validation of Thymic Selection Mechanobiology Model.]]
@@ -443,6 +440,8 @@ Faust, M. A., Rasé, V. J., Lamb, T. J., & Evavold, B. D. (2023). What’s the C
 Furusawa, C., Suzuki, T., Kashiwagi, A., Yomo, T., & Kaneko, K. (2005). Ubiquity of log-normal distributions in intra-cellular reaction dynamics. _Biophysics_, _1_, 25–31. https://doi.org/10.2142/biophysics.1.25
 
 Gameiro, J., Nagib, P., & Verinaud, L. (2010). The thymus microenvironment in regulating thymocyte differentiation. _Cell Adhesion & Migration_, _4_(3), 382–390. https://doi.org/10.4161/cam.4.3.11789
+
+Grakoui, A., Bromley, S. K., Sumen, C., Davis, M. M., Shaw, A. S., Allen, P. M., & Dustin, M. L. (1999). The immunological synapse: A molecular machine controlling T cell activation. _Science_, _285_(5425), 221–227. https://doi.org/10.1126/science.285.5425.221
 
 Gray, D. H. D., Seach, N., Ueno, T., Milton, M. K., Liston, A., Lew, A. M., Goodnow, C. C., & Boyd, R. L. (2006). Developmental kinetics, turnover, and stimulatory capacity of thymic epithelial cells. _Blood_, _108_(12), 3777–3785. https://doi.org/10.1182/blood-2006-02-004531
 

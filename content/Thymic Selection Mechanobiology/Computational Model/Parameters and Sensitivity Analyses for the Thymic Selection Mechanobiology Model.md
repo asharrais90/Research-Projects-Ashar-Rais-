@@ -28,9 +28,9 @@ Experimental TCR k<sub>off</sub> measurements (given in the table below) were us
 	- koff<sub>null</sub> = 5.00 s<sup>-1</sup>        |   T102G           (ANERADLIAYLKQAGK)   |  neglect
 	- koff<sub>select</sub> = 0.36 s<sup>-1</sup>     |   T102S            (ANERADLIAYLKQASK)   | positive selection
 	- koff<sub>delete</sub>= 0.057 s<sup>-1</sup>   |   MCC88-103   (ANERADLIAYLKQATK)    | negative selection
-- k<sub>p</sub> = 1.0 s<sup>-1</sup> 
-- k<sub>SHP1</sub> = 0.05 s<sup>-1</sup>  "The geometry of pMHC-coated nanoparticles and T-cell receptor clusters governs the sensitivity-specificity trade-off in T-cell response: a modeling investigation" (Richez & Khadra, 2026) 
-- N<sub>kp </sub>= 11
+- k<sub>p</sub> = 1.0 s<sup>-1</sup> : "Comparing kinetic proofreading and kinetic segregation for T cell receptor activation" (Ganzinger et. al, 2025);
+- k<sub>SHP1</sub> = 0.05 s<sup>-1</sup> : "The geometry of pMHC-coated nanoparticles and T-cell receptor clusters governs the sensitivity-specificity trade-off in T-cell response: a modeling investigation" (Richez & Khadra, 2026); 
+- N<sub>kp </sub>= 11 : "Progressive enhancement of kinetic proofreading in T cell antigen discrimination from receptor activation to DAG generation" (Britain et al., 2022)
 
 ### Estimated from Experimental Ranges
 - Stromal density: 0.001 

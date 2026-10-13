@@ -1,18 +1,9 @@
 """
 
-Thymic_selection_mechanobiolgy.py
-
-======================
-
 Hybrid Agent-Based + ODE Model of Thymocyte Selection (Currently at proof of concept level)
 
-  
-
 The main purpose of this model is to investigate whether the stiffness of thymic stroma influences
-
-thymic selection in a consistent and predictable manner. The primary hypothesis regarding the possible
-
-link between stiffness and selection is the mechanotransductional aspect of TCR siganlling, and
+thymic selection in a consistent and predictable manner. The primary hypothesis regarding the possible link between stiffness and selection is the mechanotransductional aspect of TCR siganlling, and
 
 thymocytes as whole. This signalling aspect is modelled in 4 layers: a thymocyte's migrational capacity
 
