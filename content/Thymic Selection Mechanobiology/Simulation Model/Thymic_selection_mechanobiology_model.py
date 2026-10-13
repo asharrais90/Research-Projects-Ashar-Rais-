@@ -4,7 +4,7 @@ publish:true
 ---
 
 """
-Thymic_Selection_Mechanobiolgy_Model.py
+Thymic_selection_mechanobiolgy.py
 ======================
 Hybrid Agent-Based + ODE Model of Thymocyte Selection (Currently at proof of concept level)
 
@@ -37,6 +37,11 @@ import numpy as np
 from mesa import Agent, DataCollector, Model
 from mesa.space import SingleGrid
 
+from population_distributions import (
+    generate_koff_values,
+    generate_zap70_values,
+)
+
 try:
     from scipy.ndimage import gaussian_filter
     _SCIPY = True
@@ -58,63 +63,61 @@ except ImportError:
 
 @dataclass
 class Params:
-    """
-    All model parameters with units documented.
-    Rate constants (proofreading)  s⁻¹
-    Rate constants (ODEs/scan)     min⁻¹
-    Stiffness                      kPa
-    Force                          pN
-    Time / timestep                min
-    """
-
+ 
     # ── Grid ──────────────────────────────────────────────────────────
-    grid_w:      int   = 100
-    grid_h:      int   = 100
-    grid_spacing:     float = 10.0    # μm per grid cell
-    cortex_frac: float = 0.70     #cortex is modelled to be larger than medulla based on imaging studies 
+    grid_w:       int   = 100
+    grid_h:       int   = 100
+    grid_spacing: float = 10.0     #μm per grid cell
+    cortex_frac:  float = 0.70     #cortex is modelled to be larger than medulla based on imaging studies 
     
     # ── Stiffness field ───────────────────────────────────────────────
-    scenario:   str   = "uniform"   # "uniform"|"cortex_stiffer"|"medulla_stiffer"
-    S_mean:     float = 1.0         # kPa
-    S_std:      float = 0.3         # kPa  (spatial noise)
-    S_smooth:   float = 0.2         # Gaussian σ (grid cells)
-    S_cortex:   float = 1.5         # kPa (cortex, non-uniform scenarios)
-    S_medulla:  float = 0.5         # kPa (medulla)
+    scenario:    str   = "uniform"   # "uniform"|"cortex_stiffer"|"medulla_stiffer"
+    S_mean:      float = 9.0        # kPa
+    S_std:       float = 8.0         # kPa  (spatial noise)
+    S_smooth:    float = 1.5         # Gaussian σ (grid cells)
+    S_stiffer:   float = 16.5         # kPa (higher mean for non-uniform scenarios)
+    S_softer:    float = 13.5         # kPa (lower mean for non-uniform scenarios)
 
     # ── Stromal cells ─────────────────────────────────────────────────
-    stromal_density: float = 0.01
+    stromal_density: float = 0.001
 
     # ── Population dynamics ─────────────────────────────────────
-    T_run_hr:      float = 600.0    # total run: Taken to be 5 days from Two-photon imaging studies
-    n_initial:     float = 5000
+    T_run_hr:      float = 288.0  #12 days   
+    n_initial:     float = 1000
 
-    # ── Permanent property distributions ──────────────────────────────
-    koff_mu:    float = 1.5    # log-normal μ (ln s⁻¹);
-    koff_sigma: float = 0.8    # log-normal σ  
-    koff_lo:    float = 0.02   # s⁻¹ clip
-    koff_hi:    float = 20.0   # s⁻¹ clip
-    ZAP70_mean: float = 1.0
-    ZAP70_std:  float = 0.3
-    ZAP70_lo:   float = 0.1
-    ZAP70_hi:   float = 4.0
-    Tres_shape: float = 5.0     # Gamma distribution for the residence time of thymocytes
-    Tres_scale: float = 720.0   # min; mean = 3,600 min ≈ 2.5 days
+    # ── koff population distribution ─────────────────────────────────
+    # Controls the shape of the log-normal TCR affinity distribution.
+    # shift_factor < 1 moves distribution toward stronger binders (left).
+    # sigma_factor controls repertoire breadth (current value very wide:
+    # sigma_log ≈ 7.6, spanning ~12 decades — see population_distributions.py).
+    koff_shift_factor: float = 0.3
+    koff_sigma_factor: float = 6.0
+    koff_lo:    float = 0.001   # s⁻¹ clip
+    koff_hi:    float = 50.0   # s⁻¹ clip
+
+    # ── Other permanent property distributions ────────────────────────────── 
+    zap70_mean: float = 1.0
+    zap70_cv:   float = 0.3
+    zap70_lo:   float = 0.1
+    zap70_hi:   float = 4.0
+    Tres_shape: float = 5.0      # Gamma distribution for the residence time of thymocytes; 
+    Tres_scale: float = 1152.0   # mins; mean = 5760 mins = 4 days & mean ~ 3.9 days; Chosen from pulse-chase studies
 
     # ── Biphasic migration ──────────────────────────────────────
-    v_max:  float = 20.0    # μm/min peak speed
+    v_max:  float = 25.0    # μm/min peak speed
     K_low:  float = 0.5     # kPa
     n_low:  float = 1.5
     K_high: float = 4.0     # kPa
     n_high: float = 2.0
-    p_bias: float = 0.2     # P(biased step toward medulla)
+    p_bias: float = 0.04    # biased step towards the medulla
 
     # ── Cytoskeletal priming ODE ──────────────────────────────────────
     k_C: float = 0.05        # min⁻¹  adaptation rate  (τ ≈ 20 min)
-    K_C: float = 2.0         # kPa   half-max priming stiffness
+    K_C: float = 2.5         # kPa   half-max priming stiffness
 
     # ── Mechanotransduction ODE ────────────────────────────
     k_M:     float = 0.03    # min⁻¹  (τ ≈ 33 min)
-    K_M:     float = 2.0     # kPa   half-max mechanosensitive stiffness
+    K_M:     float = 2.5     # kPa   half-max mechanosensitive stiffness
 
     # ── Signal amplification ────────────────────────────────────
     # α(C,M) = 1 + α_C_max·C + α_M_max·M
@@ -124,21 +127,21 @@ class Params:
     alpha_M_max: float = 0.5   # dimensionless (M in [0,1])
 
     # ── Force transmission ────────────────────────────────────────────
-    F_max: float = 20.0     # pN   saturating actomyosin force
-    K_F:   float = 2.0      # kPa  half-max stiffness for force
-    beta:  float = 0.5      # Path A: C amplifies Feff (bond stabilisation)
+    F_T:   float = 20.0     # pN   saturating actomyosin force
+    K_F:   float = 2.5      # kPa  half-max stiffness for force
+    beta:  float = 0.5      # C amplifies Feff (bond stabilisation)
 
-    # ── Catch-slip bond (Evans-Ritchie two-pathway) ───────────────────
+    # ── Catch-slip bond  ───────────────────
     # G(0) = 1 exactly by construction
-    kc0: float = 0.8    # s⁻¹  catch zero-force rate
-    Fc:  float = 12.0   # pN   catch characteristic force (Marshall et al. 2003)
-    ks0: float = 0.2    # s⁻¹  slip zero-force rate
-    Fs:  float = 25.0   # pN   slip characteristic force
+    kc0: float = 0.5    # s⁻¹  catch zero-force rate
+    Fc:  float = 12.0   # pN   catch characteristic force 
+    ks0: float = 0.5    # s⁻¹  slip zero-force rate
+    Fs:  float = 20.0   # pN   slip characteristic force
 
     # ── Kinetic proofreading ──────────────────────────────────────────
-    k_p:    float = 0.10   # s⁻¹  ITAM phosphorylation  (Altan-Bonnet & Germain 2005)
-    k_SHP1: float = 1.00   # s⁻¹  SHP-1 dephosphorylation
-    N_kp:   int   = 7      # proofreading steps
+    k_p:    float = 1.0    # s⁻¹  
+    k_SHP1: float = 0.05    # s⁻¹  Contribution of SHP‐1 to the dephosphorylation rate (Richez & Khadra, 2026)
+    N_kp:   float = 11.0    # proofreading steps; 
 
     # ── Scanning capacity  ───────────────────────────────────────
     # k_scan(C) = k_scan_base × (1 + γ·C)
@@ -149,18 +152,18 @@ class Params:
     gamma:       float = 0.5   # priming effect on scanning capacity
 
     # ── Signal ODE ───────────────────────────────────────────────────
-    lambda_X: float = 0.02   # min⁻¹  signal decay rate
+    lambda_X: float = 0.01   # min⁻¹  signal decay rate
 
     # ── Selection thresholds  ────────────────────────────────────
-    # Computed by calibrate_thresholds(); anchored to OT-I / H-2Kb data.
+    # Computed by calibrate_thresholds(); anchored to TCR 42.12 / H-2Kb data.
     # Set at biochemical baseline (C=0, M=0, S=0 → α=1, G=1, no force).
     theta_pos: float = 0.0   # neglect / positive selection boundary
     theta_neg: float = 0.0   # positive / negative selection boundary
 
-    # Reference ligands (Alam et al. 1996; Hogquist et al. 1994)
-    koff_null:   float = 6.00   # s⁻¹  VSV8  (RGYVYQGL) — neglect
-    koff_select: float = 1.50   # s⁻¹  E1    (EIINFEKL) — positive selection
-    koff_delete: float = 0.05   # s⁻¹  OVA   (SIINFEKL) — negative selection
+    # Reference ligands (Grakoui et al. 1999 | 2B4 TCR binding to MCC-derived peptides presented by I-Eᵏ)
+    koff_null:    float = 5.00    # s⁻¹  T102G       (ANERADLIAYLKQAGK) — neglect
+    koff_select:  float = 0.36    # s⁻¹  T102S       (ANERADLIAYLKQASK) — positive selection
+    koff_delete:  float = 0.057   # s⁻¹  MCC88-103   (ANERADLIAYLKQATK) — negative selection
 
     # ── Numerics ─────────────────────────────────────────────────────
     dt:   float = 1.0    # min per timestep (Euler)
@@ -173,43 +176,22 @@ class Params:
 
 def calibrate_thresholds(p: Params) -> Tuple[float, float]:
     """
-    Anchor selection thresholds to OT-I / H-2Kb reference ligands.
-    Reference ligands (Alam et al. 1996 JEM; Hogquist et al. 1994 Cell):
-       VSV8  RGYVYQGL  koff = 6.00 s⁻¹  → death by neglect
-       E1    EIINFEKL  koff = 1.50 s⁻¹  → positive selection
-       OVA   SIINFEKL  koff = 0.05 s⁻¹  → negative selection
+    Anchor selection thresholds to 2B4 TCR binding to MCC-derived peptides presented by I-Eᵏ.
+    Reference ligands (Grakoui et al. 1999):
+       T102G        ANERADLIAYLKQAGK |  koff = 5.00 s⁻¹   → death by neglect
+       T102S        ANERADLIAYLKQASK |  koff = 0.36 s⁻¹   → positive selection
+       MCC88-103    ANERADLIAYLKQATK |  koff = 0.057 s⁻¹  → negative selection
 
     Reference state: C=0, M=0, S=0 → α=1, G(F=0)=1, k_scan=k_scan_base
     This is the biochemical baseline: no cytoskeletal amplification,
     no force-dependent bond stabilisation, base scanning capacity.
 
-    Thresholds are geometric means of adjacent X_ss pairs — they
-    bisect the gap between ligand classes symmetrically in log-space.
+    Thresholds are means of adjacent X_ss pairs. After this call, θ_pos and θ_neg 
+    are FROZEN for all subsequent predictions.  The mechanical model then measures 
+    whether stiffness helps or hinders cells in crossing these fixed requirements.
 
-    After this call, θ_pos and θ_neg are FROZEN for all subsequent
-    predictions.  The mechanical model then measures whether stiffness
-    helps or hinders cells in crossing these fixed requirements.
-
-    Full worked calculation
-    -----------------------
-    At baseline: kp_Z = k_p × ZAP70_mean = 0.10 × 1.0 = 0.10 s⁻¹
-                 G(0)  = 1  →  koff_eff = koff_base
-                 α     = 1
-                 k_scan = k_scan_base
-
-    For each ligand:
-        p_step  = kp_Z / (kp_Z + koff_base + k_SHP1)
-        KP      = p_step ^ N_kp
-        X_ss    = k_scan_base × 1 × KP / lambda_X
-
-    VSV8  (koff=6.00): p_step=0.10/7.10=0.01408, KP=1.097×10⁻¹³, X_ss=5.49×10⁻¹²
-    E1    (koff=1.50): p_step=0.10/2.60=0.03846, KP=1.245×10⁻¹⁰, X_ss=6.23×10⁻⁹
-    OVA   (koff=0.05): p_step=0.10/1.15=0.08696, KP=3.759×10⁻⁸,  X_ss=1.88×10⁻⁶
-
-    θ_pos = √(X_ss_VSV8 × X_ss_E1)  = √(3.41×10⁻²⁰) = 1.85×10⁻¹⁰
-    θ_neg = √(X_ss_E1   × X_ss_OVA) = √(1.17×10⁻¹⁴) = 1.08×10⁻⁷
     """
-    kp_Z = p.k_p * p.ZAP70_mean
+    kp_Z = p.k_p * p.zap70_mean
 
     def X_ss_baseline(koff_base: float) -> float:
         """X_ss at biochemical baseline — no mechanical context."""
@@ -247,16 +229,16 @@ class Thymocyte(Agent):
         KP(Feff)    = [kp_Z/(kp_Z+koff·G(Feff)+k_SHP1)]^N   Kinetic proofreading
     """
 
-    def __init__(self, model: ThymicEnvironment) -> None:
+    def __init__(self, model: ThymicEnvironment, koff_base: float, zap70: float) -> None:
         super().__init__(model)      # Mesa 3.x: auto-registers with model.agents
         p   = model.p
         rng = model.rng
 
         # ── Permanent properties (fixed at birth) ─────────────────────
         self.koff_base: float = float(np.clip(
-            rng.lognormal(p.koff_mu, p.koff_sigma), p.koff_lo, p.koff_hi))
+            koff_base, p.koff_lo, p.koff_hi))
         self.ZAP70i: float = float(np.clip(
-            rng.normal(p.ZAP70_mean, p.ZAP70_std), p.ZAP70_lo, p.ZAP70_hi))
+            zap70, p.zap70_lo, p.zap70_hi))
         self.T_res: float = float(rng.gamma(p.Tres_shape, p.Tres_scale))
 
         # ── Dynamic ODE state ─────────────────────────────────────────
@@ -292,7 +274,7 @@ class Thymocyte(Agent):
 
     def _F_of_S(self, S: float) -> float:
         p = self.model.p
-        return p.F_max * S / (p.K_F + S)
+        return p.F_T * S / (p.K_F + S)
 
     def _G(self, Feff: float) -> float:
         """Catch-slip modulation; G(0)=1 exactly."""
@@ -363,9 +345,9 @@ class Thymocyte(Agent):
         falling = p.K_high**p.n_high  / (p.K_high**p.n_high + S**p.n_high) 
 
         v = p.v_max * rising * falling
-        n_hops = int((v * p.dt)/p.grid_spacing)    #how many grid cells can be moved across in a timestep
-        frac = ((v * p.dt)/p.grid_spacing)         #leftover "hopping" capacity 
-        if rng.random() > frac:
+        n_hops = int((v * p.dt)/p.grid_spacing)            #how many grid cells can be moved across in a timestep
+        frac = ((v * p.dt)/p.grid_spacing) - n_hops        #leftover "hopping" capacity 
+        if rng.random() < frac:
             n_hops += 1
 
         for _ in range(n_hops):
@@ -447,6 +429,12 @@ class ThymicEnvironment(Model):
         self.p   = params or Params()
         self.rng = np.random.default_rng(self.p.seed)
         self.t_min: float = 0.0
+        self.koff_population = generate_koff_values(self.p.n_initial,self.rng,
+                                                    shift_factor=self.p.koff_shift_factor,
+                                                    sigma_factor=self.p.koff_sigma_factor,
+                                                    )
+        self.zap70_population = generate_zap70_values(self.p.n_initial, self.rng, mean=self.p.zap70_mean, cv=self.p.zap70_cv)
+
         self.fate_counts: Dict[str, int] = {
             "positive_selection":   0,
             "negative_selection":   0,
@@ -456,6 +444,11 @@ class ThymicEnvironment(Model):
         self.stiffness  = self._build_stiffness()
         self.stromal_pos: Set[Tuple[int, int]] = self._place_stromal()
         self._introduce_initial()
+        self.koff_by_fate: Dict[str, list] = {
+            "positive_selection": [],
+            "negative_selection": [],
+            "death_by_neglect"  : [],
+        }
         self.contact_stats: Dict[str, list] = {
             "positive_selection":   [],
             "negative_selection":   [],
@@ -492,17 +485,114 @@ class ThymicEnvironment(Model):
             base = self.rng.normal(p.S_mean, p.S_std, (W, H))
         elif p.scenario == "cortex_stiffer":
             base = np.empty((W, H))
-            base[:, :ch] = self.rng.normal(p.S_cortex,  p.S_std, (W, ch))
-            base[:, ch:] = self.rng.normal(p.S_medulla, p.S_std, (W, H - ch))
+            base[:, :ch] = self.rng.normal(p.S_stiffer,  p.S_std, (W, ch))
+            base[:, ch:] = self.rng.normal(p.S_softer, p.S_std, (W, H - ch))
         elif p.scenario == "medulla_stiffer":
             base = np.empty((W, H))
-            base[:, :ch] = self.rng.normal(p.S_medulla, p.S_std, (W, ch))
-            base[:, ch:] = self.rng.normal(p.S_cortex,  p.S_std, (W, H - ch))
+            base[:, :ch] = self.rng.normal(p.S_softer, p.S_std, (W, ch))
+            base[:, ch:] = self.rng.normal(p.S_stiffer,  p.S_std, (W, H - ch))
         else:
             raise ValueError(f"Unknown scenario: {p.scenario!r}")
 
         smoothed = gaussian_filter(base, sigma=p.S_smooth) if _SCIPY else base
-        return np.clip(smoothed, 0.0, 50.0).astype(np.float32)
+        return np.clip(smoothed, 0.001, 50.0).astype(np.float32)
+
+    def stiffness_report(model: "ThymicEnvironment",
+                     expected_range:  tuple[float, float] | None = None,
+                     quartile_range:  tuple[float, float] | None = None,
+                     verbose: bool = True) -> dict:
+        """
+        Summarise the stiffness field of a single run.
+
+        Parameters
+        ----------
+        model          : ThymicEnvironment
+        expected_range : (lo, hi) kPa — check whether the *mean* lies in this window
+        quartile_range : (lo, hi) kPa — split into 4 equal sub-bins and report
+                        the fraction of grid points in each (Q1..Q4)
+        verbose        : print a formatted report
+
+        Returns
+        -------
+        dict with point stats, coarse histogram (0–5 / 5–10 / 10–15 / 15+),
+        and — when quartile_range is given — per-quartile counts and fractions.
+        """
+        S = np.asarray(model.stiffness)
+        N = S.size
+
+        stats = {
+            "scenario": model.p.scenario,
+            "n_points": int(N),
+            "mean":     float(S.mean()),
+            "std":      float(S.std()),
+            "min":      float(S.min()),
+            "max":      float(S.max()),
+            "median":   float(np.median(S)),
+        }
+
+        # ── coarse histogram (fixed buckets) ──────────────────────────────
+        counts, _ = np.histogram(S, bins=[0, 5, 10, 15, np.inf])
+        for label, f in zip(("frac_0_5", "frac_5_10",
+                            "frac_10_15", "frac_15p"), counts / N):
+            stats[label] = float(f)
+
+        # ── quartile breakdown of a user-specified range ──────────────────
+        if quartile_range is not None:
+            lo, hi = quartile_range
+            if not (hi > lo):
+                raise ValueError("quartile_range must satisfy hi > lo")
+
+            edges = np.linspace(lo, hi, 5)                # 4 equal-width bins
+            sub_counts, _ = np.histogram(S, bins=edges)
+            in_range = int(sub_counts.sum())
+
+            stats["quartile_range"]  = (float(lo), float(hi))
+            stats["quartile_edges"]  = [float(e) for e in edges]
+            stats["n_in_range"]      = in_range
+            stats["frac_in_range"]   = in_range / N
+
+            stats["quartile_counts"]     = [int(c) for c in sub_counts]
+            stats["quartile_frac_all"]   = [float(c / N)          for c in sub_counts]
+            stats["quartile_frac_range"] = [
+                float(c / in_range) if in_range else 0.0 for c in sub_counts
+            ]
+            stats["n_clipped"] = int((S <= 0.001).sum())
+            stats["frac_clipped"] = stats["n_clipped"] / N
+
+        # ── printing ──────────────────────────────────────────────────────
+        if verbose:
+            print(f"[{model.p.scenario:>16}] "
+                f"mean={stats['mean']:6.2f}  std={stats['std']:5.2f}  "
+                f"min={stats['min']:5.2f}  max={stats['max']:6.2f}  |  "
+                f"0–5:{stats['frac_0_5']:5.1%}  "
+                f"5–10:{stats['frac_5_10']:5.1%}  "
+                f"10–15:{stats['frac_10_15']:5.1%}  "
+                f"15+:{stats['frac_15p']:5.1%}  "
+                f"n_clipped: {stats['n_clipped']}  "
+                f"frac_clipped: {stats['frac_clipped']}")
+
+            if expected_range is not None:
+                lo, hi = expected_range
+                ok = "✓" if lo <= stats["mean"] <= hi else "✗"
+                print(f"    {ok} expected mean in [{lo}, {hi}] kPa")
+
+            if quartile_range is not None:
+                lo, hi = quartile_range
+                print(f"    Quartile split of [{lo}, {hi}] kPa  "
+                    f"(n_in_range = {stats['n_in_range']} "
+                    f"= {stats['frac_in_range']:.1%} of grid):")
+                for i, (c, fa, fr) in enumerate(zip(
+                        stats["quartile_counts"],
+                        stats["quartile_frac_all"],
+                        stats["quartile_frac_range"]), start=1):
+                    a, b = edges[i-1], edges[i]
+                    bar = "█" * int(30 * fa)
+                    print(f"      Q{i} [{a:6.3f}, {b:6.3f})  "
+                        f"n={c:7d}  "
+                        f"{fa:6.2%} of all  |  "
+                        f"{fr:6.2%} within  {bar}")
+
+        return stats
 
     def _place_stromal(self) -> Set[Tuple[int, int]]:
         p   = self.p
@@ -546,8 +636,12 @@ class ThymicEnvironment(Model):
         if not empty:
             return
         n_new = min(p.n_initial , len(empty))
-        for i in self.rng.choice(len(empty), size=n_new, replace=False):
-            a = Thymocyte(self)
+        for j, i in enumerate(
+            self.rng.choice(len(empty), size=n_new, replace = False)
+        ):
+            a = Thymocyte(self, 
+                          koff_base=self.koff_population[j],
+                          zap70=self.zap70_population[j])
             self.grid.place_agent(a, empty[i])
 
     def _reap(self) -> None:
@@ -557,16 +651,18 @@ class ThymicEnvironment(Model):
         for a in dead:
             if a.fate in self.fate_counts:
                 self.fate_counts[a.fate] += 1
+            if a.fate in self.koff_by_fate:
+                self.koff_by_fate[a.fate].append(a.koff_base)
             if a.fate in self.trajectories:
                 self.trajectories[a.fate].append(a.history)
-            if a.fate in self.contact_stats:                                  # NEW
-                mean_S_during_contact = (a.contact_S_sum / a.contact_steps    # NEW
-                                      if a.contact_steps > 0 else 0.0)    # NEW
-                self.contact_stats[a.fate].append({                          # NEW
-                    "contact_steps": a.contact_steps,                        # NEW
-                    "contact_min":   a.contact_steps * self.p.dt,            # NEW
-                    "contact_frac":  a.contact_steps * self.p.dt / max(a.age, 1e-9),  # NEW
-                    "mean_S":        mean_S_during_contact,                  # NEW
+            if a.fate in self.contact_stats:                                  
+                mean_S_during_contact = (a.contact_S_sum / a.contact_steps   
+                                      if a.contact_steps > 0 else 0.0)    
+                self.contact_stats[a.fate].append({                         
+                    "contact_steps": a.contact_steps,                        
+                    "contact_min":   a.contact_steps * self.p.dt,            
+                    "contact_frac":  a.contact_steps * self.p.dt / max(a.age, 1e-9), 
+                    "mean_S":        mean_S_during_contact,                  
                 })                                                            
             self.grid.remove_agent(a)   # remove from spatial grid
             a.remove()                   # deregister from model.agents
@@ -623,6 +719,16 @@ def print_summary(model: ThymicEnvironment) -> None:
         print(f"  {fate:<28} {n:5d}  {100*n/total:5.1f}%  {bar}")
     print(f"{'─'*60}")
 
+def koff_summary(model: ThymicEnvironment) -> None:
+    for fate, vals in model.koff_by_fate.items():
+        if not vals:
+            print(f"{fate:22s}: no resolved cells yet")
+            continue
+        print(f"{fate:22s} n={len(vals):4d} | "
+              f"⟨koff_base⟩={np.mean(vals):.3f} s⁻¹ | "
+              f"median={np.median(vals):.3f} | "
+              f"std={np.std(vals):.3f}")
+
 def plot_stiffness_map(model: ThymicEnvironment, save: str = "") -> None:
     if not _MPL:
         return
@@ -647,6 +753,7 @@ def plot_stiffness_map(model: ThymicEnvironment, save: str = "") -> None:
     if save:
         plt.savefig(save, dpi=150, bbox_inches="tight")
     plt.show()
+    plt.close(fig)
 
 def plot_dynamics(model: ThymicEnvironment, save: str = "") -> None:
     if not _MPL:
@@ -684,8 +791,9 @@ def plot_dynamics(model: ThymicEnvironment, save: str = "") -> None:
     if save:
         plt.savefig(save, dpi=150, bbox_inches="tight")
     plt.show()
+    plt.close(fig)
 
-def print_contact_summary(model: ThymicEnvironment) -> None:
+def contact_summary(model: ThymicEnvironment) -> None:
     for fate, records in model.contact_stats.items():
         if not records:
             print(f"{fate:22s}: no resolved cells yet")
@@ -699,7 +807,7 @@ def print_contact_summary(model: ThymicEnvironment) -> None:
               f"⟨S during contact⟩={np.mean(meanS):.2f}")
 
 def plot_trajectories(model: ThymicEnvironment, save: str = "",
-                       max_per_fate: int = 40) -> None:
+                       max_per_fate: int = 25) -> None:
     if not _MPL:
         return
 
@@ -733,6 +841,7 @@ def plot_trajectories(model: ThymicEnvironment, save: str = "",
     if save:
         plt.savefig(save, dpi=150, bbox_inches="tight")
     plt.show()
+    plt.close(fig)
 
 
 # ══════════════════════════════════════════════════════════════════════
@@ -754,12 +863,12 @@ def run(
     scenario : "uniform" | "cortex_stiffer" | "medulla_stiffer"
     n_steps  : override total steps (default: T_run_hr × 60)
     demo     : if True, use 50×50 grid, 500 cells and lower run time/steps for speed
-    verbose  : print progress every 30 mins of run
+    verbose  : print progress regularly to see how mechanobiological mechanisms are operating
     """
     p = Params(scenario=scenario, seed=seed)
     if demo:
         p.grid_w = p.grid_h = 50
-        p.T_run_hr = 24.0
+        p.T_run_hr = 20.0
         p.n_initial = 500
         n_steps = n_steps or int(p.T_run_hr * 60 / p.dt)   
 
@@ -775,13 +884,12 @@ def run(
         print(f"  S_mean       = {p.S_mean}")
         print(f"  S_std        = {p.S_std}")
         print(f"  S_smooth     = {p.S_smooth}")
-        print(f"  S_cortex     = {p.S_cortex}")
-        print(f"  S_medulla    = {p.S_medulla}")
+        print(f"  S_stiffer    = {p.S_stiffer}")
+        print(f"  S_softer     = {p.S_softer}")
         print(f"  k_scan(C)    : {p.k_scan_base}·(1 + {p.gamma}·C)             ")
         print(f"  α(C,M)       : 1 + {p.alpha_C_max}·C + {p.alpha_M_max}·M           ")
         print(f"  θ_pos        = {p.theta_pos:.4e}                         ")
         print(f"  θ_neg        = {p.theta_neg:.4e}                         ")
-        print(f"  (anchored to VSV8/E1/OVA on H-2Kb, biochemical baseline)")
         print(f"{'─'*60}")
 
     model   = ThymicEnvironment(p)
@@ -813,21 +921,17 @@ if __name__ == "__main__":
     # ── Print calibrated thresholds ───────────────────────────────────
     p_cal = Params()
     tp, tn = calibrate_thresholds(p_cal)
-    print(f"\nCalibrated thresholds  (OT-I/H-2Kb, biochemical baseline):")
+    print(f"\nCalibrated thresholds  (biochemical baseline):")
     print(f"  θ_pos = {tp:.4e}   (neglect / positive selection)")
     print(f"  θ_neg = {tn:.4e}   (positive / negative selection)")
     print(f"  Window width: {np.log10(tn/tp):.2f} log₁₀ decades")
 
     # ── Run ──────────────────────────────────────────────────────
-    model = run(scenario="uniform",demo=True,verbose=True)
+    model = run(scenario="uniform",demo=False,verbose=True)
     print_summary(model)
-    print_contact_summary(model)
+    koff_summary(model)
+    contact_summary(model)
     plot_stiffness_map(model)
     plot_trajectories(model)
     plot_dynamics(model)
-
-    if _MPL:
-        plot_stiffness_map(model, save="thymic_selection_mechanobiology_stiffnessmap.png")
-        plot_dynamics(model, save="thymic_selection_mechanobiology_plotdynamics.png")
-        plot_trajectories(model, save= "thymic_selection_mechanobiology_plottrajectories.png")
-        
+    model.stiffness_report(expected_range=(12.0, 18.0), quartile_range=(12.0, 18.0))
