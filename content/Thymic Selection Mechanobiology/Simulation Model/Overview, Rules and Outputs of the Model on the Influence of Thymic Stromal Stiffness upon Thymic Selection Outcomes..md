@@ -269,6 +269,7 @@ To establish the model's baseline behavior, 1000 thymocytes were simulated acros
 | Medulla-stiffer (Low range)  | 5.6                | 32.6               | 61.8                 |
 | Medulla-stiffer (Mid range)  | 2.2                | 34.9               | 62.8                 |
 | Medulla-stiffer (High range) | 2.1                | 27.9               | 70.2                 |
+
 **Table-1: Selection outcomes in different stiffness ranges and scenarios.** Three stiffness ranges were used - Low range = 0–6 kPa, mean at 3.5 kPa to minimize clipping near 0.0; Mid range = 6–12 kPa, mean at 9 kPa and High range = 12–18 kPa, mean at 15 kPa. Furthermore, three distinct scenarios were simulated - Uniform (where the stiffness range is homogenous in cortical and medullary regions); Cortex-stiffer, where the cortical region is stiffer (for example, in the low range, mean of cortical region is 4.5 kPa compared to 2 kPa of medullary region) and Medulla-stiffer, where the medullary region is stiffer (for example, in the mid range, mean of medullary region is 10.5 kPa compared to 7.5 kPa of the cortical region). For all these situations, three independent runs were done, and the reported numbers represent the mean of these three runs (therefore, the sum of percentages in a scenario might not be equal to 100). 
 
 #### 3.2 Positive selection decreased with increasing substrate stiffness while negative selection had a non-monotonic relationship with substrate stiffness
@@ -296,6 +297,7 @@ An orientation reversal was observed in the high range: cortex-stiffer produced 
 | M. stiffer (Low range)  | 25.3                                | 13                                  | 22.4                         |
 | M. stiffer (Mid range)  | 62.2                                | 9.5                                 | 30                           |
 | M. stiffer (High range) | 86.5                                | 8.8                                 | 30.1                         |
+
 **Table-2: Mean contact steps in different stiffness ranges and scenarios.** This term represents the average of total number of simulation timesteps of thymocytes of each fate class during which an individual thymocyte is detected in contact with a stromal cell over its tracked lifetime. Also because a timestep is equal to 1 minute, this also corresponds numerically to the number of contact-minutes. For all these situations, three independent runs were done, and the reported numbers represent the mean of these three runs.
 
 | Scenarios               | Fraction of contact steps (Pos. Selection) | Fraction of contact steps (Neg. Selection) | Fraction of contact steps (Neglect) |
@@ -309,6 +311,7 @@ An orientation reversal was observed in the high range: cortex-stiffer produced 
 | M. stiffer (Low range)  | 0.005                                      | 0.024                                      | 0.004                               |
 | M. stiffer (Mid range)  | 0.012                                      | 0.032                                      | 0.005                               |
 | M. stiffer (High range) | 0.019                                      | 0.032                                      | 0.005                               |
+
 **Table-3: Mean fraction of contact steps in different stiffness ranges and scenarios.** This term represents the average of the proportion of a thymocyte’s simulated time steps during which it is detected in contact with a stromal cell. It is a measure of how much opportunity the cell has to receive TCR stimulation through stromal interactions. For all these situations, three independent runs were done, and the reported numbers represent the mean of these three runs.
 
 | Scenarios               | Mean S during contact (Pos. Selection) | Mean S during contact (Neg. Selection) | Mean S during contact (Neglect) |
@@ -322,6 +325,7 @@ An orientation reversal was observed in the high range: cortex-stiffer produced 
 | M. stiffer (Low range)  | 3.55                                   | 3.38                                   | 2.7                             |
 | M. stiffer (Mid range)  | 9.12                                   | 8.58                                   | 5.12                            |
 | M. stiffer (High range) | 14.62                                  | 14.26                                  | 5.24                            |
+
 **Table-4: Mean stiffness value during contact in different stiffness ranges and scenarios.** This term represents the average of the substrate stiffness that the thymocytes of each fate class encountered during contact with a stromal cell. For all these situations, three independent runs were done, and the reported numbers represent the mean of these three runs.
 
 
