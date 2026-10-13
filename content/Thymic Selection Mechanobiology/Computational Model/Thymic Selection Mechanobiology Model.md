@@ -1,31 +1,14 @@
 """
-
 Hybrid Agent-Based + ODE Model of Thymocyte Selection (Currently at proof of concept level)
 
-The main purpose of this model is to investigate whether the stiffness of thymic stroma influences
-thymic selection in a consistent and predictable manner. The primary hypothesis regarding the possible link between stiffness and selection is the mechanotransductional aspect of TCR siganlling, and
-
-thymocytes as whole. This signalling aspect is modelled in 4 layers: a thymocyte's migrational capacity
-
-that influences how much it comes in contact with the antigen presenting cells (APCs), its capacity to scan the APCs,
-
-the state of specific pathways that influence the intensity of downstream TCR signalling and TCR dynamics plus kinetics
-
-that regulate how long a TCR stays bound to pMHC leading to signal production. These layers are dependent upon the state
-
-of cytoskeletal networks which are influenced by the state of extracellular stroma. These modelling decisions lead to
-
-emergence of a short-term (comapred to the residence time in the thymus) "mechanical memory" that is path-dependent and
-
-varies from one thymocyte to another, providing a novel framework to study thymocyte selection.
-
   
+The main purpose of this model is to investigate whether the stiffness of thymic stroma influences
+thymic selection in a consistent and predictable manner. The primary hypothesis regarding the possible link between stiffness and selection is the mechanotransductional aspect of TCR signaling, and thymocytes as whole. This signaling aspect is modelled in 4 layers: a thymocyte's migrational capacity that influences how much it comes in contact with the antigen presenting cells (APCs), its capacity to scan the APCs, the state of specific pathways that influence the intensity of downstream TCR signaling and TCR dynamics plus kinetics that regulate how long a TCR stays bound to pMHC leading to signal production. These layers are dependent upon the state of cytoskeletal networks which are influenced by the state of extracellular stroma. These modelling decisions lead to emergence of a short-term (compared to the residence time in the thymus) "mechanical memory" that is path-dependent and varies from one thymocyte to another, providing a novel framework to study thymocyte selection.
 
 ────────────────────
 
 Mesa 3.x  (tested on 3.5.1)
 
-  
 
 Install:  pip install mesa>=3.0 numpy scipy matplotlib
 
@@ -122,15 +105,15 @@ class Params:
 
     scenario:    str   = "uniform"   # "uniform"|"cortex_stiffer"|"medulla_stiffer"
 
-    S_mean:      float = 9.0        # kPa
+    S_mean:      float = 9.0         # kPa
 
     S_std:       float = 8.0         # kPa  (spatial noise)
 
     S_smooth:    float = 1.5         # Gaussian σ (grid cells)
 
-    S_stiffer:   float = 16.5         # kPa (higher mean for non-uniform scenarios)
+    S_stiffer:   float = 16.5        # kPa (higher mean for non-uniform scenarios)
 
-    S_softer:    float = 13.5         # kPa (lower mean for non-uniform scenarios)
+    S_softer:    float = 13.5        # kPa (lower mean for non-uniform scenarios)
 
   
 
@@ -154,9 +137,7 @@ class Params:
 
     # shift_factor < 1 moves distribution toward stronger binders (left).
 
-    # sigma_factor controls repertoire breadth (current value very wide:
-
-    # sigma_log ≈ 7.6, spanning ~12 decades — see population_distributions.py).
+    # sigma_factor controls repertoire breadth.
 
     koff_shift_factor: float = 0.3
 
@@ -220,9 +201,9 @@ class Params:
 
     # α(C,M) = 1 + α_C_max·C + α_M_max·M
 
-    # C-channel: actin-dependent ITAM phosphorylation efficiency
+    # C-channel: actin cytoskeleton-dependent signal amplification
 
-    # M-channel: Piezo1/YAP-TAZ downstream amplification
+    # M-channel: Mechanosensitive amplification from Integrins, Piezo1, YAP-TAZ among other pathways
 
     alpha_C_max: float = 1.0   # dimensionless (C in [0,1])
 
@@ -256,11 +237,11 @@ class Params:
 
     # ── Kinetic proofreading ──────────────────────────────────────────
 
-    k_p:    float = 1.0    # s⁻¹  
+    k_p:    float = 1.0     # s⁻¹  proofreading rate constant; the rate at which the complex transitions forward (value taken from Ganzinger et al., 2025)
 
-    k_SHP1: float = 0.05    # s⁻¹  Contribution of SHP‐1 to the dephosphorylation rate (Richez & Khadra, 2026)
+    k_SHP1: float = 0.05    # s⁻¹  Contribution of SHP‐1 to the dephosphorylation rate (value taken from Richez & Khadra, 2026)
 
-    N_kp:   float = 11.0    # proofreading steps;
+    N_kp:   float = 11.0    # proofreading steps (value taken from Britain et al., 2022);
 
   
 
@@ -546,7 +527,7 @@ class Thymocyte(Agent):
 
         Kinetic proofreading probability.
 
-        Path of S influencing TCR signalling: C amplifies Feff → reduces koff.
+        Path of S influencing TCR signaling: C amplifies Feff → reduces koff.
 
         """
 

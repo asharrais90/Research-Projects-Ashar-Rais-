@@ -86,14 +86,16 @@ Scopus search (11/07/2026): 4,482 (Search 1) + 1,592 (Search 2) = 6,074 items
 - SM1: TITLE-ABS-KEY( "Thymus Gland" OR thymus OR thymic OR thymocyte* OR "thymic microenvironment" OR "thymic stroma" OR "thymic stromal" OR "positive selection" OR "negative selection" OR "central tolerance" OR "agonist selection" OR "thymocyte differentiation" OR "thymocyte development" OR "T cell receptor" OR "T cell receptor signaling" OR TCR OR "TCR signaling" OR  involution OR "thymic aging" OR "ECM remodeling" OR "extracellular remodeling")
 - SM2: TITLE-ABS-KEY( "Biomechanical Phenomena" OR "Extracellular Matrix" OR "Extracellular remodelling" OR viscoelasticity OR stiffness OR mechanobiology OR biomechanics OR mechanotransduction OR "mechanical properties" OR "matrix architecture" OR "fiber orientation" OR "ECM topography")
 - SM3: TITLE-ABS-KEY( "Tissue Engineering" OR "Tissue Scaffolds" OR "Hydrogels" OR hydrogel* OR scaffold* OR "thymus organoid" OR "thymus organoids" OR biomimetic OR "engineered ECM" OR "artificial thymus" OR "3D culture" OR decellular* OR "Engineered thymic niches")
-Search numbers:
+Search statistics:
 - Total studies retrieved: 271 + 6,074 = **6,345 items**;
 - After deduplication (using Zotero): **5,573 items**; 
 - After title screening (using Zotero): **122 items**;
 - After abstract screening (using Rayyan AI): **73 items**;
 - After full-text screening (using Rayyan AI): **20 items.**
 
+![[Screenshot 2026-10-11 220537.png]]
 
+**Figure-1:** The flow of retrieving the final 20 studies used in the data synthesis.
 
 ### Section 4: Results  
 

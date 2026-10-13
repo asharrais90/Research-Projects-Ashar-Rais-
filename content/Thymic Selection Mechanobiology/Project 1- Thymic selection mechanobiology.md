@@ -5,8 +5,8 @@ publish: true
 
 This project is built upon the central question of how the mechanical properties of thymic stroma (such as stiffness, fiber orientation and viscoelasticity) influence thymic selection process. It is composed of two sub-projects:
 1. A scoping review done to map the evidence present in the literature regarding this topic:
-[[content/Thymic Selection Mechanobiology/Scoping Review/Scoping Review- Modulation of thymic selection outcomes by stromal or substrate mechanical properties (SMP).|Scoping Review- Modulation of thymic selection outcomes by stromal or substrate mechanical properties (SMP).]]
-3. A hybrid computational model designed to explore different mechanistic avenues that allow the stromal mechanical properties to influence the selection process. The work for this sub-project is presented in the following documents:
+	[[content/Thymic Selection Mechanobiology/Scoping Review/Scoping Review- Modulation of thymic selection outcomes by stromal or substrate mechanical properties (SMP).|Scoping Review- Modulation of thymic selection outcomes by stromal or substrate mechanical properties (SMP).]]
+2. A hybrid computational model designed to explore different mechanistic avenues that allow the stromal mechanical properties to influence the selection process. The work for this sub-project is presented in the following documents:
 	- [[Overview, Rules and Outputs of the Model on the Influence of Thymic Stromal Stiffness upon Thymic Selection Outcomes.|Overview, Rules and Outputs of the Model on the Influence of Thymic Stromal Stiffness upon Thymic Selection Outcomes.]]
 	- [[Parameters and Sensitivity Analyses for the Thymic Selection Mechanobiology Model]]
 	- [[Calibration and Validation of Thymic Selection Mechanobiology Model.]]
