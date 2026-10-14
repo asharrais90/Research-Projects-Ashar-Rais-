@@ -67,7 +67,7 @@ Each agent (which represent the thymocytes) possesses permanent and dynamic prop
 
 
 
-**4. Agent migration:**
+#### 3. Agent migration:
 
 For actual thymocytes, the type and speed of migration have been observed to vary through different stages (Halkias et al., 2014). For this version of the model, the focus is on the effects of substrate/regional stiffness upon thymocyte migration with the relationship between speed and developmental stage (and cytokine gradients as well) being kept for a future version. Here, thymocyte movement is governed by two components:
 
@@ -84,7 +84,7 @@ This equation for v(S) is a product of a rising Hill term and a falling Hill ter
 
 
 
-**5. Contact formation**
+#### 4. Contact formation:
 
 Whenever a thymocyte occupies a grid point containing a stromal cell (in this simplified model, all of them are considered to be presenting pMHC),
 
@@ -98,7 +98,7 @@ Thus E(t) represents productive contact duration rather than contact number. Lon
 
 
 
-**6. Cytoskeletal priming ODE:**
+#### 5. Cytoskeletal priming ODE:
 
 Mechanical history of the substrate that a thymocyte has migrated on is represented through a dimensionless cytoskeletal priming state C(t) (or just C, with value between 0 and 1) rather than instantaneous stiffness. The governing equation is:
 
@@ -115,7 +115,7 @@ This term, C<sub>eq</sub> represents gradual adaptation of the cytoskeleton (pri
 
 
 
-**7. Mechanotransduction priming ODE:**
+#### 6. Mechanotransduction priming ODE:
 
 Mechanosensitive competence is represented independently as M(t) following
 
@@ -130,7 +130,7 @@ This specific priming module was inspired from Liu et al., 2018 who demonstrated
 
 
 
-**8.  Signal amplification parameter due to cytoskeletal and mechanotransduction priming:**
+#### 7. Signal amplification parameter due to cytoskeletal and mechanotransduction priming:
 Cytoskeletal and mechanotransductional priming increases signaling efficiency through
 
 ![](data:image/png;base64,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)
@@ -145,7 +145,7 @@ This concept of signal amplification represents how the cytoskeletal network sta
 
 ---
 
-**9. Force generation:**
+#### 8. Force generation:
 
 Based on a new perspective that considers the TCR to be a mechanosensor, this rule was devised to connect substrate stiffness with the capacity of the TCR repertoire of a thymocyte to sense the force applied upon it through cytoskeletal dynamics. Local stiffness influences how well a TCR can transmit force applied on it by modulating its dynamics (including immunological synapse formation and TCR microclustering) with cytoskeleton organization acting as the mediator. This relationship between substrate stiffness and TCR dynamics is encapsulated by the term F(S):
 
@@ -161,7 +161,7 @@ Where β is the gain coefficient which dictates how strongly the mechanical inpu
 
 ---
 
-**10. Catch-slip bond kinetics:**
+#### 9. Catch-slip bond kinetics:
 
 TCR-pMHC binding dynamics have been observed to follow the established two-pathway catch-slip model  (Faust et al., 2023; B. Liu et al., 2014). This implies that as a catch bond in certain regimes, the lifetime increases under tensile force, up to a point. The implication is that the effective dwell time, and therefore the signal a thymocyte accumulates, is not determined by affinity alone. It is determined by affinity under a particular mechanical load, which depends on cytoskeletal tension, which depends on substrate stiffness. An important disclaimer is that a single TCR-pMHC bond strength is most likely dominated by biochemical factors and is not mechanically modulated significantly. However, in this simulation, all the TCRs of a single thymocyte and pMHC of stromal cells are bundled into a single term and this introduces additional processes like TCR nanoclustering into the TCR-pMHC bond kinetics.
 
@@ -184,7 +184,7 @@ Each thymocyte, therefore, combines intrinsic repertoire diversity (k<sub>off,ba
 
 ---
 
-**10. Kinetic proofreading**
+#### 10. Kinetic proofreading**
 
 Rather than using arbitrary signaling thresholds, productive signaling is determined through the kinetic proofreading model, which presents a system of ODEs describing the kinetics of sequential TCR complex modification (Altan-Bonnet & Germain, 2005; McKeithan, 1995) that provides an established framework to convert biochemical ligand binding to signal magnitude.
 
@@ -208,9 +208,9 @@ all alter productive signaling through established biochemical mechanisms.
 
 ---
 
-**11. Threshold calculation**
+#### 11. Threshold calculation:
 
-In the model, selection thresholds are not chosen arbitrarily. Instead, published TCR-pMHC kinetic proofreading parameters and experimentally observed TCR off-rate distributions are used to estimate productive signaling probabilities. As this initial proof-of-concept model does not distinguish between MHC class I and class II, or between CD4 and CD8 lineages, threshold calibration was performed using published data from the  2B4 TCR binding to MCC-derived peptides presented by I-Eᵏ taken from Grakoui et al. (1999). This provides a consistent set of ligands with known selection outcomes and measured binding kinetics. Future extensions of the model will incorporate lineage-specific distinctions as additional data become available
+In the model, selection thresholds are not chosen arbitrarily. Instead, published TCR-pMHC kinetic proofreading parameters and experimentally observed TCR off-rate distributions are used to estimate productive signaling probabilities. As this initial proof-of-concept model does not distinguish between MHC class I and class II, or between CD4 and CD8 lineages, threshold calibration was performed using published data from the 2B4 TCR binding to MCC-derived peptides presented by I-Eᵏ taken from Grakoui et al. (1999). This provides a consistent set of ligands with known selection outcomes and measured binding kinetics. Future extensions of the model will incorporate lineage-specific distinctions as additional data become available
 
 Selection thresholds are then defined from these distributions rather than assigned manually in through the following steps which provides the model with mechanistic interpretation and scientific testability:
 - Take published koff estimates for pMHC interactions (mainly derived using SPR-based experiments) at each selection boundary;
@@ -221,7 +221,7 @@ Selection thresholds are then defined from these distributions rather than assig
 The thresholds derived from these k<sub>off</sub> values are phenomenological decision boundaries, not directly measured biological constants. They provide a consistent scale for interpreting simulation outputs under different mechanical conditions. The selection thresholds represent biochemical decision boundaries i.e. the minimum signal required for survival and the maximum signal compatible with positive rather than negative selection. These boundaries are properties of the downstream signaling machinery (primarily apoptosis associated processes), not of the mechanical environment. This precisely is this model's primarily purpose, to explore that with fixed biochemical thresholds, do stromal substrate and associated mechanobiological processes alter how many cells cross them at a population level?
 
 
-**12. TCR signaling ODE**
+#### 12. TCR signaling ODE:
 
 Cumulative TCR signaling combines the term for contact formation, cytoskeletal priming and probability of a productive signaling event and evolves according to:
 
@@ -233,7 +233,7 @@ Where, λ is the signal decay rate which is set to 0.01 min<sup>-1</sup> as defa
 - Cytoskeletal and mechanotransductional amplification (if one thymocyte has migrated through stiffer substrates than another one, its cytoskeletal networks are considered to be in specific states which allow greater force transmission and signal accumulation);
 - Successful proofreading (for each thymocyte this depends on its expression levels of signaling proteins and how strongly its TCR binds to pMHC which is influenced by the substrate stiffness through the cytoskeletal organization modulating TCR’s catch-bond kinetics and receptor dynamics).
 
-**13. Selection outcomes**
+#### 13. Selection outcomes:
 
 After residence time expires:
 - Death by neglect: Occurs when TCR signaling remains below the neglect threshold.
