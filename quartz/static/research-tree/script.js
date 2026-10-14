@@ -41,7 +41,7 @@
 
     CV: {
       title: "CV",
-      label: " Ready my CV",
+      label: "Read my CV",
       body: 
            "This latin word translates to 'course of life'. Also, a fun fact is that a letter from Leonardo Da Vinci to the Duke of Milan in 1498" +
           " is considered to be one of the earliest records resembling a modern CV (but it read more like a cover letter).",  
@@ -108,7 +108,7 @@
       title: "Project 3 (Being designed in an intellectual factory)",
       body:
         "Theodore Roosevelt: Far and away the best prize that life has to offer " +
-        "is the chance to work hard at work worth doing. " 
+        "is the chance to work hard at work worth doing. ",
       label: "",
       url: ""
     },
