@@ -41,7 +41,7 @@
 
     CV: {
       title: "CV",
-      label: "Curriculum Vitae",
+      label: "Read my CV",
       body: 
            "This latin word translates to 'course of life'. Also, a fun fact is that a letter from Leonardo Da Vinci to the Duke of Milan in 1498" +
           " is considered to be one of the earliest records resembling a modern CV (but it read more like a cover letter).",  
@@ -89,7 +89,7 @@
       title: "Project 1 — Thymic Selection",
       body:
         "Exploration into how mechanical properties of " +
-        "the thymic stroma may influence thymic selection outcomes" +
+        "the thymic stroma may influence thymic selection outcomes " +
         "and T-cell development.",
       label: "Open project →",
       url: "https://asharrais90.github.io/Research-Projects-Ashar-Rais-/thymic-selection-mechanobiology/project-1--thymic-selection-mechanobiology"
@@ -105,12 +105,11 @@
     },
 
     project3: {
-      title: "Project 3 — Computational Biology",
+      title: "Project 3 (Being designed in an intellectual factory)",
       body:
-        "Mathematical modelling, simulation, quantitative analysis, " +
-        "and reproducible computational workflows for studying " +
-        "biological systems.",
-      label: "Open project →",
+        "Theodore Roosevelt: Far and away the best prize that life has to offer " +
+        "is the chance to work hard at work worth doing. ",
+      label: "",
       url: ""
     },
 
