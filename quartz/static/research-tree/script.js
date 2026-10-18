@@ -82,7 +82,7 @@
         "geometry, and physical microenvironments influence " +
         "biological signalling, organisation, behaviour, and fate.",
       label: "Open mechanobiology section →",
-      url: "https://asharrais90.github.io/Research-Projects-Ashar-Rais-/"
+      url: "https://asharrais90.github.io/Research-Projects-Ashar-Rais-/?ref=tree"
     },
 
     project1: {
