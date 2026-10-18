@@ -20,6 +20,8 @@ Key outputs from this project include:
 
 _(This endeavor is not intended to be a showcase of work ready to be published, but a transparent record of learning how to think as a researcher and working with matching diligence. Each project is designed to produce reusable artifacts (such as literature syntheses, evidence maps, computational models, visualizations, etc.) that together demonstrate an evolving approach to asking and investigating scientific questions.)_
 
+To read more about mechanobiology: [[index]]
+
 
 
 
