@@ -18,7 +18,7 @@ One of the main aspects of TCR signal activation has emerged to be sensitivity t
 In addition to the main TCR receptor, various co-receptors like CD4, CD8 and CD28 also play important roles in binding to MHCs or other surface molecules on APCs (Mørch et al., 2020). The cytoplasmic tails of CD4 and CD8 (which bind to MHC-II and MHC-I, respectively) associate with the Src-family kinase Lck, bringing it in close proximity with the TCR–CD3 complex, allowing the downstream pathways to activate more easily (Li & Mariuzza, 2013). CD28 operates in a different manner from CD4/8 as it binds to CD80 (B7-1) and CD86 (B7-2) on APCs. These engagements enhance signaling generated upon TCR ligation by recruiting proteins including PI3K and GRB2, and has been documented to promote proliferation, survival, metabolism and cytokine production (Ciesielska-Figlon & Lisowska, 2024).
 
 
-![[content/Thymic Selection Mechanobiology/Scoping Review/Figures (SR)/TCR structure diagram (The progress of CAR-T therapy in cancer and beyond).png#center|309]] 
+![[content/Thymic Selection Mechanobiology/Scoping Review/Figures (SR)/TCR structure diagram (The progress of CAR-T therapy in cancer and beyond).png|309]] 
 **Figure-1: TCR diagram (taken from Y. Huang et al., 2020)
 
 
