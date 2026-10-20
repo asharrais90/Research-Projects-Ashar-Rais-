@@ -201,7 +201,6 @@ Zanotelli, M. R., Rahman-Zaman, A., VanderBurgh, J. A., Taufalele, P. V., Jain, 
 
 Zhang, W., Xiao, D., Mao, Q., & Xia, H. (2023). Role of neuroinflammation in neurodegeneration development. _Signal Transduction and Targeted Therapy_, _8_(1), 267. https://doi.org/10.1038/s41392-023-01486-5
 
-<script defer src="https://cloud.umami.is/script.js" data-website-id="0cf1cb6d-a7b9-4106-aadb-3fa874b2e54e"></script>
 
 Zhang, Y., Tang, H., Zhou, Z., Liao, J., Zhou, X., Chu, X., Shao, M., Zhang, C., & Jiang, L. (2026). Comprehensive analysis of the TGF-β signaling pathway: Molecular mechanisms, disease drivers, and frontiers in clinical translation. _Frontiers in Immunology_, _17_, 1831213. https://doi.org/10.3389/fimmu.2026.1831213
 
