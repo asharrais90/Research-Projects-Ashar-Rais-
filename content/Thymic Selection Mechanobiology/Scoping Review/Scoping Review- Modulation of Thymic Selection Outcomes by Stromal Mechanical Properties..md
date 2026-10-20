@@ -18,15 +18,6 @@ One of the main aspects of TCR signal activation has emerged to be sensitivity t
 In addition to the main TCR receptor, various co-receptors like CD4, CD8 and CD28 also play important roles in binding to MHCs or other surface molecules on APCs (Mørch et al., 2020). The cytoplasmic tails of CD4 and CD8 (which bind to MHC-II and MHC-I, respectively) associate with the Src-family kinase Lck, bringing it in close proximity with the TCR–CD3 complex, allowing the downstream pathways to activate more easily (Li & Mariuzza, 2013). CD28 operates in a different manner from CD4/8 as it binds to CD80 (B7-1) and CD86 (B7-2) on APCs. These engagements enhance signaling generated upon TCR ligation by recruiting proteins including PI3K and GRB2, and has been documented to promote proliferation, survival, metabolism and cytokine production (Ciesielska-Figlon & Lisowska, 2024).
 
 
-![TCR structure diagram (The progress of CAR-T therapy in cancer and beyond).png|309] 
-**Figure-1: TCR diagram (taken from Y. Huang et al., 2020)
-
-
-
-![[TCR structure (D. Dong et.al., 2019).png|369]]
-**Figure-2: TCR structure (taken from D. Dong et al., 2019)
-
-
 #### 1.3 Mechanobiology of the thymus 
 Historically, research on thymocyte development and selection has focused predominantly on biochemical mechanisms, including TCR signaling, cytokines, chemokines, Notch signaling and antigen presentation (Ruiz Pérez et al., 2024). In contrast, comparatively little attention has been paid to the potential contribution of mechanical factors within the thymic microenvironment. However, this trend is now changing with recent advances in the fields of mechanobiology demonstrating that mechanical cues can profoundly regulate immune cell behavior. Mechanical properties of the cellular microenvironment influence cytoskeletal organization, mechanotransduction pathways, cell migration and receptor signaling across numerous biological systems (Chen et al., 2025; Huse, 2017). This area of research is still quite underexplored which can be seen by the fact that currently a consensus has not been established regarding the value ranges of important mechanical properties of the thymus such as bulk stiffness and comparisons between regions regarding their stiffness. But some work has been done to explore these areas with the researchers rely on high-resolution biophysical techniques to differentiate the mechanical environments of the cortex and the medulla due to the highly heterogenous nature of thymic tissue. Two of the methodologies that have been used to measure thymic stiffness are:
 
