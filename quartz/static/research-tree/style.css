@@ -37,9 +37,7 @@
 .intro p {
   max-width: 920px;
   margin: 16px auto 0;
-
   color: #44545f;
-
   font-family:
     Inter,
     ui-sans-serif,
@@ -48,17 +46,22 @@
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-
   font-size: 0.85rem;
   font-weight: 400;
   line-height: 1.7;
 }
 
+.instruction-text {
+  color: #820000 !important; /* A rich, deep maroon */
+  border-bottom: 1px solid #820000; /* Matches the text color */
+  padding-bottom: 1px;
+  display: inline-block;
+  font-weight: 500; /* Slightly bolder than normal text */
+}
+
 .eyebrow {
   margin-bottom: 10px;
-
   color: #20577a;
-
   font-family:
     Inter,
     ui-sans-serif,
@@ -67,10 +70,8 @@
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-
   font-size: 0.72rem;
   font-weight: 700;
-
   letter-spacing: 0.16em;
 }
 
